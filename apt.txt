@@ -1,5 +1,5 @@
 cmake
 g++
 git
-python-dev
+python3-dev
 wget
