@@ -6,7 +6,8 @@ dependencies:
   - notebook
   - pip
   - pip:
-    - quantuminspire=1.2.0
-    - pyquil=2.21.0
-    - qiskit=0.19.6
-    - cirq=0.8.2
+    - cirq
+    - matplotlib
+    - pyquil
+    - qiskit
+    - quantuminspire
