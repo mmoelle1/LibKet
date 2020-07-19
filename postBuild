@@ -6,7 +6,7 @@ git clone gitlab.com/mmoelle1/LibKet /usr/local/LibKet
 cd /usr/local/LibKet
 
 # Update submodules 
-git submodules update --init --recursive
+git submodule update --init --recursive
 
 # Build libraries
 mkdir build
