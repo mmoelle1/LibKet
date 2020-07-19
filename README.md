@@ -1,4 +1,4 @@
-![Image](notebooksdocs/images/LibKet.png)
+![Image](notebooks/images/LibKet.png)
 
 # LibKet
 
