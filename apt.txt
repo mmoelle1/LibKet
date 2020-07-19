@@ -1,0 +1,4 @@
+cmake
+g++
+git
+wget

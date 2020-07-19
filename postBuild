@@ -1,0 +1,15 @@
+!#/bin/bash
+
+# Get GitLab repo
+git clone gitlab.com/mmoelle1/LibKet /usr/local/LibKet
+
+cd /usr/local/LibKet
+
+# Update submodules 
+git submodules update --init --recursive
+
+# Build libraries
+mkdir build
+cd build
+cmake -DLIBKET_BUILD_C_API=OFF -DLIBKET_BUILD_PYTHON_API=OFF -DLIBKET_BUILD_EXAMPLES=OFF -DLIBKET_BUILD_UNITTESTS=OFF -DLIBKET_USE_PCH=OFF -DLIBKET_WITH_CIRQ=ON -DLIBKET_WITH_CQASM=ON -DLIBKET_WITH_OPENMP=OFF -DLIBKET_WITH_OPENQASM=ON -DLIBKET_WITH_OPENQL=ON -DLIBKET_WITH_QUEST=ON -DLIBKET_WITH_QUIL=ON -DLIBKET+WITH_QX=ON ..
+make
