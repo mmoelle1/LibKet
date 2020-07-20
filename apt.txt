@@ -1,3 +1,4 @@
+bison
 cmake
 g++
 git
