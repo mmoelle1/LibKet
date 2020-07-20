@@ -2,6 +2,8 @@
 
 # LibKet
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks)
+
 ## C API tutorials
 
 ## C++ API tutorials
