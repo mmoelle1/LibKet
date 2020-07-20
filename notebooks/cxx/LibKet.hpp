@@ -9,13 +9,6 @@
 #pragma cling add_include_path("/home/jovyan/LibKet/external/qx-simulator/src")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/qx-simulator/src/xpu-0.1.5")
 
-// Set include paths for LibKet C++ API
-#pragma cling add_include_path("/home/jovyan/LibKet/libket")
-#pragma cling add_include_path("/home/jovyan/LibKet/build/libket")
-
-// Set include path for Python embedded interpreter
-#pragma cling add_include_path("/srv/conda/envs/notebook/include/python3.7m")
-
 // Set library paths for external subprojects
 #pragma cling add_library_path("/home/jovyan/LibKet/build/external/armadillo")
 #pragma cling add_library_path("/home/jovyan/LibKet/build/external/QuEST/QuEST")
@@ -24,5 +17,22 @@
 #pragma cling load("libarmadillo.so")
 #pragma cling load("libQuEST.so")
 
+
+
+// Set include path for Python embedded interpreter
+//#pragma cling add_include_path("$CONDA_PREFIX/include/python3.7m")
+
+// Set library paths for Python embedded interpreter
+//#pragma cling add_library_path("$CONDA_PREFIX/lib")
+
+// Load Python embedded interpreter
+//#pragma cling load("libpython3")
+
+
+
+// Set include paths for LibKet C++ API
+#pragma cling add_include_path("/home/jovyan/LibKet/libket")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/libket")
+
 // Include main header file for C++ API
-#include "/home/jovyan/LibKet/libket/LibLet.hpp"
+#include "/home/jovyan/LibKet/libket/LibKet.hpp"
