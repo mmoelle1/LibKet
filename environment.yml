@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - xeus-cling=0.9.0
-  - xeus-python=0.8.2
+  - xeus-python
   - notebook
   - pip
   - pip:
