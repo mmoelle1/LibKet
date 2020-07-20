@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get GitLab repo
-git clone gitlab.com/mmoelle1/LibKet /usr/local/LibKet
+git clone https://gitlab.com/mmoelle1/LibKet /usr/local/LibKet
 
 cd /usr/local/LibKet
 
