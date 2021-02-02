@@ -16,8 +16,11 @@
 
 ## Session 2: Monday, March 1, 2:15 p.m. – 3:55 p.m. CST 
 
-| Time        | Content                     | Lecturer |
-| ----------: | :-------------------------- | :------- |
+| Time        | Content                             | Lecturer |
+| ----------: | :---------------------------------- | :------- |
+|  2:15-3:00  | Overview of Quantum Computing today | Carmina  |
+|  3:00-3:35  | LibKet part 2                       | Matthias |
+|  3:35-3:55  | Selected applications in CSE        | tbd      |
 
 ---
 
@@ -39,3 +42,21 @@
 * 
 
 ### Basics of quantum computing
+
+### Overview of quantum computing today
+
+* Available quantum systems (IBM, Rigetti, ionQ via Amazon AWS)
+
+* Challenges of the NISQ era
+
+* Quantum supremacy and fault tolerance
+
+### LibKet part 2
+
+* Implement some algorithms in LibKet and let them run it in simulator mode
+
+* Run it myself on real hardware
+
+### Selected applications in CSE
+
+* HHL/VQLS for Poisson problem
