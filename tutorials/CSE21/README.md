@@ -18,8 +18,8 @@
 
 | Time        | Content                             | Lecturer |
 | ----------: | :---------------------------------- | :------- |
-|  2:15-3:00  | Overview of Quantum Computing today | Carmina  |
-|  3:00-3:35  | LibKet part 2                       | Matthias |
+|  2:15-3:00  | [Overview of Quantum Computing today](#overview-of-quantum-computing-today) | Carmina  |
+|  3:00-3:35  | [Quantum-accelerated computing with LibKet](#quantum-accelerated-computing-with-libket) | Matthias |
 |  3:35-3:55  | Selected applications in CSE        | tbd      |
 
 ---
