@@ -9,9 +9,9 @@
 
 | Time        | Content                     | Lecturer | Material |
 | ----------: | :-------------------------- | :------- | :------: |
-|  9:45-10:00 | [Quantum Computing & CSE](#quantum-computing-&-cse)     | Matthias | slides   |
-| 10:30-10:45 | Getting started with LibKet | Matthias | slides   |
-| 11:45-11:25 | Basics of quantum computing | Carmina  | slides   |
+|  9:45-10:00 | [Quantum Computing and CSE](#quantum-computing-and-cse)     | Matthias | slides   |
+| 10:30-10:45 | [Getting started with LibKet](#getting-started-with-libket) | Matthias | slides   |
+| 11:45-11:25 | [Basics of quantum computing](#basics-of-quantum-computing) | Carmina  | slides   |
 
 ## Session 2: Monday, March 1, 2:15 p.m. – 3:55 p.m. CST 
 
@@ -20,4 +20,8 @@
 
 ---
 
-### Quantum Computing & CSE
+### Quantum Computing and CSE
+
+### Getting started with LibKet
+
+### Basics of quantum computing
