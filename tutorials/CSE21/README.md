@@ -1,6 +1,7 @@
 # Mini-tutorial at SIAM CSE21, March 1-5, 2021
 
 **LibKet: A Software Framework for Quantum-Accelerated Scientific Computing**
+
 *Organizers: Carmina G. Almudever, Matthias Möller*
 
 ---
@@ -22,6 +23,19 @@
 
 ### Quantum Computing and CSE
 
+* History of (accelerated) computing
+  * distributed parallel computing
+  * GPU-/FPGA-accelerated computing
+  * Quantum-accelerated computing
+  
+* Possible applications for Q-accelerated computing
+  * Linear solvers HHL/VQLS
+  * 
+
 ### Getting started with LibKet
+
+* Design philosophy (LibKet, the CUDA for quantum-accelerated computing)
+
+* 
 
 ### Basics of quantum computing
