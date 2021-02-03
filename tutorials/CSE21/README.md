@@ -8,55 +8,66 @@
 
 ## Session 1: Monday, March 1, 9:45 a.m. – 11:25 a.m. CST
 
-| Time        | Content                     | Lecturer | Material |
-| ----------: | :-------------------------- | :------- | :------: |
-|  9:45-10:00 | [Quantum Computing and CSE](#quantum-computing-and-cse)     | Matthias | slides   |
-| 10:30-10:45 | [Getting started with LibKet](#getting-started-with-libket) | Matthias | slides   |
-| 11:45-11:25 | [Basics of quantum computing](#basics-of-quantum-computing) | Carmina  | slides   |
+| Time        | Content                                                                                   | Lecturer | Material |
+| ----------: | :---------------------------------------------------------------------------------------- | :------- | :------: |
+|  9:45-10:00 | [Quantum-accelerated scientific computing](#quantum-accelerated-scientific-computing)     | Matthias | slides   |
+| 10:30-10:45 | [Getting started with LibKet](#getting-started-with-libket)                               | Matthias | slides   |
+| 11:45-11:25 | [Hands-on introduction to quantum computing](#hands-on-introduction-to-quantum-computing) | Carmina  | slides   |
 
 ## Session 2: Monday, March 1, 2:15 p.m. – 3:55 p.m. CST 
 
-| Time        | Content                             | Lecturer |
-| ----------: | :---------------------------------- | :------- |
-|  2:15-3:00  | [Overview of Quantum Computing today](#overview-of-quantum-computing-today) | Carmina  |
-|  3:00-3:35  | [Quantum-accelerated computing with LibKet](#quantum-accelerated-computing-with-libket) | Matthias |
-|  3:35-3:55  | Selected applications in CSE        | tbd      |
+| Time        | Content                                                                                                       | Lecturer | Material |
+| ----------: | :------------------------------------------------------------------------------------------------------------ | :------- | :------: |
+|  2:15-3:00  | [Quantum computing today and future perspective](#quantum-computing-today-and-future-perspective)             | Carmina  | slides   |
+|  3:00-3:35  | [Quantum-accelerated scientific computing with LibKet](#quantum-accelerated-scientific-computing-with-libket) | Matthias | slides   |
+|  3:35-3:55  | [Selected quantum-accelerated applications in CSE](#selected-quantum-accelerated-applications-in-cse)         | Matthias | slides   |
 
 ---
 
-### Quantum Computing and CSE
+### Quantum-accelerated scientific computing
 
 * History of (accelerated) computing
   * distributed parallel computing
   * GPU-/FPGA-accelerated computing
   * Quantum-accelerated computing
   
-* Possible applications for Q-accelerated computing
+* Possible applications for quantum-accelerated computing
   * Linear solvers HHL/VQLS
-  * 
+  * Differential equations
+  * ...
 
 ### Getting started with LibKet
 
 * Design philosophy (LibKet, the CUDA for quantum-accelerated computing)
+* Computational building blocks
+  * Filters
+  * Gates
+  * Circuits
+  * Offloading to quantum devices
 
-* 
+### Hands-on introduction to quantum computing
 
-### Basics of quantum computing
+CARMINA: please add
 
-### Overview of quantum computing today
+### Quantum computing today and future perspective
 
-* Available quantum systems (IBM, Rigetti, ionQ via Amazon AWS)
+* Available quantum systems
+  * Quantum-Inspire
+  * IBM Quantum Experience
+  * Rigetti and ionQ via Amazon AWS Braket
 
 * Challenges of the NISQ era
 
 * Quantum supremacy and fault tolerance
 
-### LibKet part 2
+### Quantum-accelerated scientific computing with LibKet
 
-* Implement some algorithms in LibKet and let them run it in simulator mode
+* Development and testing of quantum algorithms on real quantum devices
 
-* Run it myself on real hardware
+* Hybrid classical-quantum applications
 
-### Selected applications in CSE
+* Extending LibKet with advanced quantum algorithms
 
-* HHL/VQLS for Poisson problem
+### Selected quantum-accelerated applications in CSE
+
+* HHL/VQLS quantum linear solvers for the Poisson problem
