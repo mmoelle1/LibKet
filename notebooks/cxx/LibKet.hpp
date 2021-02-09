@@ -24,19 +24,15 @@
 // Load external libraries
 #pragma cling load("libarmadillo.so")
 #pragma cling load("libQuEST.so")
-
-
   
 // Set include path for Python embedded interpreter
 #pragma cling add_include_path("/srv/conda/envs/notebook/include/python3.7m")
 
 // Set library paths for Python embedded interpreter
-//#pragma cling add_library_path("$CONDA_PREFIX/lib")
+#pragma cling add_library_path("$CONDA_PREFIX/lib")
 
 // Load Python embedded interpreter
-//#pragma cling load("libpython3")
-
-
+#pragma cling load("libpython3")
 
 // Set include paths for LibKet C++ API
 #pragma cling add_include_path("/home/jovyan/LibKet/libket")
