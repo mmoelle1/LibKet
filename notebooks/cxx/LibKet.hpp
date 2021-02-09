@@ -1,13 +1,21 @@
-#pragma onc
+#pragma once
 
 // Set include paths for external subprojects
 #pragma cling add_include_path("/home/jovyan/LibKet/external")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/CLI11/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/CLI11/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/eigen")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/eigen")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/eigen/unsupported")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/libqasm/src/library")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/src")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/QuEST/QuEST/include")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/armadillo/include")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/optim/header_only_version")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/pegtl/include")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/qx-simulator/src")
 #pragma cling add_include_path("/home/jovyan/LibKet/external/qx-simulator/src/xpu-0.1.5")
+#pragma cling add_include_path("/home/jovyan/LibKet/external/universal/include")
 
 // Set library paths for external subprojects
 #pragma cling add_library_path("/home/jovyan/LibKet/build/external/armadillo")
@@ -18,9 +26,9 @@
 #pragma cling load("libQuEST.so")
 
 
-
+  
 // Set include path for Python embedded interpreter
-//#pragma cling add_include_path("$CONDA_PREFIX/include/python3.7m")
+#pragma cling add_include_path("/srv/conda/envs/notebook/include/python3.7m")
 
 // Set library paths for Python embedded interpreter
 //#pragma cling add_library_path("$CONDA_PREFIX/lib")
