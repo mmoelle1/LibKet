@@ -19,7 +19,7 @@
 | Time        | Content                                                                                                       | Lecturer | Material |
 | ----------: | :------------------------------------------------------------------------------------------------------------ | :------- | :------: |
 |  2:15-3:00  | [Quantum computing today and future perspective](#quantum-computing-today-and-future-perspective)             | Carmina  | slides   |
-|  3:00-3:35  | [Quantum-accelerated scientific computing with LibKet](#quantum-accelerated-scientific-computing-with-libket) | Matthias | slides   |
+|  3:00-3:35  | [Hands-on scientific computing with LibKet](#hands-on-scientific-computing-with-libket)                       | Matthias | slides   |
 |  3:35-3:55  | [Selected quantum-accelerated applications in CSE](#selected-quantum-accelerated-applications-in-cse)         | Matthias | slides   |
 
 ---
@@ -60,7 +60,7 @@ CARMINA: please add
 
 * Quantum supremacy and fault tolerance
 
-### Quantum-accelerated scientific computing with LibKet
+### Hands-on scientific computing with LibKet
 
 * Development and testing of quantum algorithms on real quantum devices
 
