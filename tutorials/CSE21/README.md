@@ -10,8 +10,8 @@
 
 | Time        | Content                                                                                   | Lecturer | Material |
 | ----------: | :---------------------------------------------------------------------------------------- | :------- | :------: |
-|  9:45-10:00 | [Quantum-accelerated scientific computing](#quantum-accelerated-scientific-computing)     | Matthias | slides   |
-| 10:30-11:25 | [Hands-on introduction to quantum computing with LibKet](#hands-on-introduction-to-quantum-computing-with-libket) | Carmina/Matthias  | slides   |
+|  9:45-09:55 | [Quantum-accelerated scientific computing](#quantum-accelerated-scientific-computing)     | Matthias | slides   |
+| 09:55-11:25 | [Hands-on introduction to quantum computing with LibKet](#hands-on-introduction-to-quantum-computing-with-libket) | Carmina/Matthias  | slides   |
 
 ## Session 2: Monday, March 1, 2:15 p.m. – 3:55 p.m. CST 
 
