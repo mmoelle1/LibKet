@@ -11,8 +11,7 @@
 | Time        | Content                                                                                   | Lecturer | Material |
 | ----------: | :---------------------------------------------------------------------------------------- | :------- | :------: |
 |  9:45-10:00 | [Quantum-accelerated scientific computing](#quantum-accelerated-scientific-computing)     | Matthias | slides   |
-| 10:30-10:45 | [Getting started with LibKet](#getting-started-with-libket)                               | Matthias | slides   |
-| 11:45-11:25 | [Hands-on introduction to quantum computing](#hands-on-introduction-to-quantum-computing) | Carmina  | slides   |
+| 10:30-11:25 | [Hands-on introduction to quantum computing with LibKet](#hands-on-introduction-to-quantum-computing-with-libket) | Carmina/Matthias  | slides   |
 
 ## Session 2: Monday, March 1, 2:15 p.m. – 3:55 p.m. CST 
 
@@ -36,18 +35,15 @@
   * Differential equations
   * ...
 
-### Getting started with LibKet
+### Hands-on introduction to quantum computing with LibKet
 
+CARMINA: please add
 * Design philosophy (LibKet, the CUDA for quantum-accelerated computing)
 * Computational building blocks
   * Filters
   * Gates
   * Circuits
   * Offloading to quantum devices
-
-### Hands-on introduction to quantum computing
-
-CARMINA: please add
 
 ### Quantum computing today and future perspective
 
