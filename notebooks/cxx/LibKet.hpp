@@ -38,5 +38,8 @@
 #pragma cling add_include_path("/home/jovyan/LibKet/libket")
 #pragma cling add_include_path("/home/jovyan/LibKet/build/libket")
 
+// Set inclulde paths for fake std::future and std::async
+#pragma cling add_include_path("/home/jovyan/notebooks/cxx")
+
 // Include main header file for C++ API
 #include "/home/jovyan/LibKet/libket/LibKet.hpp"
