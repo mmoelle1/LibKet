@@ -2,6 +2,7 @@
 #ifndef THREAD
 #define THREAD
 
+#include <functional>
 #include <future>
 #include <iostream>
 #include <type_traits>
@@ -22,7 +23,7 @@ namespace std {
                                std::future<void>
                                >::type
   {
-    f(args...);
+    auto fc = std::bind(f, args...); fc();
     return std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >();
   }
 
@@ -33,7 +34,8 @@ namespace std {
                                std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >
                                >::type
   {
-    return std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >( f(args...) );
+    auto fc = std::bind(f, args...); fc();
+    return std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >( fc() );
   }
   
 } // namespace std
