@@ -24,6 +24,9 @@ namespace std {
     future(T value) : value(value) {}
     future(future&& other) noexcept {}
     future(const future& other) = delete;
+
+    future& operator=(future&& other) noexcept { value = std::move(other.value); return *this; }
+    future& operator=(const future& other) = delete;
     
     T    get() { return value; }
     bool valid() const noexcept { return true; }    
@@ -45,10 +48,13 @@ namespace std {
   class future<T&> {
   public:
     
-    future() noexcept : value(new T)  {}
+    future() noexcept : value(nullptr) {}
     future(T& value) : value(&value) {}
     future(future&& other) noexcept {}    
     future(const future& other) = delete;
+
+    future& operator=(future&& other) noexcept { value = other.value; other.value = nullptr; return *this; }
+    future& operator=(const future& other) = delete;
     
     T&   get() { return *value; }
     bool valid() const noexcept { return true; }
@@ -73,6 +79,9 @@ namespace std {
     future() noexcept {}
     future(future&& other) noexcept {}    
     future(const future& other) = delete;
+
+    future& operator=(future&& other) noexcept = default;
+    future& operator=(const future& other) = delete;
     
     void get() {}    
     bool valid() const noexcept { return true; }
