@@ -27,8 +27,8 @@ allows you to implement quantum algorithms as generic quantum
 expressions that can be executed on different quantum computer
 simulators and hardware plaforms.
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks)
+## Tutorials
 
-## Getting Started
+* [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)]()
 
 * Getting started with LibKet [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Ftutorial01.ipynb)
