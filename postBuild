@@ -12,6 +12,7 @@ git submodule update --init --recursive
 mkdir build
 cd build
 cmake -DLIBKET_BUILD_C_API=OFF \
+      -DLIBKET_BUILD_DOCS=OFF \
       -DLIBKET_BUILD_PYTHON_API=OFF \
       -DLIBKET_BUILD_EXAMPLES=OFF \
       -DLIBKET_BUILD_UNITTESTS=OFF \
@@ -24,5 +25,5 @@ cmake -DLIBKET_BUILD_C_API=OFF \
       -DLIBKET_WITH_QUEST=ON \
       -DLIBKET_WITH_QUIL=ON \
       -DLIBKET_WITH_QX=OFF \
-      .. > cmake.log 2>&1
-make VERBOSE=1 > build.log 2>&1
+      ..
+make
