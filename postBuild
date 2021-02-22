@@ -23,6 +23,6 @@ cmake -DLIBKET_BUILD_C_API=OFF \
       -DLIBKET_WITH_OPENQL=OFF \
       -DLIBKET_WITH_QUEST=ON \
       -DLIBKET_WITH_QUIL=ON \
-      -DLIBKET_WITH_QX=ON \
+      -DLIBKET_WITH_QX=OFF \
       .. > cmake.log 2>&1
 make VERBOSE=1 > build.log 2>&1
