@@ -11,6 +11,7 @@ git submodule update --init --recursive
 # Build LibKet external libraries
 mkdir build
 cd build
+CC=clang CXX=clang++ \
 cmake -DLIBKET_BUILD_C_API=OFF \
       -DLIBKET_BUILD_PYTHON_API=OFF \
       -DLIBKET_BUILD_EXAMPLES=OFF \
@@ -25,4 +26,4 @@ cmake -DLIBKET_BUILD_C_API=OFF \
       -DLIBKET_WITH_QUIL=ON \
       -DLIBKET_WITH_QX=ON \
       ..
-make
+make VERBOSE=1 > build.log 2>&1
