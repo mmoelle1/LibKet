@@ -1,5 +1,7 @@
 # Mini-tutorial at SIAM CSE21, March 1-5, 2021
 
+"[![SIAM CSE21](SIAM_CSE21.png)](https://www.siam.org/conferences/cm/conference/cse21)"
+
 **LibKet: A Software Framework for Quantum-Accelerated Scientific Computing**
 
 *Organizers: Carmina G. Almudever, Matthias Möller*
