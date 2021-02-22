@@ -29,6 +29,6 @@ simulators and hardware plaforms.
 
 ## Tutorials
 
-* [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)]()
+* [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)](tutorials/CSE21/README.md)
 
 * Getting started with LibKet [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Ftutorial01.ipynb)
