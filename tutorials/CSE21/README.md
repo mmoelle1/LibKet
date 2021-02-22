@@ -39,24 +39,33 @@
 
 ### Hands-on introduction to quantum computing with LibKet
 
-CARMEN: please add
-* Design philosophy (LibKet, the CUDA for quantum-accelerated computing)
-* Computational building blocks
-  * Filters
-  * Gates
-  * Circuits
-  * Offloading to quantum devices
+
+* The pillars of Quantum Computing
+  * Basic unit of information: the qubit
+  * Changing the state of a qubit: measurement and gates
+  * The power of quantum computing
+  
+* Quantum computatiopn is based on linar algebra
+  * Qubits as vectors and gates as matrices
+  * Single qubit quantum circuits
+  * Combining qubits
+  * Creating bell states
+  * Quantum Teleportation
+  * Quantum error correction
 
 ### Quantum computing today and future perspective
+
+* Overview on the progress of Quantum Computing
+
+* Quantum supremacy and the NISQ era
+
+* Full-stack quantum systems and challenges
 
 * Available quantum systems
   * Quantum-Inspire
   * IBM Quantum Experience
   * Rigetti and ionQ via Amazon AWS Braket
 
-* Challenges of the NISQ era
-
-* Quantum supremacy and fault tolerance
 
 ### Hands-on scientific computing with LibKet
 
