@@ -45,7 +45,7 @@
   * Changing the state of a qubit: measurement and gates
   * The power of quantum computing
   
-* Quantum computatiopn is based on linear algebra
+* Quantum computation is based on linear algebra
   * Qubits as vectors and gates as matrices
   * Single qubit quantum circuits
   * Combining qubits
