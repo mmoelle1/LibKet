@@ -20,8 +20,7 @@
 | Time        | Content                                                                                                       | Lecturer | Slides | Binder |
 | ----------: | :------------------------------------------------------------------------------------------------------------ | :------- | :----: | :----: |
 |  2:15-3:00  | [Quantum computing today and future perspective](#quantum-computing-today-and-future-perspective)             | Carmen   | slides | [![Tutorial02](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Fcse21_tutorial02.ipynb) |
-|  3:00-3:35  | [Hands-on scientific computing with LibKet](#hands-on-scientific-computing-with-libket)                       | Matthias | slides | [![Tutorial03](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Fcse21_tutorial03.ipynb) |
-|  3:35-3:55  | [Selected quantum-accelerated applications in CSE](#selected-quantum-accelerated-applications-in-cse)         | Matthias | slides |        |
+|  3:00-3:55  | [Hands-on scientific computing with LibKet](#hands-on-scientific-computing-with-libket)                       | Matthias | slides | [![Tutorial03](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Fcse21_tutorial03.ipynb) |
 
 ---
 
@@ -74,7 +73,3 @@
 * Hybrid classical-quantum applications
 
 * Extending LibKet with advanced quantum algorithms
-
-### Selected quantum-accelerated applications in CSE
-
-* HHL/VQLS quantum linear solvers for the Poisson problem
