@@ -8,18 +8,18 @@
 
 ---
 
-## Session 1: Monday, March 1, 9:45 a.m. – 11:25 a.m. CST
+## Session 1 (MT5): Monday, March 1, 9:45 AM – 11:25 AM CST
 
 | Time        | Content                                                                                   | Lecturer | Slides | Binder |
 | ----------: | :---------------------------------------------------------------------------------------- | :------- | :----: | :----: |
 |  9:45-09:55 | [Quantum-accelerated scientific computing](#quantum-accelerated-scientific-computing)     | Matthias | slides |        |
 | 09:55-11:25 | [Hands-on introduction to quantum computing with LibKet](#hands-on-introduction-to-quantum-computing-with-libket) | Carmen/Matthias | slides | [![Tutorial01](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Fcse21_tutorial01.ipynb) 
 
-## Session 2: Monday, March 1, 2:15 p.m. – 3:55 p.m. CST 
+## Session 2 (MT6): Monday, March 1, 2:15 PM – 3:55 PM CST 
 
 | Time        | Content                                                                                                       | Lecturer | Slides | Binder |
 | ----------: | :------------------------------------------------------------------------------------------------------------ | :------- | :----: | :----: |
-|  2:15-3:00  | [Quantum computing today and future perspective](#quantum-computing-today-and-future-perspective)             | Carmen.  | slides |        |
+|  2:15-3:00  | [Quantum computing today and future perspective](#quantum-computing-today-and-future-perspective)             | Carmen   | slides |        |
 |  3:00-3:55  | [Hands-on scientific computing with LibKet](#hands-on-scientific-computing-with-libket)                       | Matthias |        | [![Tutorial02](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mmoelle1/LibKet/master?filepath=notebooks%2Fcxx%2Fcse21_tutorial02.ipynb) |
 
 ---
