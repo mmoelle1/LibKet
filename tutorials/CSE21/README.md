@@ -61,13 +61,13 @@
 * Full-stack quantum systems and challenges
 
 * Available quantum systems
-  * Quantum-Inspire
-  * IBM Quantum Experience
-  * Rigetti and ionQ via Amazon AWS Braket
-
+  * [IBM Quantum Experience](https://quantum-computing.ibm.com)
+  * Rigetti, IonQ, and D-Wave via [Amazon AWS Braket](https://aws.amazon.com/braket/)
+  * [Quantum-Inspire](https://www.quantum-inspire.com)
 
 ### Hands-on scientific computing with LibKet
 
+* 
 * Development and testing of quantum algorithms on real quantum devices
 
 * Hybrid classical-quantum applications
