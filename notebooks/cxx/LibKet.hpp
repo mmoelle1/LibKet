@@ -43,3 +43,28 @@
 
 // Include main header file for C++ API
 #include "/home/jovyan/LibKet/libket/LibKet.hpp"
+
+// Custom mime type image::png
+#include <string>
+#include <fstream>
+#include "xtl/xbase64.hpp"
+namespace image
+{
+    struct png
+    {
+        inline png(const std::string& filename)
+        {
+            std::ifstream fin(filename, std::ios::binary);
+            m_buffer << fin.rdbuf();
+        }
+
+        std::stringstream m_buffer;
+    };
+
+    LibKet::utils::json mime_bundle_repr(const png& i)
+    {
+        auto bundle = LibKet::utils::json::object();
+        bundle["image/png"] = xtl::base64encode(i.m_buffer.str());
+        return bundle;
+    }
+}
