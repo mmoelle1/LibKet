@@ -32,4 +32,9 @@ make
 wget https://mmoelle1.gitlab.io/LibKet/libket-doxygen.tag.xml -O /srv/conda/envs/notebook/share/xeus-cling/tagfiles/libket-doxygen-web.tag
 
 # Generate JSON configuration file
-echo "{\\n\\t\"url\": \"https://mmoelle1.gitlab.io/LibKet/\",\\n\\t\"tagfile\": \"libket-doxygen-web.tag\"\\n}" >> /srv/conda/envs/notebook/etc/xeus-cling/tags.d/libket.json
+cat >/srv/conda/envs/notebook/etc/xeus-cling/tags.d/libket.json <<EOL
+{
+    "url": "https://mmoelle1.gitlab.io/LibKet/",
+    "tagfile": "libket-doxygen-web.tag"
+}
+EOL
