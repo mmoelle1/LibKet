@@ -3,9 +3,11 @@
 # Get GitLab repo
 git clone https://gitlab.com/mmoelle1/LibKet $HOME/LibKet
 
-cd $HOME/LibKet
+# Clear specializations
+echo "" > $HOME/LibKet/libket/specializations/static_for.hpp
 
-# Update submodules 
+# Update submodules
+cd $HOME/LibKet
 git submodule update --init --recursive
 
 # Build LibKet external libraries
