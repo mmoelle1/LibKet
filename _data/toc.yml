@@ -37,12 +37,22 @@
   url: /ch-prerequisites/setting-the-environment.html
   external: true
   sections:
-    - title: LibKet
-      url: /ch-prerequisites/cse21_tutorial01
     - title: Setting Up Your Environment
       url: /ch-prerequisites/setting-the-environment
     - title: Python and Jupyter Notebooks
       url: /ch-prerequisites/python-and-jupyter-notebooks
+
+-title: SIAM CSE1 Tutorial
+  url: /ch-cse21/cse21_tutorial01.html
+  external: true
+  expand_sections: true
+  sections:
+    - title: Part 1
+      url: /ch-cse21/cse21_tutorial01.ipynb
+    - title: Part 2
+      url: /ch-cse21/cse21_tutorial02.ipynb
+    - title: Part 3
+      url: /ch-cse21/cse21_tutorial03.ipynb
 
 - title: Quantum States and Qubits
   url: /ch-states/introduction.html
