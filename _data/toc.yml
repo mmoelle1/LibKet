@@ -42,7 +42,7 @@
     - title: Python and Jupyter Notebooks
       url: /ch-prerequisites/python-and-jupyter-notebooks
 
--title: SIAM CSE1 Tutorial
+- title: SIAM CSE1 Tutorial
   url: /ch-cse21/cse21_tutorial01.html
   external: true
   expand_sections: true
