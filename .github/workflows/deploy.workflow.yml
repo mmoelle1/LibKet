@@ -49,6 +49,13 @@ jobs:
       - run: make install
       - run: make book
       - run: make site
+      - run: tar cvjz site.tar.bz2 _site
+      
+      - name: Deploy
+        uses: actions/upload-artifact@v2
+        with:
+          name: site-archive
+          path: site.tar.bz2
 
       #- name: Deploy
       #  if: ${{ github.event_name == 'push'|| github.event.inputs.deploy == 'true' }}
