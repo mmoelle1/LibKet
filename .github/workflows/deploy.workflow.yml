@@ -49,7 +49,7 @@ jobs:
       - run: make install
       - run: make book
       - run: make site
-      - run: tar cvjz site.tar.bz2 _site
+      - run: tar cvjf site.tar.bz2 _site
       
       - name: Deploy
         uses: actions/upload-artifact@v2
