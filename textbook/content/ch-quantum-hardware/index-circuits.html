@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Upcoming</title>
+  <meta name="description" content="A cross-platform programming framework for quantum-accelerated scientific computing">
+
+  <link rel="canonical" href="https://libket.ewi.tudelft.nl/textbook/content/ch-quantum-hardware/index-circuits.html">
+  <link rel="alternate" type="application/rss+xml" title="LibKet Learn" href="https://libket.ewi.tudelft.nl/textbook/feed.xml">
+
+  
+
+  <link rel="alternate" hreflang="en" href="https://libket.ewi.tudelft.nl/textbook/content/ch-quantum-hardware/index-circuits.html" />
+  <link rel="alternate" hreflang="ja" href="https://libket.ewi.tudelft.nl/textbook/ja/content/ch-quantum-hardware/index-circuits.html" />
+  <link rel="alternate" hreflang="x-default" href="https://libket.ewi.tudelft.nl/textbook/content/ch-quantum-hardware/index-circuits.html" />
+
+  <meta property="og:url"         content="https://libket.ewi.tudelft.nl/textbook/content/ch-quantum-hardware/index-circuits.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Upcoming" />
+<meta property="og:description" content="A cross-platform programming framework for quantum-accelerated scientific computing" />
+<meta property="og:image"       content="https://libket.ewi.tudelft.nl/textbook/images/preface_illustration.svg" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/content/ch-quantum-hardware/index-circuits.html",
+  "headline": "Upcoming",
+  "datePublished": "2021-04-20T11:54:09+00:00",
+  "dateModified": "2021-04-20T11:54:09+00:00",
+  "description": "# UpcomingThe following topics are currently being developed for addition to the textbook:1. Mapping the Ising Model onto a Superconducting Quantum Computer2...",
+  "author": {
+    "@type": "Person",
+    "name": "The LibKet Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://libket.ewi.tudelft.nl/textbook",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://libket.ewi.tudelft.nl/textbook",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link id="theme-style" rel="stylesheet" href="/textbook/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/textbook/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/textbook/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/textbook';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/textbook/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <!-- Turbolinks were causing problems with equations in details tags, I have
+	  removed them for now as I didn't notice a siginificant difference in
+	  loading time, but maybe someone more knowledgeable than me can sort
+	  the problem properly and re-enable -Frank
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+  -->
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn">
+    <button>try</button>
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script>
+    /**
+     * Thebelab loads "reset CSS" after the theme styles load and so,
+     * it invalidates part of the theme rules. To make the theme CSS to take
+     * the correct precedence, we listen for Thebelab to finish loading, then
+     * relocate the theme CSS and start Thebelab.
+     */
+    const thebeLabScript = document.createElement('script');
+    thebeLabScript.src = "/textbook/assets/vendor/thebelab/index.js"
+    thebeLabScript.async = true
+    thebeLabScript.onload = () => {
+        setTimeout(() => {
+            document.head.append(
+                ...document.querySelectorAll('#theme-style, #custom-style'))
+        })
+        initFunction(initThebelab)
+    }
+    document.head.append(thebeLabScript);
+
+    /**
+     * Add attributes to Thebelab blocks
+     */
+    function initThebelab() {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all non-hardware, code cells, replace with Thebelab interactive code cells
+            const hardwareTag = 'uses-hardware'
+            const hardwareQuery = `.jb_cell.tag_${hardwareTag}`
+            const noHardwareQuery = `.jb_cell:not(.tag_${hardwareTag})`
+            const codeCells = document.querySelectorAll(`${noHardwareQuery} pre[id^="codecell"]`)
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+
+                // Clean up the language to make it work w/ CodeMirror and add it to the cell
+                dataLanguage = ""
+                dataLanguage = detectLanguage(dataLanguage);
+                codeCell.setAttribute('data-language', dataLanguage)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Create link to IQX and hardware notice template
+            const currentPath = window.location.pathname
+            const contentPath = currentPath.slice('/textbook'.length)
+            const notebookPath = contentPath.replace(/\.html$/, '.ipynb')
+            const iqxUrl = `https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/content${notebookPath}`
+
+            const usesHardwareNotice = document.createElement('template')
+            usesHardwareNotice.innerHTML = `
+            <div class="uses-hardware-notice">
+                This cell uses quantum hardware. To run it in your browser, please 
+                <a href="${iqxUrl}" target="_blank">click here to go to the IBM Quantum Experience.</a>
+            </div>
+            `
+
+            // Add warning and link to IQX on uses-hardware cells
+            const hardwareCells = document.querySelectorAll(hardwareQuery)
+            hardwareCells.forEach((cell) => {
+                cell.prepend(usesHardwareNotice.content.cloneNode(true))
+                cell.querySelector('a').addEventListener('click', (evt) => {
+                    try {
+                        window.trackCta(`Hardware Cell ${getInputCell(evt.target)}`)
+                    } catch {}
+                    return true;
+                })
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll(`${noHardwareQuery} .copybtn, .thebebtn`)
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale (ignore outputs with removed inputs)
+            const outputs = document.querySelectorAll(':not(.tag_remove_input) > .output_wrapper')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
+
+            // Add analytics per cell
+            const thebelabRunButtons = document.querySelectorAll('.thebelab-run-button');
+            thebelabRunButtons.forEach((runButton) => {
+                runButton.addEventListener('click', (evt) => {
+                    window.trackCta(`Run ${getInputCell(evt.target)}`)
+                })
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+            // Add segment analytics
+            thebelabButton.addEventListener('click', () => {
+                window.trackCta('Make Interactive');
+            });
+        });
+
+        function getInputCell(button) {
+            const parent = button.parentElement;
+            if (parent === null) {
+                return 'unknown';
+            }
+            if (parent.id.startsWith('inputcell')) {
+                return parent.id;
+            }
+            return getInputCell(parent);
+        }
+    }
+
+// Helper function to munge the language name
+var detectLanguage = (language) => {
+    if (language.indexOf('python') > -1) {
+        language = "python";
+    }
+    return language;
+}
+</script>
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/textbook/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+
+
+  <!-- Segment analytics -->
+  <script>
+(function () {
+  'use strict'
+  window._analytics = {
+    segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
+    coremetrics: false,
+    optimizely: false,
+    googleAddServices: false,
+    fullStory: false,
+    autoPageEventSpa: false,
+    autoFormEvents: false,
+    autoPageView: false
+  }
+
+  window.digitalData = {
+    page: {
+      pageInfo: {
+        productTitle: 'IBM Q Experience',
+        analytics: {
+          category: 'Qiskit.org'
+        }
+      }
+    }
+  }
+
+  loadAsyncScript('https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js')
+  .then(() => {
+    if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+    const category = window.digitalData.page.pageInfo.analytics.category
+    const productTitle = window.digitalData.page.pageInfo.productTitle
+    const routeName = 'qiskit-textbook'
+
+    window.bluemixAnalytics.pageEvent(category, routeName, {
+      navigationType: 'pushState',
+      productTitle: productTitle,
+      title: document.title
+    })
+  })
+  .catch((err) => {
+    console.warn('Error loading Bluemix Analytics script:', err)
+  })
+
+  window.trackCta = (action) => {
+    if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+    const category = window.digitalData.page.pageInfo.analytics.category
+    const productTitle = window.digitalData.page.pageInfo.productTitle
+
+    window.bluemixAnalytics.trackEvent('CTA Clicked', {
+      productTitle,
+      category,
+      CTA: action
+    })
+  }
+
+}());
+</script>
+
+  <!-- Hotjar -->
+  <script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:1586421,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/textbook/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/textbook/assets/custom/custom.js" async></script>
+  <link id="custom-style" rel="stylesheet" href="/textbook/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://libket.ewi.tudelft.nl") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+// Fills in the search input with the query in the url
+var prepopulateSearchInput = function () {
+  var searchInput = document.getElementById('lunr_search');
+  if (!searchInput) { return }
+
+  var params = new URLSearchParams(window.location.search)
+  var searchValue = params.get('search')
+  if (!searchValue) { return }
+  searchInput.value = searchValue.trim()
+}
+
+// Simulate a 'keyup' event to trigger a search
+var triggerSearch = function () {
+  var searchInput = document.getElementById('lunr_search');
+  if (!searchInput || !searchInput.value.trim()) { return }
+
+  searchInput.focus();
+  var enterEvent = document.createEvent('Event');
+  enterEvent.initEvent('keyup');
+  searchInput.dispatchEvent(enterEvent);
+}
+
+initFunction(prepopulateSearchInput)
+
+loadAsyncScript('https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js')
+.then(() => {
+  initFunction(initQuery)
+  initFunction(triggerSearch)
+})
+.catch((err) => console.error('Cannot load lunr search engine:', err))
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/textbook/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/textbook/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "mmoelle1/LibKet",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: ""
+    }
+}
+</script>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+    <div id="qiskit-navbar" class="qiskit__navbar">
+    
+
+
+<ul class="qiskit-navbar">
+    <li class="left navbar__logo">
+	    <a href="https://libket.ewi.tudelft.nl/">
+	    <img src="/textbook/assets/images/logo_libket.png">
+	    </a>
+    </li>
+    <li class="qiskit-navbar__icons"><a href="/textbook/search.html"><img src="/textbook/assets/images/search-solid-purple.svg"></a></li>
+    <li class="entry__active"><a href="https://libket.readthedocs.io/">Documentation</a></li>
+ </ul>
+
+
+    </div>
+
+      
+
+
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="/textbook/preface.html"><h2 class="c-sidebar__title">Learn Quantum-Accelerated Scientific Computation using LibKet</h2></a>
+  <ul class="c-sidebar__chapters">
+    
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/preface">
+        <a class="c-sidebar__entry"
+          href="/textbook/preface.html"
+        >
+          
+          Learn Quantum Computation using Qiskit
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/what-is-quantum">
+        <a class="c-sidebar__entry"
+          href="/textbook/what-is-quantum.html"
+        >
+          
+          What is Quantum?
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-prerequisites/setting-the-environment.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-prerequisites/setting-the-environment.html"
+        >
+          
+            0.
+          
+          Prerequisites
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-prerequisites/setting-the-environment">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-prerequisites/setting-the-environment.html"
+              >
+                
+                  0.1
+                
+                Setting Up Your Environment
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-prerequisites/python-and-jupyter-notebooks">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-prerequisites/python-and-jupyter-notebooks.html"
+              >
+                
+                  0.2
+                
+                Python and Jupyter Notebooks
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-cse21/cse21_tutorial01.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-cse21/cse21_tutorial01.html"
+        >
+          
+            1.
+          
+          SIAM CSE1 Tutorial
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial01">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial01.html"
+              >
+                
+                  1.1
+                
+                Part 1
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial02">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial02.html"
+              >
+                
+                  1.2
+                
+                Part 2
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial03">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial03.html"
+              >
+                
+                  1.3
+                
+                Part 3
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-states/introduction.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-states/introduction.html"
+        >
+          
+            2.
+          
+          Quantum States and Qubits
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/introduction">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/introduction.html"
+              >
+                
+                  2.1
+                
+                Introduction
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/atoms-computation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/atoms-computation.html"
+              >
+                
+                  2.2
+                
+                The Atoms of Computation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/representing-qubit-states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/representing-qubit-states.html"
+              >
+                
+                  2.3
+                
+                Representing Qubit States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/single-qubit-gates">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/single-qubit-gates.html"
+              >
+                
+                  2.4
+                
+                Single Qubit Gates
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/case-for-quantum">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/case-for-quantum.html"
+              >
+                
+                  2.5
+                
+                The Case for Quantum
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-gates/introduction.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-gates/introduction.html"
+        >
+          
+            3.
+          
+          Multiple Qubits and Entanglement
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/introduction">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/introduction.html"
+              >
+                
+                  3.1
+                
+                Introduction
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/multiple-qubits-entangled-states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/multiple-qubits-entangled-states.html"
+              >
+                
+                  3.2
+                
+                Multiple Qubits and Entangled States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/phase-kickback">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/phase-kickback.html"
+              >
+                
+                  3.3
+                
+                Phase Kickback
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/more-circuit-identities">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/more-circuit-identities.html"
+              >
+                
+                  3.4
+                
+                More Circuit Identities
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/proving-universality">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/proving-universality.html"
+              >
+                
+                  3.5
+                
+                Proving Universality
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/oracles">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/oracles.html"
+              >
+                
+                  3.6
+                
+                Classical Computation on a Quantum Computer
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-algorithms/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-algorithms/index.html"
+        >
+          
+            4.
+          
+          Quantum Protocols and Quantum Algorithms
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/defining-quantum-circuits">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/defining-quantum-circuits.html"
+              >
+                
+                  4.1
+                
+                Defining Quantum Circuits
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/deutsch-jozsa">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/deutsch-jozsa.html"
+              >
+                
+                  4.2
+                
+                Deutsch-Jozsa Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/bernstein-vazirani">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/bernstein-vazirani.html"
+              >
+                
+                  4.3
+                
+                Bernstein-Vazirani Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/simon">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/simon.html"
+              >
+                
+                  4.4
+                
+                Simon's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-fourier-transform">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-fourier-transform.html"
+              >
+                
+                  4.5
+                
+                Quantum Fourier Transform
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-phase-estimation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-phase-estimation.html"
+              >
+                
+                  4.6
+                
+                Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/shor">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/shor.html"
+              >
+                
+                  4.7
+                
+                Shor's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/grover">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/grover.html"
+              >
+                
+                  4.8
+                
+                Grover's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-counting">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-counting.html"
+              >
+                
+                  4.9
+                
+                Quantum Counting
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/teleportation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/teleportation.html"
+              >
+                
+                  4.10
+                
+                Quantum Teleportation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/superdense-coding">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/superdense-coding.html"
+              >
+                
+                  4.11
+                
+                Superdense Coding
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-key-distribution">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-key-distribution.html"
+              >
+                
+                  4.12
+                
+                Quantum Key Distribution
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-applications/algs_for_apps_index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-applications/algs_for_apps_index.html"
+        >
+          
+            5.
+          
+          Quantum Algorithms for Applications
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-applications/apps_index">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-applications/apps_index.html"
+              >
+                
+                  5.1
+                
+                Applied Quantum Algorithms
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/hhl_tutorial">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/hhl_tutorial.html"
+                  >
+                    
+                      5.1.1
+                      
+                    
+                    Solving Linear Systems of Equations using HHL
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/vqe-molecules">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/vqe-molecules.html"
+                  >
+                    
+                      5.1.2
+                      
+                    
+                    Simulating Molecules using VQE
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/qaoa">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/qaoa.html"
+                  >
+                    
+                      5.1.3
+                      
+                    
+                    Solving combinatorial optimization problems using QAOA
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/satisfiability-grover">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/satisfiability-grover.html"
+                  >
+                    
+                      5.1.4
+                      
+                    
+                    Solving Satisfiability Problems using Grover's Algorithm
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-machine-learning/machine-learning-qiskit-pytorch">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html"
+                  >
+                    
+                      5.1.5
+                      
+                    
+                    Hybrid quantum-classical Neural Networks with PyTorch and Qiskit
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-applications/imp_index">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-applications/imp_index.html"
+              >
+                
+                  5.2
+                
+                Implementations of Recent Quantum Algorithms
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-paper-implementations/vqls">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-paper-implementations/vqls.html"
+                  >
+                    
+                      5.2.1
+                      
+                    
+                    Variational Quantum Linear Solver
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/image-processing-frqi-neqr">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/image-processing-frqi-neqr.html"
+                  >
+                    
+                      5.2.2
+                      
+                    
+                    Quantum Image Processing - FRQI and NEQR Image Representations
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-quantum-hardware/index-circuits">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-quantum-hardware/index-circuits.html"
+        >
+          
+            6.
+          
+          Investigating Quantum Hardware Using Quantum Circuits
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/error-correction-repetition-code">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/error-correction-repetition-code.html"
+              >
+                
+                  6.1
+                
+                Introduction to Quantum Error Correction using Repetition Codes
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/measurement-error-mitigation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/measurement-error-mitigation.html"
+              >
+                
+                  6.2
+                
+                Measurement Error Mitigation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/randomized-benchmarking">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/randomized-benchmarking.html"
+              >
+                
+                  6.3
+                
+                Randomized Benchmarking
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/measuring-quantum-volume">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/measuring-quantum-volume.html"
+              >
+                
+                  6.4
+                
+                Measuring Quantum Volume
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-quantum-hardware/index-pulses">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-quantum-hardware/index-pulses.html"
+        >
+          
+            7.
+          
+          Investigating Quantum Hardware Using Microwave Pulses
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/calibrating-qubits-pulse">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/calibrating-qubits-pulse.html"
+              >
+                
+                  7.1
+                
+                Calibrating Qubits with Qiskit Pulse
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/accessing_higher_energy_states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/accessing_higher_energy_states.html"
+              >
+                
+                  7.2
+                
+                Accessing Higher Energy States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/transmon-physics">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/transmon-physics.html"
+              >
+                
+                  7.3
+                
+                Introduction to Transmon Physics
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/cQED-JC-SW">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/cQED-JC-SW.html"
+              >
+                
+                  7.4
+                
+                Circuit Quantum Electrodynamics
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/Jaynes-Cummings-model">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/Jaynes-Cummings-model.html"
+              >
+                
+                  7.5
+                
+                Exploring the Jaynes-Cummings Hamiltonian with Qiskit Pulse
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/ac-Stark-shift">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/ac-Stark-shift.html"
+              >
+                
+                  7.6
+                
+                Measuring the Qubit ac-Stark Shift
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/hamiltonian-tomography">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/hamiltonian-tomography.html"
+              >
+                
+                  7.7
+                
+                Hamiltonian Tomography
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-labs/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-labs/index.html"
+        >
+          
+            8.
+          
+          Quantum Computing Labs
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab01_QuantumCircuits">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab01_QuantumCircuits.html"
+              >
+                
+                Lab 1. Quantum Circuits
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab02_QuantumMeasurement">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab02_QuantumMeasurement.html"
+              >
+                
+                Lab 2. Quantum Measurement
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab03_AccuracyQPE">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab03_AccuracyQPE.html"
+              >
+                
+                Lab 3. Accuracy of Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab04_IterativePhaseEstimation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab04_IterativePhaseEstimation.html"
+              >
+                
+                Lab 4. Iterative Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab05_Scalable_Shor_Algorithm">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab05_Scalable_Shor_Algorithm.html"
+              >
+                
+                Lab 5. Scalable Shor’s Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions.html"
+              >
+                
+                Lab 6. Grover's search with an unknown number of solutions
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab07_QuantumSimulationSearchAlgorithm">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab07_QuantumSimulationSearchAlgorithm.html"
+              >
+                
+                Lab 7. Quantum Simulation as a Search Algorithm
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-appendix/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-appendix/index.html"
+        >
+          
+            9.
+          
+          Appendix
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-appendix/linear_algebra">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-appendix/linear_algebra.html"
+              >
+                
+                  9.1
+                
+                Linear Algebra
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-appendix/qiskit">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-appendix/qiskit.html"
+              >
+                
+                  9.2
+                
+                Qiskit
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-demos/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-demos/index.html"
+        >
+          
+            10.
+          
+          Games & Demos
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-ex/hello-qiskit">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-ex/hello-qiskit.html"
+              >
+                
+                Hello Qiskit Game
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-demos/piday-code">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-demos/piday-code.html"
+              >
+                
+                Estimating Pi Using Quantum Phase Estimation Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-demos/chsh">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-demos/chsh.html"
+              >
+                
+                Local Reality and the CHSH Inequality
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/widgets-index">
+              <a class="c-sidebar__entry"
+                href="/textbook/widgets-index.html"
+              >
+                
+                Interactivity Index
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+  </ul>
+  <div class="sidebar_footer">
+    <!-- Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> -->
+    
+    <div class="language_switcher">
+      <select name="preferred_language" onchange="changeLocale('', this.value)">
+        <option value="en" >English</option>
+      </select>
+    </div>
+
+  </div>
+</nav>
+
+      
+      
+
+<div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="hamburger__left">
+    <span id="js-sidebar-toggle" class="hamburger is-active">
+	    <img class="sidebar_closed_img" src="/textbook/assets/images/rightarrow_purple.svg" title="Show Contents">
+	    <img class="sidebar_open_img" src="/textbook/assets/images/leftarrow_purple.svg" title="Hide Contents">
+    </span>
+  </aside>
+  
+  <aside class="sidebar__right">
+  
+    <!-- Search form -->
+    <header>
+      <form action="/textbook/search.html" method="GET">
+        <button type="submit" id="submit">
+          <img src="/textbook/assets/images/search-solid.svg" alt="Search">
+        </button>
+        <input type="text" id="siderbar-search-input" name="search">
+      </form>
+    </header>
+
+    
+    <div class="onthispage__title">On This Page</div>
+    <nav class="onthispage">
+    </nav>
+    <!-- Chapter formats -->
+    <div>
+      
+      <a
+        href="https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/"
+        target="_blank"
+        rel="noopener"
+	onclick="window.trackCta('Open in IBM Quantum Experience')"
+      >
+      <button class="interact-button">Open in IBM Quantum Lab</button>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/textbook/"
+        rel="noopener"
+        class="download__link"
+      >
+        Download as Jupyter Notebook
+        <img src="/textbook/assets/images/download-solid.svg" class="download-button">
+      </a>
+    </div>
+   <div>
+      <a
+	href="https://github.com/Qiskit/qiskit-textbook/tree/master/"
+	class="download__link"
+      >
+      Contribute on Github
+      <img src="/textbook/assets/images/launch.svg" class="download-button">
+      </a>
+    </div>
+     <div>
+      <a
+	href="https://www.surveygizmo.com/s3/6242342/1b1fc576f66d"
+	class="download__link"
+      >
+      Sign Up for Beta Testing
+      <img src="/textbook/assets/images/launch.svg" class="download-button">
+      </a>
+    </div>
+    
+  
+  </aside>
+  <!--
+  <a href="/textbook/search.html" class="topbar-right-button" id="search-button">
+    <img src="/textbook/assets/images/search-solid.svg" alt="Search" />
+  </a>
+  -->
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <h1 id="upcoming">Upcoming</h1>
+
+<p>The following topics are currently being developed for addition to the textbook:</p>
+
+<ol>
+  <li>Mapping the Ising Model onto a Superconducting Quantum Computer</li>
+  <li>State and Process Tomography</li>
+</ol>
+
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

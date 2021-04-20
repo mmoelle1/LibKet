@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Get GitLab repo
+git clone https://gitlab.com/mmoelle1/LibKet $HOME/LibKet
+
+# Clear specializations
+echo "" > $HOME/LibKet/libket/specializations/static_for.hpp
+
+# Update submodules
+cd $HOME/LibKet
+git submodule update --init --recursive
+
+# Build LibKet external libraries
+mkdir build
+cd build
+cmake -DLIBKET_BUILD_C_API=OFF \
+      -DLIBKET_BUILD_DOCS=OFF \
+      -DLIBKET_BUILD_PYTHON_API=OFF \
+      -DLIBKET_BUILD_EXAMPLES=OFF \
+      -DLIBKET_BUILD_UNITTESTS=OFF \
+      -DLIBKET_USE_PCH=OFF \
+      -DLIBKET_WITH_CIRQ=ON \
+      -DLIBKET_WITH_CQASM=ON \
+      -DLIBKET_WITH_OPENMP=OFF \
+      -DLIBKET_WITH_OPENQASM=ON \
+      -DLIBKET_WITH_OPENQL=OFF \
+      -DLIBKET_WITH_QUEST=ON \
+      -DLIBKET_WITH_QUIL=ON \
+      -DLIBKET_WITH_QX=OFF \
+      ..
+make
+
+# Retrieve doxygen tag file
+wget https://mmoelle1.gitlab.io/LibKet/libket-doxygen.tag.xml -O /srv/conda/envs/notebook/share/xeus-cling/tagfiles/libket-doxygen-web.tag
+
+# Generate JSON configuration file
+cat >/srv/conda/envs/notebook/etc/xeus-cling/tags.d/libket.json <<EOL
+{
+    "url": "https://mmoelle1.gitlab.io/LibKet/",
+    "tagfile": "libket-doxygen-web.tag"
+}
+EOL

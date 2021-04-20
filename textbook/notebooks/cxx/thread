@@ -1,0 +1,43 @@
+#pragma once
+#ifndef THREAD
+#define THREAD
+
+#include <functional>
+#include <future>
+#include <iostream>
+#include <type_traits>
+#include <utility>
+
+namespace std {
+
+  template< class T >
+  using result_of_t = typename result_of<T>::type;
+
+  template< class T >
+  using decay_t = typename decay<T>::type;
+  
+  template<class Function, class... Args>
+  auto async(std::launch, Function&& f, Args&&... args)
+    -> typename std::enable_if<std::is_same<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)>,
+                                            void>::value,
+                               std::future<void>
+                               >::type
+  {
+    auto fc = std::bind(f, args...); fc();
+    return std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >();
+  }
+
+  template<class Function, class... Args>
+  auto async(std::launch, Function&& f, Args&&... args)
+    -> typename std::enable_if<!std::is_same<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)>,
+                                             void>::value,
+                               std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >
+                               >::type
+  {
+    auto fc = std::bind(f, args...); fc();
+    return std::future<std::result_of_t<std::decay_t<Function>(std::decay_t<Args>...)> >( fc() );
+  }
+  
+} // namespace std
+
+#endif // THREAD

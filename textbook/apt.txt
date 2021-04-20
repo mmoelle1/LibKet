@@ -1,0 +1,8 @@
+bison
+cmake
+flex
+g++
+git
+python3-dev
+swig
+wget

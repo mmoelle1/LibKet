@@ -1,0 +1,3120 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Search the site</title>
+  <meta name="description" content="A cross-platform programming framework for quantum-accelerated scientific computing">
+
+  <link rel="canonical" href="https://libket.ewi.tudelft.nl/textbook/search">
+  <link rel="alternate" type="application/rss+xml" title="LibKet Learn" href="https://libket.ewi.tudelft.nl/textbook/feed.xml">
+
+  
+
+  <link rel="alternate" hreflang="en" href="https://libket.ewi.tudelft.nl/textbook/search" />
+  <link rel="alternate" hreflang="ja" href="https://libket.ewi.tudelft.nl/textbook/ja/search" />
+  <link rel="alternate" hreflang="x-default" href="https://libket.ewi.tudelft.nl/textbook/search" />
+
+  <meta property="og:url"         content="https://libket.ewi.tudelft.nl/textbook/search" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Search the site" />
+<meta property="og:description" content="A cross-platform programming framework for quantum-accelerated scientific computing" />
+<meta property="og:image"       content="https://libket.ewi.tudelft.nl/textbook/images/preface_illustration.svg" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/search",
+  "headline": "Search the site",
+  "datePublished": "2021-04-20T11:54:09+00:00",
+  "dateModified": "2021-04-20T11:54:09+00:00",
+  "description": "        ",
+  "author": {
+    "@type": "Person",
+    "name": "The LibKet Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://libket.ewi.tudelft.nl/textbook",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://libket.ewi.tudelft.nl/textbook",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link id="theme-style" rel="stylesheet" href="/textbook/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/textbook/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/textbook/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/textbook';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/textbook/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <!-- Turbolinks were causing problems with equations in details tags, I have
+	  removed them for now as I didn't notice a siginificant difference in
+	  loading time, but maybe someone more knowledgeable than me can sort
+	  the problem properly and re-enable -Frank
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+  -->
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn">
+    <button>try</button>
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script>
+    /**
+     * Thebelab loads "reset CSS" after the theme styles load and so,
+     * it invalidates part of the theme rules. To make the theme CSS to take
+     * the correct precedence, we listen for Thebelab to finish loading, then
+     * relocate the theme CSS and start Thebelab.
+     */
+    const thebeLabScript = document.createElement('script');
+    thebeLabScript.src = "/textbook/assets/vendor/thebelab/index.js"
+    thebeLabScript.async = true
+    thebeLabScript.onload = () => {
+        setTimeout(() => {
+            document.head.append(
+                ...document.querySelectorAll('#theme-style, #custom-style'))
+        })
+        initFunction(initThebelab)
+    }
+    document.head.append(thebeLabScript);
+
+    /**
+     * Add attributes to Thebelab blocks
+     */
+    function initThebelab() {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all non-hardware, code cells, replace with Thebelab interactive code cells
+            const hardwareTag = 'uses-hardware'
+            const hardwareQuery = `.jb_cell.tag_${hardwareTag}`
+            const noHardwareQuery = `.jb_cell:not(.tag_${hardwareTag})`
+            const codeCells = document.querySelectorAll(`${noHardwareQuery} pre[id^="codecell"]`)
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+
+                // Clean up the language to make it work w/ CodeMirror and add it to the cell
+                dataLanguage = ""
+                dataLanguage = detectLanguage(dataLanguage);
+                codeCell.setAttribute('data-language', dataLanguage)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Create link to IQX and hardware notice template
+            const currentPath = window.location.pathname
+            const contentPath = currentPath.slice('/textbook'.length)
+            const notebookPath = contentPath.replace(/\.html$/, '.ipynb')
+            const iqxUrl = `https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/content${notebookPath}`
+
+            const usesHardwareNotice = document.createElement('template')
+            usesHardwareNotice.innerHTML = `
+            <div class="uses-hardware-notice">
+                This cell uses quantum hardware. To run it in your browser, please 
+                <a href="${iqxUrl}" target="_blank">click here to go to the IBM Quantum Experience.</a>
+            </div>
+            `
+
+            // Add warning and link to IQX on uses-hardware cells
+            const hardwareCells = document.querySelectorAll(hardwareQuery)
+            hardwareCells.forEach((cell) => {
+                cell.prepend(usesHardwareNotice.content.cloneNode(true))
+                cell.querySelector('a').addEventListener('click', (evt) => {
+                    try {
+                        window.trackCta(`Hardware Cell ${getInputCell(evt.target)}`)
+                    } catch {}
+                    return true;
+                })
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll(`${noHardwareQuery} .copybtn, .thebebtn`)
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale (ignore outputs with removed inputs)
+            const outputs = document.querySelectorAll(':not(.tag_remove_input) > .output_wrapper')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
+
+            // Add analytics per cell
+            const thebelabRunButtons = document.querySelectorAll('.thebelab-run-button');
+            thebelabRunButtons.forEach((runButton) => {
+                runButton.addEventListener('click', (evt) => {
+                    window.trackCta(`Run ${getInputCell(evt.target)}`)
+                })
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+            // Add segment analytics
+            thebelabButton.addEventListener('click', () => {
+                window.trackCta('Make Interactive');
+            });
+        });
+
+        function getInputCell(button) {
+            const parent = button.parentElement;
+            if (parent === null) {
+                return 'unknown';
+            }
+            if (parent.id.startsWith('inputcell')) {
+                return parent.id;
+            }
+            return getInputCell(parent);
+        }
+    }
+
+// Helper function to munge the language name
+var detectLanguage = (language) => {
+    if (language.indexOf('python') > -1) {
+        language = "python";
+    }
+    return language;
+}
+</script>
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/textbook/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+
+
+  <!-- Segment analytics -->
+  <script>
+(function () {
+  'use strict'
+  window._analytics = {
+    segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
+    coremetrics: false,
+    optimizely: false,
+    googleAddServices: false,
+    fullStory: false,
+    autoPageEventSpa: false,
+    autoFormEvents: false,
+    autoPageView: false
+  }
+
+  window.digitalData = {
+    page: {
+      pageInfo: {
+        productTitle: 'IBM Q Experience',
+        analytics: {
+          category: 'Qiskit.org'
+        }
+      }
+    }
+  }
+
+  loadAsyncScript('https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js')
+  .then(() => {
+    if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+    const category = window.digitalData.page.pageInfo.analytics.category
+    const productTitle = window.digitalData.page.pageInfo.productTitle
+    const routeName = 'qiskit-textbook'
+
+    window.bluemixAnalytics.pageEvent(category, routeName, {
+      navigationType: 'pushState',
+      productTitle: productTitle,
+      title: document.title
+    })
+  })
+  .catch((err) => {
+    console.warn('Error loading Bluemix Analytics script:', err)
+  })
+
+  window.trackCta = (action) => {
+    if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+    const category = window.digitalData.page.pageInfo.analytics.category
+    const productTitle = window.digitalData.page.pageInfo.productTitle
+
+    window.bluemixAnalytics.trackEvent('CTA Clicked', {
+      productTitle,
+      category,
+      CTA: action
+    })
+  }
+
+}());
+</script>
+
+  <!-- Hotjar -->
+  <script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:1586421,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/textbook/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/textbook/assets/custom/custom.js" async></script>
+  <link id="custom-style" rel="stylesheet" href="/textbook/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://libket.ewi.tudelft.nl") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+// Fills in the search input with the query in the url
+var prepopulateSearchInput = function () {
+  var searchInput = document.getElementById('lunr_search');
+  if (!searchInput) { return }
+
+  var params = new URLSearchParams(window.location.search)
+  var searchValue = params.get('search')
+  if (!searchValue) { return }
+  searchInput.value = searchValue.trim()
+}
+
+// Simulate a 'keyup' event to trigger a search
+var triggerSearch = function () {
+  var searchInput = document.getElementById('lunr_search');
+  if (!searchInput || !searchInput.value.trim()) { return }
+
+  searchInput.focus();
+  var enterEvent = document.createEvent('Event');
+  enterEvent.initEvent('keyup');
+  searchInput.dispatchEvent(enterEvent);
+}
+
+initFunction(prepopulateSearchInput)
+
+loadAsyncScript('https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js')
+.then(() => {
+  initFunction(initQuery)
+  initFunction(triggerSearch)
+})
+.catch((err) => console.error('Cannot load lunr search engine:', err))
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/textbook/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/textbook/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "mmoelle1/LibKet",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: ""
+    }
+}
+</script>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+    <div id="qiskit-navbar" class="qiskit__navbar">
+    
+
+
+<ul class="qiskit-navbar">
+    <li class="left navbar__logo">
+	    <a href="https://libket.ewi.tudelft.nl/">
+	    <img src="/textbook/assets/images/logo_libket.png">
+	    </a>
+    </li>
+    <li class="qiskit-navbar__icons"><a href="/textbook/search.html"><img src="/textbook/assets/images/search-solid-purple.svg"></a></li>
+    <li class="entry__active"><a href="https://libket.readthedocs.io/">Documentation</a></li>
+ </ul>
+
+
+    </div>
+
+      
+
+
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="/textbook/preface.html"><h2 class="c-sidebar__title">Learn Quantum-Accelerated Scientific Computation using LibKet</h2></a>
+  <ul class="c-sidebar__chapters">
+    
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/preface">
+        <a class="c-sidebar__entry"
+          href="/textbook/preface.html"
+        >
+          
+          Learn Quantum Computation using Qiskit
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/what-is-quantum">
+        <a class="c-sidebar__entry"
+          href="/textbook/what-is-quantum.html"
+        >
+          
+          What is Quantum?
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-prerequisites/setting-the-environment.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-prerequisites/setting-the-environment.html"
+        >
+          
+            0.
+          
+          Prerequisites
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-prerequisites/setting-the-environment">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-prerequisites/setting-the-environment.html"
+              >
+                
+                  0.1
+                
+                Setting Up Your Environment
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-prerequisites/python-and-jupyter-notebooks">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-prerequisites/python-and-jupyter-notebooks.html"
+              >
+                
+                  0.2
+                
+                Python and Jupyter Notebooks
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-cse21/cse21_tutorial01.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-cse21/cse21_tutorial01.html"
+        >
+          
+            1.
+          
+          SIAM CSE1 Tutorial
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial01">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial01.html"
+              >
+                
+                  1.1
+                
+                Part 1
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial02">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial02.html"
+              >
+                
+                  1.2
+                
+                Part 2
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial03">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial03.html"
+              >
+                
+                  1.3
+                
+                Part 3
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-states/introduction.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-states/introduction.html"
+        >
+          
+            2.
+          
+          Quantum States and Qubits
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/introduction">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/introduction.html"
+              >
+                
+                  2.1
+                
+                Introduction
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/atoms-computation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/atoms-computation.html"
+              >
+                
+                  2.2
+                
+                The Atoms of Computation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/representing-qubit-states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/representing-qubit-states.html"
+              >
+                
+                  2.3
+                
+                Representing Qubit States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/single-qubit-gates">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/single-qubit-gates.html"
+              >
+                
+                  2.4
+                
+                Single Qubit Gates
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/case-for-quantum">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/case-for-quantum.html"
+              >
+                
+                  2.5
+                
+                The Case for Quantum
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-gates/introduction.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-gates/introduction.html"
+        >
+          
+            3.
+          
+          Multiple Qubits and Entanglement
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/introduction">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/introduction.html"
+              >
+                
+                  3.1
+                
+                Introduction
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/multiple-qubits-entangled-states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/multiple-qubits-entangled-states.html"
+              >
+                
+                  3.2
+                
+                Multiple Qubits and Entangled States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/phase-kickback">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/phase-kickback.html"
+              >
+                
+                  3.3
+                
+                Phase Kickback
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/more-circuit-identities">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/more-circuit-identities.html"
+              >
+                
+                  3.4
+                
+                More Circuit Identities
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/proving-universality">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/proving-universality.html"
+              >
+                
+                  3.5
+                
+                Proving Universality
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/oracles">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/oracles.html"
+              >
+                
+                  3.6
+                
+                Classical Computation on a Quantum Computer
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-algorithms/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-algorithms/index.html"
+        >
+          
+            4.
+          
+          Quantum Protocols and Quantum Algorithms
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/defining-quantum-circuits">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/defining-quantum-circuits.html"
+              >
+                
+                  4.1
+                
+                Defining Quantum Circuits
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/deutsch-jozsa">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/deutsch-jozsa.html"
+              >
+                
+                  4.2
+                
+                Deutsch-Jozsa Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/bernstein-vazirani">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/bernstein-vazirani.html"
+              >
+                
+                  4.3
+                
+                Bernstein-Vazirani Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/simon">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/simon.html"
+              >
+                
+                  4.4
+                
+                Simon's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-fourier-transform">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-fourier-transform.html"
+              >
+                
+                  4.5
+                
+                Quantum Fourier Transform
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-phase-estimation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-phase-estimation.html"
+              >
+                
+                  4.6
+                
+                Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/shor">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/shor.html"
+              >
+                
+                  4.7
+                
+                Shor's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/grover">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/grover.html"
+              >
+                
+                  4.8
+                
+                Grover's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-counting">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-counting.html"
+              >
+                
+                  4.9
+                
+                Quantum Counting
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/teleportation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/teleportation.html"
+              >
+                
+                  4.10
+                
+                Quantum Teleportation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/superdense-coding">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/superdense-coding.html"
+              >
+                
+                  4.11
+                
+                Superdense Coding
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-key-distribution">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-key-distribution.html"
+              >
+                
+                  4.12
+                
+                Quantum Key Distribution
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-applications/algs_for_apps_index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-applications/algs_for_apps_index.html"
+        >
+          
+            5.
+          
+          Quantum Algorithms for Applications
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-applications/apps_index">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-applications/apps_index.html"
+              >
+                
+                  5.1
+                
+                Applied Quantum Algorithms
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/hhl_tutorial">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/hhl_tutorial.html"
+                  >
+                    
+                      5.1.1
+                      
+                    
+                    Solving Linear Systems of Equations using HHL
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/vqe-molecules">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/vqe-molecules.html"
+                  >
+                    
+                      5.1.2
+                      
+                    
+                    Simulating Molecules using VQE
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/qaoa">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/qaoa.html"
+                  >
+                    
+                      5.1.3
+                      
+                    
+                    Solving combinatorial optimization problems using QAOA
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/satisfiability-grover">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/satisfiability-grover.html"
+                  >
+                    
+                      5.1.4
+                      
+                    
+                    Solving Satisfiability Problems using Grover's Algorithm
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-machine-learning/machine-learning-qiskit-pytorch">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html"
+                  >
+                    
+                      5.1.5
+                      
+                    
+                    Hybrid quantum-classical Neural Networks with PyTorch and Qiskit
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-applications/imp_index">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-applications/imp_index.html"
+              >
+                
+                  5.2
+                
+                Implementations of Recent Quantum Algorithms
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-paper-implementations/vqls">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-paper-implementations/vqls.html"
+                  >
+                    
+                      5.2.1
+                      
+                    
+                    Variational Quantum Linear Solver
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/image-processing-frqi-neqr">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/image-processing-frqi-neqr.html"
+                  >
+                    
+                      5.2.2
+                      
+                    
+                    Quantum Image Processing - FRQI and NEQR Image Representations
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-quantum-hardware/index-circuits">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-quantum-hardware/index-circuits.html"
+        >
+          
+            6.
+          
+          Investigating Quantum Hardware Using Quantum Circuits
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/error-correction-repetition-code">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/error-correction-repetition-code.html"
+              >
+                
+                  6.1
+                
+                Introduction to Quantum Error Correction using Repetition Codes
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/measurement-error-mitigation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/measurement-error-mitigation.html"
+              >
+                
+                  6.2
+                
+                Measurement Error Mitigation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/randomized-benchmarking">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/randomized-benchmarking.html"
+              >
+                
+                  6.3
+                
+                Randomized Benchmarking
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/measuring-quantum-volume">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/measuring-quantum-volume.html"
+              >
+                
+                  6.4
+                
+                Measuring Quantum Volume
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-quantum-hardware/index-pulses">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-quantum-hardware/index-pulses.html"
+        >
+          
+            7.
+          
+          Investigating Quantum Hardware Using Microwave Pulses
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/calibrating-qubits-pulse">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/calibrating-qubits-pulse.html"
+              >
+                
+                  7.1
+                
+                Calibrating Qubits with Qiskit Pulse
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/accessing_higher_energy_states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/accessing_higher_energy_states.html"
+              >
+                
+                  7.2
+                
+                Accessing Higher Energy States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/transmon-physics">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/transmon-physics.html"
+              >
+                
+                  7.3
+                
+                Introduction to Transmon Physics
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/cQED-JC-SW">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/cQED-JC-SW.html"
+              >
+                
+                  7.4
+                
+                Circuit Quantum Electrodynamics
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/Jaynes-Cummings-model">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/Jaynes-Cummings-model.html"
+              >
+                
+                  7.5
+                
+                Exploring the Jaynes-Cummings Hamiltonian with Qiskit Pulse
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/ac-Stark-shift">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/ac-Stark-shift.html"
+              >
+                
+                  7.6
+                
+                Measuring the Qubit ac-Stark Shift
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/hamiltonian-tomography">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/hamiltonian-tomography.html"
+              >
+                
+                  7.7
+                
+                Hamiltonian Tomography
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-labs/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-labs/index.html"
+        >
+          
+            8.
+          
+          Quantum Computing Labs
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab01_QuantumCircuits">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab01_QuantumCircuits.html"
+              >
+                
+                Lab 1. Quantum Circuits
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab02_QuantumMeasurement">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab02_QuantumMeasurement.html"
+              >
+                
+                Lab 2. Quantum Measurement
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab03_AccuracyQPE">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab03_AccuracyQPE.html"
+              >
+                
+                Lab 3. Accuracy of Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab04_IterativePhaseEstimation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab04_IterativePhaseEstimation.html"
+              >
+                
+                Lab 4. Iterative Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab05_Scalable_Shor_Algorithm">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab05_Scalable_Shor_Algorithm.html"
+              >
+                
+                Lab 5. Scalable Shor’s Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions.html"
+              >
+                
+                Lab 6. Grover's search with an unknown number of solutions
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab07_QuantumSimulationSearchAlgorithm">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab07_QuantumSimulationSearchAlgorithm.html"
+              >
+                
+                Lab 7. Quantum Simulation as a Search Algorithm
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-appendix/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-appendix/index.html"
+        >
+          
+            9.
+          
+          Appendix
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-appendix/linear_algebra">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-appendix/linear_algebra.html"
+              >
+                
+                  9.1
+                
+                Linear Algebra
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-appendix/qiskit">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-appendix/qiskit.html"
+              >
+                
+                  9.2
+                
+                Qiskit
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-demos/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-demos/index.html"
+        >
+          
+            10.
+          
+          Games & Demos
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-ex/hello-qiskit">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-ex/hello-qiskit.html"
+              >
+                
+                Hello Qiskit Game
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-demos/piday-code">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-demos/piday-code.html"
+              >
+                
+                Estimating Pi Using Quantum Phase Estimation Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-demos/chsh">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-demos/chsh.html"
+              >
+                
+                Local Reality and the CHSH Inequality
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/widgets-index">
+              <a class="c-sidebar__entry"
+                href="/textbook/widgets-index.html"
+              >
+                
+                Interactivity Index
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+  </ul>
+  <div class="sidebar_footer">
+    <!-- Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> -->
+    
+    <div class="language_switcher">
+      <select name="preferred_language" onchange="changeLocale('', this.value)">
+        <option value="en" >English</option>
+      </select>
+    </div>
+
+  </div>
+</nav>
+
+      
+      
+
+<div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="hamburger__left">
+    <span id="js-sidebar-toggle" class="hamburger is-active">
+	    <img class="sidebar_closed_img" src="/textbook/assets/images/rightarrow_purple.svg" title="Show Contents">
+	    <img class="sidebar_open_img" src="/textbook/assets/images/leftarrow_purple.svg" title="Hide Contents">
+    </span>
+  </aside>
+  
+  <aside class="sidebar__right">
+  
+    <!-- Search form -->
+    <header>
+      <form action="/textbook/search.html" method="GET">
+        <button type="submit" id="submit">
+          <img src="/textbook/assets/images/search-solid.svg" alt="Search">
+        </button>
+        <input type="text" id="siderbar-search-input" name="search">
+      </form>
+    </header>
+
+    
+    <div class="onthispage__title">On This Page</div>
+    <nav class="onthispage">
+    </nav>
+    <!-- Chapter formats -->
+    <div>
+      
+      <a
+        href="https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/"
+        target="_blank"
+        rel="noopener"
+	onclick="window.trackCta('Open in IBM Quantum Experience')"
+      >
+      <button class="interact-button">Open in IBM Quantum Lab</button>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/textbook/"
+        rel="noopener"
+        class="download__link"
+      >
+        Download as Jupyter Notebook
+        <img src="/textbook/assets/images/download-solid.svg" class="download-button">
+      </a>
+    </div>
+   <div>
+      <a
+	href="https://github.com/Qiskit/qiskit-textbook/tree/master/"
+	class="download__link"
+      >
+      Contribute on Github
+      <img src="/textbook/assets/images/launch.svg" class="download-button">
+      </a>
+    </div>
+     <div>
+      <a
+	href="https://www.surveygizmo.com/s3/6242342/1b1fc576f66d"
+	class="download__link"
+      >
+      Sign Up for Beta Testing
+      <img src="/textbook/assets/images/launch.svg" class="download-button">
+      </a>
+    </div>
+    
+  
+  </aside>
+  <!--
+  <a href="/textbook/search.html" class="topbar-right-button" id="search-button">
+    <img src="/textbook/assets/images/search-solid.svg" alt="Search" />
+  </a>
+  -->
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="search-content__inner-wrap">
+    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
+    <div id="results" class="results"></div>
+</div>
+
+<script>
+    // Add the lunr store since we will now search it
+    var store = [{
+        "title": "Bernstein-Vazirani Algorithm",
+        
+        "excerpt": "rangle x quantum s n bernstein vazirani algorithm string cdot lvert h implementation bit id otimes hadamard frac li solution input oracle qubits apply sqrt problem classical circuit xrightarrow sum secret using example function fs hidden gates tfrac qiskit device qubit register psi problems references deutsch f returns textrm following below above dots through results solve run both simulation josza computer given mod different state explain gate transformation performs left right experiment doi org section simulator bvproblem reference again where reversible images bv svg thus querying inputs query obtain least significant only measure lets details equation transformations summation superposition phase",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/bernstein-vazirani.html",
+        "teaser":null},{
+        "title": "Defining Quantum Circuits",
+        
+        "excerpt": "quantum classical gates qubit circuit teleportation computation example single state computer our circuits qubits variational id libket ewi tudelft nl textbook ch html real sequence measurements using measure theta vqe why states resets results cost information channels introduction parts multi components algorithms computational operations data concurrent conditioned any program labeled three bits initialization need vert psi rangle apply eigensolver block once measured advantage intro whatis eigensolvers seen concert set universal well non learn implements algorithm images reset combination desired into case x third interprets outcomes concurrently within here prepared measurement determines another parameter until while destroy since contents far various",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/defining-quantum-circuits.html",
+        "teaser":null},{
+        "title": "Deutsch-Jozsa Algorithm",
+        
+        "excerpt": "rangle lvert x n quantum oracle balanced f oplus input left function li right register constant vert qubit otimes algorithm frac deutsch id sqrt output example y bmatrix our lets end jozsa oracles begin qubits state psi apply gate sum states gates circuit problem using solution textrm different below classical device inputs bit case aligned h vdots create creating problems returns s after step results joza introduction why does work implementation real references takes string either where half get try possible k ol hadamard tfrac above controls next doi solve qiskit run balancedoracle generalised given boolean rightarrow exactly note same",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/deutsch-jozsa.html",
+        "teaser":null},{
+        "title": "Grover's Algorithm",
+        
+        "excerpt": "rangle lvert x qubits circuit n oracle s state algorithm v our omega li u solution grovers w aligned otimes frac amplitude text us quantum using end create need states phase right example sudoku begin c left images sqrt f apply id problem case not h reflection gate problems classical above qubit run device item marked check any grover image computation negative omegax quad bmatrix into superposition only t psi solutions gates iterations solve simulation dots oracles where function output transformation since bit its list items winner average e org cdots vdots svg rotation step theta after ol controlled input",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/grover.html",
+        "teaser":null},{
+        "title": "Quantum Protocols and Quantum Algorithms",
+        
+        "excerpt": "algorithms quantum computing introduce ideas techniques proof concept developed useful hardware section covered basics ready protocols through concepts last chapter action new learn demonstrate advantage computers great place start showcase later adapted into caused excitement allow us tackle core simplest form also benchmark testing upcoming following topics currently being addition textbook overview nisq",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/index.html",
+        "teaser":null},{
+        "title": "Quantum Counting",
+        
+        "excerpt": "rangle theta s our algorithm n quantum grover id solutions qubits counting code m us get need phase omega pmatrix circuit create grovers search iteration e states t estimation overview intuition controlled qft simulating exercises references remember not iterator cos result output function gate tfrac oracle inverse together g state basis image images quantumcounting svg qpe begin sin end register superposition values lets quantumcircuit object frac sqrt understand both closer closerlook initialising initcode contgrover invqft putting puttingtogether finding findingm simply eigenvalue space example very eigenvalues pm using estimate matrix everything guide iterations here diffusion operator takes input into control chosen",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/quantum-counting.html",
+        "teaser":null},{
+        "title": "Quantum Fourier Transform",
+        
+        "excerpt": "rangle vert frac x n left right pi qft qubit sqrt state exp fourier y otimes qubits circuit quantum sum gate ldots example basis id transform function text alpha beta k e li our using above h widetilde tfrac psi end apply lets xn qiskit xj omegan counting states full after hadamard significant intuition implementation where note xy times section crotk xx turn correctly implements yk jk matrix computational next turns case begin below input must introduction form general real between z single binary images want rotated final bmatrix yn controlled urot reverse code finally simulator device qfteqn running implementationdev",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/quantum-fourier-transform.html",
+        "teaser":null},{
+        "title": "Quantum Key Distribution",
+        
+        "excerpt": "bob alice message rangle basis qubit channel knowledge alicebases eves random alices bobs eve bobbases chance step bits alicebits qubits key interception measure state x bit same quantum example keys bobresults protocol not z match without secret through measurement measures information case results set compare bobsample alicesample send chooses choice means lets below result alicekey probability qiskit share tries before measuring change sends sure keeps private bases prepared samples function only nbsp different both bobkey undetected distribution risk communication must longer read states eavesdropper does sent wrong away string e encodes chose chosen measured discard error known stores representing encoded",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/quantum-key-distribution.html",
+        "teaser":null},{
+        "title": "Quantum Phase Estimation",
+        
+        "excerpt": "rangle theta n psi frac pi e vert otimes quantum t u x id phase circuit gate counting qubits results boldsymbol fourier qubit unitary register left right k result basis above controlled estimation qft j our get example its state transform expression us overview intuition precision exercises references contributors algorithm operator since inverse remember between set apply operations sum lets bmatrix real estimates eigenvector corresponding image into computational tfrac next gates dagger where lvert bit applying begin end integer exactly gives measuring probability expect decimal likely tell mathematical maths exampletgate creating creatingthecircuit getting gettingmoreprecision problem theproblem solution thesolution devices realdevices",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/quantum-phase-estimation.html",
+        "teaser":null},{
+        "title": "Shor's Algorithm",
+        
+        "excerpt": "rangle tfrac e pi r n u s algorithm pt bmod aligned sqrt example dots shors factor since period details phase factoring quantum finding j where not begin end problem efficiently integer ar between eigenstate state k case us hphantom circuit expand summary using sum uu circuits results integers product used lets x modular times numbers value our states summaryclick computational basis uus fractions next qubits result even polynomial large its also discuss section function modulo arithmetic simply python org pmod note equation above only order below solution ak eigenvalue very interesting different denominator measure random method repeated because get",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/shor.html",
+        "teaser":null},{
+        "title": "Simon's Algorithm",
+        
+        "excerpt": "rangle lvert b x f cdot oplus li algorithm n register z example problem quantum rightarrow simons oracle quad left right function second psi frac id y input circuit sqrt only aligned simon where qubits classical using implementation output inputs bitstring end pt results section qiskit device problems given query otimes apply measure measured begin equations cancel fb solve run introduction simulation references solving specific either following cases same solution text state ol zero hadamard value system cx above us j doi algorithms implement simulator blackbox get our q registers case steps sum since string thus different computer secret probability",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/simon.html",
+        "teaser":null},{
+        "title": "Superdense Coding",
+        
+        "excerpt": "rangle qubit gate superdense quantum coding step protocol our applies id state bob cnot message process using computer teleportation send does real bits alice image charlie qubits h create difference simulating need control get sqrt not measurements location classical pair images entangled hadamard target tfrac rightmost sends gates wants alices decode finally saw lets function errors simulator visualizing visualising realqc another communication bell party transmit onebrqubit twobrclassical starts superposition second outcome states applied entangles both note information apply depending table render properly built html replaced x superdensetable png br appropriate receives uses performs after correct followed takes us notebook demonstrates",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/superdense-coding.html",
+        "teaser":null},{
+        "title": "Quantum Teleportation",
+        
+        "excerpt": "rangle quantum qubit state psi alpha beta bob teleportation alice our q circuit qubits gate otimes id protocol pair end gates using simulator measurement vert classical step simulating rightarrow frac real states not bits entangled computer result statevector hardware send applies initialize sqrt align deferred information third telamon create apply cnot e test overview understanding executing references copy transfer results alices part x basis owns teleported us any begin quad cambridge notebook qasm ibm bit party performs sends below here creates hadamard after instruction run demonstrate transformations inverse measure h hphantom c mbox early testing sv qs qt realqc wants",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-algorithms/teleportation.html",
+        "teaser":null},{
+        "title": "Appendix",
+        
+        "excerpt": "appendix containing depth recaps linear algebra concepts crash course qiskit those already familiar quantum",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-appendix/index.html",
+        "teaser":null},{
+        "title": "Linear Algebra",
+        
+        "excerpt": "rangle pmatrix br n b matrix begin end vector quantum vectors v x sum gamma space state displaystyle mathbb rightarrow frac linear product lambda f matrices e infty set unitary our basis equal combination langle psi thus h computation important where dagger inverse any hilbert eigenvectors m sin second inner cos y between example gate states va u form sphere real conjugate sigmay s tensor series spaces only also us new pauli sigmax not hermitian get since fact equation therefore into both consider point simply r row its gates mechanics transpose original text det subspace vn bn eigenvalues sigmaz polynomial",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-appendix/linear_algebra.html",
+        "teaser":null},{
+        "title": "Qiskit",
+        
+        "excerpt": "circuit quantum qubits need qiskit run example qubit simulator using get here object register lets output backend jupyter our state left right also classical python install notebooks heres define method gates real job want bit bits device done refer html should circuits registers qr add case vector set result b package already installed documentation note line cell another rangle its us defined requires arguments statevector simulators aer possible ibmq into where measurement results measure both numbered single noise installation ever computing dont once libket ewi tudelft nl rest concepts readers later introduction ch currently consisting giving added last ready happen",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-appendix/qiskit.html",
+        "teaser":null},{
+        "title": "Quantum Algorithms for Applications",
+        
+        "excerpt": "quantum algorithms section reader applied recent point textbook choose continue learning skip investigating hardware circuits demonstrate real world problems cover help bring date developments field",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/algs_for_apps_index.html",
+        "teaser":null},{
+        "title": "Applied Quantum Algorithms",
+        
+        "excerpt": "algorithms topics section range understanding textbook not its important wide applications quantum seen problem difficult algorithm solves chapter chemistry machine learning large complex own right qiskit able provide full introduction while tried include necessary background explain explanations rigorous introductions fields pages inevitably touch upon concepts outside scope recommended learnt far applied real problems read deeply interest",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/apps_index.html",
+        "teaser":null},{
+        "title": "Solving Linear Systems of Equations using HHL",
+        
+        "excerpt": "j rangle n frac b l lambda hhl u quantum algorithm sqrt qpe x t right sum id state c pmatrix quad left pi circuit solution qubit run real sup e qiskit example end register qubits theta hardware running mathbb vec begin since r binary m tilde not rangleu problem system s approximation used set eigenvalues eigenvalue auxiliary case d alpha gates circuits linear equations implementation introduction matrix text where bit results therefore cnots error using exact general method readout following errors psi simulator device phase estimation optimised given here however rescaled langle representation apply need previous different fidelity solving",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/hhl_tutorial.html",
+        "teaser":null},{
+        "title": "Quantum Image Processing - FRQI and NEQR Image Representations",
+        
+        "excerpt": "x overline image ket quantum theta circuit pixel n y gates images c left representation rangle position value state right hline intensity frqi our values processing yx pixels grayscale example encoding color depth algorithm neqr eq where tag r cnot represents q used otimes controlled lets well encoded cos encode gate follows bigcup operations into sin label qubit mathcal device not compression binary represent represented information edge novel extraction flexible process frac sum pi associated begin h group column f qubits identity k zhang classical size using such array end j following measurement also analysis run its bits org algorithms",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/image-processing-frqi-neqr.html",
+        "teaser":null},{
+        "title": "Implementations of Recent Quantum Algorithms",
+        
+        "excerpt": "section algorithms new applications research finding quantum existing area active explains recent papers not explained traditional textbooks should help bring reader closer understanding current areas textbook living document updated keep developments field",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/imp_index.html",
+        "teaser":null},{
+        "title": "Solving combinatorial optimization problems using QAOA",
+        
+        "excerpt": "gamma beta vec x c e k h rangle psip expectation quantum value sum n function state algorithm q hat optimization cost problem hamiltonian langle u qaoa only m string b problems left right references bit trial frac textbf approximate id example where xi graph w max l dagger sin means j approximation fp mp section f circuit set terms overline z edges compute algorithms qiskit given not parameters p gates combinatorial qubit zi bounded consider v sat such ratio psi used implementation solution basis pauli computer values approach alpha high directly estimate implementationsec chip optimal general s diagonal leq",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/qaoa.html",
+        "teaser":null},{
+        "title": "Solving Satisfiability Problems using Grover's Algorithm",
+        
+        "excerpt": "v vee neg f problem algorithm problems boolean sat grovers x satisfiability wedge solution cnf t search false qiskit grover quantum solutions formula o n clause implementation example variables where three not org arxiv using solve aqua introduction id used assignment function run k above clauses literals because corresponding references its classical true such seen complete instance input satisfying dimacs format c p nbvar circuit real quant ph pdf section unstructured algorithms evaluates possible best np techniques following below eg line numbers oracle strings simulator backend solving satproblem html faster here particular exists given values case called satisfiable hand optimal",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/satisfiability-grover.html",
+        "teaser":null},{
+        "title": "Simulating Molecules using VQE",
+        
+        "excerpt": "variational psi rangle h theta state vqe form qubit quantum langle min ground energy align function id circuit lambda expectation value parameters forms n optimization psii such optimizer not example matrix where its eigenvalue u lambdai any gates using single begin end must possible setting implementation parameter minimum thus given transformation hamiltonian only objective method qiskit however sum close following set entanglement exact simulator hermitian used circuits associated equiv classical states moreover linear note e distance generate ryrz domain depth noise evaluations instance run molecules noisy problems molecule system algorithm hardware estimate parameterized optimized corresponding required does specific based performed",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-applications/vqe-molecules.html",
+        "teaser":null},{
+        "title": "Part 1",
+        
+        "excerpt": "quantum lvert rangle qubit libket expression gate qubits beta sel create circuit images png state x sqrt expressions single circuits evaluate gates alpha exercise q multi hadamard above following quest simulator filters let not print filter after gitlab mmoelle application teleportation only lets us org coefficients since h states probabilities also bell frac zeroth library io tutorial send via bit function start perform en wikipedia wiki ast our vector applied try termed should possible applies multiple applying selection shorthand notation control target both bob error correction part logical com documentation include using started header main libkets functionality help simply type",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-cse21/cse21_tutorial01.html",
+        "teaser":null},{
+        "title": "Part 2",
+        
+        "excerpt": "quantum qiskit libket visualization device png std org lets computation html com documentation json rigetti result execution images not cirq returns histogram code expression backends python qjob stubs state quest object e circuit our backend const string null tutorial using include run before based three kernel utils execute blocking used process gitlab mmoelle io different offloading create bell support into get shots functionality does specific g default eval just offloads completed pointer cpp scriptinit scriptbefore scriptafter c functionvoid qdevicequest after inject performed visualizations image mbuffer bundle plotblochmultivector plotstatecity plotstatehinton plotstatepaulivec plotstateqsphere readthedocs api docs computing offload devices customize pipeline results",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-cse21/cse21_tutorial02.html",
+        "teaser":null},{
+        "title": "Part 3",
+        
+        "excerpt": "libket qft quantum loops q compile indext loop code start functor lvert rangle circuits images gitlab mmoelle lets its crk gate openqasm function staticfor cpp auto nested implementation png com expression io tutorial expressions algorithms en wikipedia org wiki target theta us qftmode templateindext end step index typename functorreturntype functortypes body our allswap expr template library repository documentation readthedocs api docs hands scientific computing part learn build components getting started include libkets main headerfile import namespaces inject displaying take stay tuned common building block fourier transform quantumfouriertransform inverse dagger qftcircuit where denotes controlled phase shift crkk ctrl angle pi k",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-cse21/cse21_tutorial03.html",
+        "teaser":null},{
+        "title": "Local Reality and the CHSH Inequality",
+        
+        "excerpt": "rangle langle ab b chsh measurement bob going alice quantum given value entangled bases local system different our inequality quantity any reality basis hidden only where possible expectation sqrt mechanics measurements yield bell lets qubit set circuits x theta loophole strategy results explain not simply give just universe variable theories also parts order locality should particular bobs perform respectively either above even define function always angle between sigmaz sigmax closed distance game bit correlations multi partite fact nature because reconcile randomness beforehand future particle needed happens measure theory holds separate variables real experiment loopholes imagine part bipartite alices note whereas",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-demos/chsh.html",
+        "teaser":null},{
+        "title": "Games & Demos",
+        
+        "excerpt": "div class entry throughout site h p games demos fun reinforce concepts youll learn quantum computing journey well introduce appropriate places textbook theyre also listed here easily index cards row data demostoc column href baseurl url card title description endfor",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-demos/index.html",
+        "teaser":null},{
+        "title": "Estimating Pi Using Quantum Phase Estimation Algorithm",
+        
+        "excerpt": "theta quantum pi vert rangle phase algorithm estimation textbook qpe n function libket ewi tudelft nl algorithms u psi estimate p ch html state exp qiskit gate estimating using quick left right where qubits begin bmatrix relations text measured detailed understanding chapter dedicated fourier transform next last qubit run results getpiestimate overview forms building block complex its core solves fairly straightforward problem given operator eigenvalue obtain answer yes gives us demo choose end gates available choosing our solve following output measure definition above rightarrow combining times please refer located code importing necessary libraries qftdagger computes inverse qpepre prepares initial note",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-demos/piday-code.html",
+        "teaser":null},{
+        "title": "Hello Qiskit Game",
+        
+        "excerpt": "output puzzle z x qubit exercise bit quantum gate p qubits q h gates same outputs not bits turn circles intro hash just cz b variables using off outro circle both well random also get values our need target value different example new certain cx hashbit used puzzles youll right introduction its type here instead v run white control us y grey below program set before means exactly called lets try black effect another cnot does ry pi function variable hh based true give times always agree top rows level notebook however doing whether only s left done disagree very",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-ex/hello-qiskit.html",
+        "teaser":null},{
+        "title": "Introduction",
+        
+        "excerpt": "gates qubit q qubits single quantum toffoli interesting introduce multi hardware act not possible build any chapter basic well used example connected introduction seen effects true power computing realised through interactions between section multiple explore behaviours systems typically directly implemented only our circuits want complex great fortunately problem given us gate mathematics describe analyse show prove create algorithm concludes looking small scale uses three operations made images png respectively circuit",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-gates/introduction.html",
+        "teaser":null},{
+        "title": "More Circuit Identities",
+        
+        "excerpt": "rangle gate controlled gates state qubit rotations rotation n effect z cnot pi also theta t b target around qubits states angle x swap not h axis arbitrary control same therefore need single quantum build c toffoli q implement circuit id process simply any lets v controls our well into used just only example done above using both ry rz repetitions basic transform swapping case version following y second here because u angles computers always making references directly applied hadamard respectively cx final required think swaps does works much followed rx fault small ccx its whenever where bloch sphere consider",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-gates/more-circuit-identities.html",
+        "teaser":null},{
+        "title": "Multiple Qubits and Entangled States",
+        
+        "excerpt": "rangle bmatrix qubit state begin end qubits states b gate sqrt single circuit our gates cnot c tfrac x entangled multi tensor product id otimes represent amplitudes q quad matrix statevector unitary using ex measurement times quantum calculate h different text bloch amplitude d vector exercises same example separate us simulator superposition sphere multiple interesting seen statevectors complex describe here not very being measured four such collective vectors lets frac result acts apply qiskits qiskit try above important target control classical cannot measuring spheres basis between proportional interact representing visualizing visual saw possible bits rules implications separated any n numbers",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-gates/multiple-qubits-entangled-states.html",
+        "teaser":null},{
+        "title": "Classical Computation on a Quantum Computer",
+        
+        "excerpt": "x right rangle left f quantum output classical uf register leftx oracle state garbage not need vf computation input effect algorithms g apply gates simply using unitary dagger boolean however algorithm take following bar our circuit same superposition function us qubit example single cx computer registers applying form controlled process sumx computers must used here otimes qubits required initial phase typically bit such means just also taking id run inputs corresponding oracles where specifically results another simple consider implemented since therefore implement instead only possible able create information rightarrow introduction intro consulting set ability reproduce any saw fact least though",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-gates/oracles.html",
+        "teaser":null},{
+        "title": "Phase Kickback",
+        
+        "excerpt": "rangle qubit cnot u state phase gate t control text kickback controlled tfrac begin aligned end bmatrix sqrt identity target circuit pi images svg otimes e exploring using our q explaining id saw operation x img src section very interesting qubits lets h gates direction qiskits example global effect relative matrix z qiskit instead liwhat shown below br pkbex li previous results put superposition acting since amplitudes resulting affects while leaving unchanged transforms rightarrow wrapping behaviour cnotidentity identities verify unitary simulator used where back quad basis allow cnots another around axis bloch sphere clear ol happen contents basic here explore",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-gates/phase-kickback.html",
+        "teaser":null},{
+        "title": "Proving Universality",
+        
+        "excerpt": "x rangle z u pmatrix otimes quantum langle e unitary m gates theta left frac matrices any right n qubit matrix hermitian h clifford end begin gate dagger cx qc states p set single also y computation rx products pauli example universality id our simply same expressed s outer psi not universal qubits conjugate eigenvalues basic computers need into terms only hadamard paulis j k input corresponding therefore us means property important form eigenstates possible ldots defining output perform above computing its measurement operations basis system lambdaj hj effect bz model proving sets non classical arbitrary similar complex another between",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-gates/proving-universality.html",
+        "teaser":null},{
+        "title": "Lab 1. Quantum Circuits",
+        
+        "excerpt": "px h quantum circuit gate style gates p font size systems ibm circuits qubits real output running libket ewi tudelft nl html cell below connectivity error depth documentation not only result here system qubit code account border radius using input results backend three function accuracy layout access backends computer noise initial between device provider information ibmqathens perform qiskit configuration computing com docs manage apidoc transpiler div background padding cnot takes binary strings gives inputs different list rates choice need ibmqx reason color computation transpile b expressed toffoli example properties part executed run computers typically pxstep following open among widget tab",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab01_QuantumCircuits.html",
+        "teaser":null},{
+        "title": "Lab 2. Quantum Measurement",
+        
+        "excerpt": "px rangle h style langle size font circuits p energy quantum qubit state states error expectation measurement html z q value ch bloch border radius basis system psi gates interactive values pauli here using pxstep libket ewi tudelft nl sphere mitigation step kaleidoscope div background padding b x y align run not hamiltonian four tri execute textbook qubits blochsphere circuit case qasm simulator cell e color single multiple entangled www measuring components gate measure below ground through different information term zz frac sqrt backend lab noise com watch iii pxpart br eeeb moz white bgoal compute operators computational standard vector",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab02_QuantumMeasurement.html",
+        "teaser":null},{
+        "title": "Lab 3. Accuracy of Quantum Phase Estimation",
+        
+        "excerpt": "px h style font size accuracy t circuit quantum qubits probability result qpe counting step phase estimation p success measurement phi e error b plot relationship best values results lab ch border radius value circuits image png following shows depth desired part histogram outcomes case maximum approximate frac n minimum mitigation textbook div background padding estimated four same c estimate epsilon noisy errors color libket ewi tudelft nl algorithms html performance between through successfully variable qc qiskit here since multiple outcome m difference code varies different graph simulation backend noise reduce transpiled swap sample after fourier transform qcqi pxpart br",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab03_AccuracyQPE.html",
+        "teaser":null},{
+        "title": "Lab 4. Iterative Quantum Phase Estimation",
+        
+        "excerpt": "px h phase varphi circuit style font size e pi q quantum rangle ipe estimation step varphim m qubit bit t algorithm cell ch libket ewi tudelft nl html operations noise p qpe u gate code circuits following textbook algorithms qiskit system qubits therefore into classical psi iterative single border radius value auxiliary state significant perform variable lab documentation b reset section run outcome below result frac results control basis pxstep gates tutorials div background padding conditional here after noisy rightarrow between measured x least registers extract register assign codex c color transform device backend through having previous depth implementing",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab04_IterativePhaseEstimation.html",
+        "teaser":null},{
+        "title": "Lab 5. Scalable Shor’s Algorithm",
+        
+        "excerpt": "px circuit h style size algorithm quantum font code n rangle shors ch p noise textbook order run lab border radius part m u shor finding qubits simulation libket ewi tudelft nl algorithms html pdf div background padding compiled version following unitary operator x implementing ipe circuits results color b r such obtain however example qubit below state create gate input check above redundant codeshorqpe qiskit result scalable arxiv org pxpart br eeeb moz white bgoal common divisor modulo integer step depth not practical construct same factorize register period counting modular function shown figure reduced several image pxstep cell mod",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab05_Scalable_Shor_Algorithm.html",
+        "teaser":null},{
+        "title": "Lab 6. Grover's search with an unknown number of solutions",
+        
+        "excerpt": "px h style quantum font size solutions search ch m n grover oracle counting circuit p step problem algorithm part libket ewi tudelft nl textbook html border radius space grovers algorithms b items code new total augmented theta div background padding iteration using through build result color lab ipe phase gate run set r section qcqi pxpart br eeeb moz white bgoal implementing iterations diffuser three c built geq angle sqrt solution ci real noisy noise measuring t qubits pxconstruct estimation learned together calls required rather qpe pxstep construct item following cell create operator explained execute estimated double equal half",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions.html",
+        "teaser":null},{
+        "title": "Lab 7. Quantum Simulation as a Search Algorithm",
+        
+        "excerpt": "rangle h px state psi style langle font size e x quantum circuit qubit th pi hamiltonian following solution simulation p t delta search problem through algorithm border radius given initial gate theta step items ch grovers b build frac encoded operation code cell below color lab grover unitary div background padding evolution system where auxiliary construct shows run oracle phase r operator final therefore st performs completing hh proper part psii psij duration possible superposition represents pxstep built libket ewi tudelft nl textbook html proving universality gates pxpart br eeeb moz white bgoal iht appropriate qubits evolve show set",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/Lab07_QuantumSimulationSearchAlgorithm.html",
+        "teaser":null},{
+        "title": "Quantum Computing Labs",
+        
+        "excerpt": "quantum lab search algorithm systems circuits algorithms shors phase estimation chapter intended provide hands exercises execute real provided ibm experience designed upper undergraduate beginning graduate level computation course seven depth modules start basic construction core such grover emphasis understanding techniques limitations running applications present noisy topics circuit measurement accuracy iterative scalable grovers unknown solutions simulation",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-labs/index.html",
+        "teaser":null},{
+        "title": "Hybrid quantum-classical Neural Networks with PyTorch and Qiskit",
+        
+        "excerpt": "quantum network neural our circuit classical hybrid layer pytorch create org id class qiskit data into neuron networks neurons ml code training en wikipedia wiki using input graph parameters parameter learning simple example does testing function inputs output value vector theta train imports loading preprocessing img src png here collected forward layers gradient s need machine computing quantumlayer lets nn classify edges directed called single fed between used its also such particular new where hidden parameterized rotation measurement sigma hi any backpropagation techniques pdf functions specify trainable order z backward mnist architecture loss seeks youre algorithms optimise chapter explore integrating",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html",
+        "teaser":null},{
+        "title": "Variational Quantum Linear Solver",
+        
+        "excerpt": "rangle langle phi u psi k dagger br b v our frac quantum algorithm cost circuit function otimes textbf state mathbb us qubit ansatz big displaystyle sum parameters implementation gates test code linear vector text not p hadamard same re variational order matrix x where n cn unitary optimizer very get sqrt calculate rightarrow z classical allows into low set actually lets run again thus value probability real am auxiliary output much search space alpha paper different want product h measuring works applying m solver vqls systems such hhl solving while hardware qubits prepares parameter take essentially off optimal just",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-paper-implementations/vqls.html",
+        "teaser":null},{
+        "title": "Python and Jupyter Notebooks",
+        
+        "excerpt": "python list code numpy notebook jupyter need new text cells values data any tuple function programming just line using cell structure lists such cannot also key anything object package want whose language dont run well probably everything common viewing section below click above variables added simple numbers another heres elements keys value loop range syntax n done packages command only name named input its method introduction notebooks where compile quite great place start current version here best combine images laid reading found contents press shift enter little arrow left execute read through created called b gave arithmetic pretty straightforward forms",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-prerequisites/python-and-jupyter-notebooks.html",
+        "teaser":null},{
+        "title": "Setting Up Your Environment",
+        
+        "excerpt": "qiskit textbook default file install pip environment setting reproduce jupyter git com github src svg guide computer website notebooks org qiskittextbook package through community folder run given drawer matplotlib backend circuitdrawer user config settings conf usually found image following code format versions used version setup work comprehensive personal working help results written libket ewi tudelft nl preface html only media fully supported installing provides tools widgets specific not part available quickest pypi project scm command subdirectory alternatively download directory contains steps exact prerendered output optional quantumcircuit draw visualization text however depending local want change defaults something better suited case done",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-prerequisites/setting-the-environment.html",
+        "teaser":null},{
+        "title": "Exploring the Jaynes-Cummings Hamiltonian with Qiskit Pulse",
+        
+        "excerpt": "resonator qubit cavity g rate frequency jc pulse system kappa dagger delta decay measuring chi our data hamiltonian omegar sigma photons coupling limit hardware gamma hbar sigmaz quantum between dispersive jaynes cummings describes strength using cqed interaction frac omegaq where next here exciting q shift extract spectroscopy power qiskit excitation measure coupled h term loss larger state href libket ewi tudelft nl textbook ch sw htmlchapter measured scan send sequence access measurement method experiment spontaneous model level electromagnetic tutorial parameters superconducting harmonic oscillator operators photon detuning tilde omega negative get helper functions backend linewidth fit non interactive high previous emission",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/Jaynes-Cummings-model.html",
+        "teaser":null},{
+        "title": "Measuring the Qubit ac-Stark Shift",
+        
+        "excerpt": "qubit delta shift resonator frac omegaq g frequency bar n ac stark photons omegar dagger using where experiences pulse our kappa due linewidth broadening sigmaz tilde omega q fluctuations langle rangle photon qiskit data drive epsilon rate measuring physics background lets consider strongly coupled coupling strength detuning dispersive limit system described following hamiltonian h jc disp hbar raising lowering operators pauli z operator acting frame constant lamb induced vacuum average present details checkout href arxiv org abs cond mat paper tutorial investigate caused population getting started well get basic dependencies set ready extract default backend configuration settings selected chip next",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/ac-Stark-shift.html",
+        "teaser":null},{
+        "title": "Accessing Higher Energy States",
+        
+        "excerpt": "rangle rightarrow frequency our pulse states state pi discriminator data id rabi schedule sweep centroid using build phi measure apply separatrix qiskit iq obtain plot higher discrim experiment sideband lda j ej dagger omega drive method into c point model s energy quantum section qubits refs org where standard step fit set scikit learn lo hardware html notebook additional here system given alpha between discriminating builddiscrim freq qubit perform define next calibrated b compute plane above corresponds half testing program d m however not focus classify prior chapter openpulse ref physics much superconducting arxiv n cos frac oscillator large importing",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/accessing_higher_energy_states.html",
+        "teaser":null},{
+        "title": "Circuit Quantum Electrodynamics",
+        
+        "excerpt": "h t dagger s times left right cdot frac alpha sigma omega qubit hamiltonian lambda j g diagonal block delta rm pmatrix m sigmaz rangle e tilde box off transmon resonator omegar where psim quad d eff drive begin end effective qquad here u order hh frequency deltar transformation resonance id term second underbrace text ldots eta b schrieffer wolff jaynes cross interaction omegaq operator perturbation commutator arxiv org langle deltaq dot quantum full state sigmax note using must em n sum infty terms ansatz abs shift sumj xi cummings cqed gate cavity model because photon our into expanding diag",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/cQED-JC-SW.html",
+        "teaser":null},{
+        "title": "Calibrating Qubits with Qiskit Pulse",
+        
+        "excerpt": "pulse qubit frequency j our using pi t m rangle d s c drive experiment pulses measurement results p r state qiskit id backend vert l experiments quantum measuring measlevel us ramsey apply data amplitude e hahn schedule schedules signal y qubits rabi value next calibrated times h g calibrating done system used sweep coherence get energy between ground excited also known define measure program raw shot f refs level single calibration into gives determining set want point states later sequence check not good above complex kerneled run extract fit oscillations measured delay echo chen k b wood control device",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/calibrating-qubits-pulse.html",
+        "teaser":null},{
+        "title": "Introduction to Quantum Error Correction using Repetition Codes",
+        
+        "excerpt": "qubits code error logical left syndrome results right rangle errors qubit also not p measurement case quantum noise n such any same used decoding repetition however example our using yes probability measurements information codes state circuit circuits physical need single correction done encoded run possible output object device set graph line here process encoding therefore qiskit only round t step instead simply likely value states cases between different final change outcome corresponding being result values superposition us effects required bit answer since three does form create basis following must both just decode occur gate before z note rawresults typically encode",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/error-correction-repetition-code.html",
+        "teaser":null},{
+        "title": "Hamiltonian Tomography",
+        
+        "excerpt": "hat z qubit rangle langle right x n left pulse t y cross resonance control b experiment frac delta hamiltonian omega h interaction omegax omegay ramsey begin end vec fitting shift frequency r bmatrix model libket ewi tudelft nl html where pauli not state dt using id gate target o equation because tomography measure class anchor textbook quantum otimes here e d gn u functions simulator results zi stark qubits ch transmon matrix coefficients zx let split pulses backend via hardware rm sigmaz sigmax operators also expectation value data parameters pi introduction run simulated cr references qiskit drive terms operator",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/hamiltonian-tomography.html",
+        "teaser":null},{
+        "title": "Investigating Quantum Hardware Using Quantum Circuits",
+        
+        "excerpt": "upcoming following topics currently being developed addition textbook mapping ising model onto superconducting quantum computer state process tomography",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/index-circuits.html",
+        "teaser":null},{
+        "title": "Investigating Quantum Hardware Using Microwave Pulses",
+        
+        "excerpt": "t upcoming following topics currently being developed addition textbook decoherence energy relaxation measuring optimizing microwave pulses high fidelity qubit operations",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/index-pulses.html",
+        "teaser":null},{
+        "title": "Measurement Error Mitigation",
+        
+        "excerpt": "left right rangle noise results pmatrix measurement lets matrix mitigation counts c data noisy error basis states result state m circuit bit model example here should need begin end output occur using ideal qiskit us only n process simply samples our true dictionary becomes into inverse qubits effect outputs quite correct qubit simple perfect given effects errors probability define those following mitigate column set done run gives present sqrt mitigated circuits not complex general form final means possible randomly before user very exactly prepare create test without definite section taken differ such around times outcomes instead something equal statistical used",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/measurement-error-mitigation.html",
+        "teaser":null},{
+        "title": "Measuring Quantum Volume",
+        
+        "excerpt": "m u quantum circuit d depth volume model heavy output qv x step qubits ideal p q qubit t pit calculate using random width circuits set outputs probabilities leq hu h protocol largest equal successfully fidelity gate sequences gates n example print simulator define pu such noise list average hd computers method computer high consists following qiskit generate layers su layer sequence otimes acting sampling b subset run where simulate aer generation problem distribution dots med text illustration various depths trial error qu probability achievable vq successful confidence interval measuring introduction single metric measured concrete near term modest size quantifies",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/measuring-quantum-volume.html",
+        "teaser":null},{
+        "title": "Randomized Benchmarking",
+        
+        "excerpt": "rb m gates n sequence error clifford qubit benchmarking state alpha randomized qubits textbf psi gate fidelity quantum noise errors sequences group probability frac alpham channel c s q id using step km example textit average b epc u protocol simultaneous parameter ij results lambda j where e not depolarizing gambetta arxiv org pdf intuition predicted references process tomography into qiskit unitary model rho rangle fit same per experiment function jay characterizing system gateset account methods single called should random uniformly element initial operation circ measurement ground decay averaged r also necessarily end g bar space underlying d jerry chow",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/randomized-benchmarking.html",
+        "teaser":null},{
+        "title": "Introduction to Transmon Physics",
+        
+        "excerpt": "hat t phi frac c e omega left right hbar sigma h hamiltonian rangle omegaq d energy delta transmon dagger omegad vec l where q quantum qubit j flux rm sigmaz pm charge dt quad mathrm ec dot drive mathcal n zpf qho cos current sin ej operators partial pi qubits cooper terms langle u circuits oscillator not levels lagrangian equiv sqrt josephson cdot deltaq level systems harmonic classical sum variable here equation tilde rwa id state superconducting v voltage our using between across frequency mechanics lc details defined int infty b el qquad quantizing quantized system states field pair",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/transmon-physics.html",
+        "teaser":null},{
+        "title": "The Atoms of Computation",
+        
+        "excerpt": "circuit bits quantum need times our qubits just bit output qubit computer input not using example adder gate only into numbers different cnot same add adding binary result computers well qiskit string inputs left half want id whether outputs get any its called lets possible answer us diagram represent since images basic gates does both because part computation create fact standard computing information encoding used based means instead known right operations above youll results new everything another next problem decimal target something digital remembering run idea simplest digit system becomes strings eight rest try process circuits image three done operation",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-states/atoms-computation.html",
+        "teaser":null},{
+        "title": "The Case for Quantum",
+        
+        "excerpt": "n quantum complexity o computers digital algorithm computer x problems required operations c such problem big computation numbers digit however notation solve need algorithms adding any using example case id simply classical function very express f size different not analog qubits theory beyond computational set single basic only means input therefore factorization model references considered just say large property expressed far digits system used known primitive gates discrete certain effort simple additions where point perform require leq linear found since want details g parameter allows us runtime factors described without something depend left right does even study possible also already",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-states/case-for-quantum.html",
+        "teaser":null},{
+        "title": "Introduction",
+        
+        "excerpt": "quantum computing python introduction our rules those already information mechanics based atoms though different new powerful image images png correct something its thinking s start bits qubits well need vectors matrices familiar useful consult ch html jupyter notebooks think sounds challenging not alone intuitions experiences better understanding behavior balls bananas electrons objects seem random chaotic just follow set once create technology revolutionary example get started journey towards lets test following description bit blade used carpenter smallest unit either put horses mouth actually very multi purpose chose second shows along right lines idea stored processed series quite big conceptual hurdle today",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-states/introduction.html",
+        "teaser":null},{
+        "title": "Representing Qubit States",
+        
+        "excerpt": "rangle state qubit bmatrix tfrac begin end sqrt quantum vectors our x states vector q langle us measurement complex using only qubits p need statevector alpha beta rule bloch sphere probability b measure measuring theta classical id describe any phase bits rules example numbers notation car well add means real product phi just give here vdots computation not different since superposition psi between output also important either get lets orthogonal details aligned circuit j computer amplitudes inner global computers used ways statevectors qiskit implications instead matrix possible always times magnitude normalised d tell familiar bit information gives new understand exploring",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-states/representing-qubit-states.html",
+        "teaser":null},{
+        "title": "Single Qubit Gates",
+        
+        "excerpt": "rangle gate bmatrix z x gates begin end basis qubit our sub phi state langle e y measuring s sqrt rsub id matrix tfrac pi measurement states theta quantum quad bloch h u vectors pauli t matrices around also bases sphere vector b qiskit not lambda qubits chapter different always here v using between usub any aligned fact called create often eigenstates important used details above sometimes circuit axis its below quick special section saw real operations due digression hadamard general should very commonly effect multiplying seen cdot result widget same example us dagger frac single represented d form cos",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/ch-states/single-qubit-gates.html",
+        "teaser":null},{
+        "title": "Learn Quantum Computation using Qiskit",
+        
+        "excerpt": "textbook quantum class preface p qiskit li div src images href using svg ibm course learn systems button span com libket algorithms rangleimg assets rightarrow computing harkins computation summary code ewi tudelft nl htmlbutton read run allows curriculum access open francis aside community university ol devices ch pthis jupyter reading also chapters pthe img example image hardware educators program ul our contact any github work john titlelearn accelerated scientific title top checker pattern imageimg prefaceillustration text greetings team supplement based help lithe mathematics behind lidetails todays non fault tolerant liwriting implement ibms cloud states introduction textbookread free digital teach concepts",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/preface.html",
+        "teaser":null},{
+        "title": "What is Quantum?",
+        
+        "excerpt": "coin quantum whatis our toss probability state images chance results classical heads amplitudes probabilities trees tails png model us experiment lets measuring negative calculate physics computing just start seeing tree get tosses theory give should quickly remember again result try simulate initial coins going looks together gif outcome double qubit square amplitude used describe behavior gives possible into school instead plot outcomes branches change predicts add states interference mathematical complete previously not simplest complications physical short phenomena cover sense youre through dont worry only idea say similarly test works times record around enough single tossing pressing button store click reset",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/what-is-quantum.html",
+        "teaser":null},{
+        "title": "Interactivity Index",
+        
+        "excerpt": "textbook widget cell code through widgets also libket ewi tudelft nl ch html re run quantum bernstein vazirani algorithm deutsch page interactive gates qubit binary reader algorithms different qubits oracle joza demonstration working readers experiment index interact try ibm jupyter qiskit allows ipywidgets single states atoms computation circuit fourier transform follow mathematics instance press buttons apply steps sets reveal contents setting hideoracle false running well providing provides help explain specific concepts contains selection note need enable interactivity pressing bottom left corner viewing experience computing com user content ipynb important element ability change possible directly webpage view notebooks where able add",
+        "categories": [],
+        "tags": [],
+        "url": "https://libket.ewi.tudelft.nl/textbook/widgets-index.html",
+        "teaser":null},]
+
+</script>
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

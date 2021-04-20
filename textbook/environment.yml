@@ -1,0 +1,14 @@
+name: xeus-cling
+channels:
+  - conda-forge
+dependencies:
+  - xeus-cling=0.12.0
+  - xeus-python
+  - notebook
+  - pip
+  - pip:
+    - cirq
+    - matplotlib
+    - pyquil
+    - qiskit
+    - quantuminspire

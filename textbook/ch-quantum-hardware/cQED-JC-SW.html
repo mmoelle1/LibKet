@@ -1,0 +1,3152 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Circuit Quantum Electrodynamics</title>
+  <meta name="description" content="A cross-platform programming framework for quantum-accelerated scientific computing">
+
+  <link rel="canonical" href="https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/cQED-JC-SW.html">
+  <link rel="alternate" type="application/rss+xml" title="LibKet Learn" href="https://libket.ewi.tudelft.nl/textbook/feed.xml">
+
+  
+
+  <link rel="alternate" hreflang="en" href="https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/cQED-JC-SW.html" />
+  <link rel="alternate" hreflang="ja" href="https://libket.ewi.tudelft.nl/textbook/ja/ch-quantum-hardware/cQED-JC-SW.html" />
+  <link rel="alternate" hreflang="x-default" href="https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/cQED-JC-SW.html" />
+
+  <meta property="og:url"         content="https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/cQED-JC-SW.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Circuit Quantum Electrodynamics" />
+<meta property="og:description" content="A cross-platform programming framework for quantum-accelerated scientific computing" />
+<meta property="og:image"       content="https://libket.ewi.tudelft.nl/textbook/images/preface_illustration.svg" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/cQED-JC-SW.html",
+  "headline": "Circuit Quantum Electrodynamics",
+  "datePublished": "2021-04-20T11:54:09+00:00",
+  "dateModified": "2021-04-20T11:54:09+00:00",
+  "description": "    Circuit Quantum ElectrodynamicsContents IntroductionThe Schrieffer-Wolff TransformationBlock-diagonalization of the Jaynes-Cummings HamiltonianFull Trans...",
+  "author": {
+    "@type": "Person",
+    "name": "The LibKet Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://libket.ewi.tudelft.nl/textbook",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://libket.ewi.tudelft.nl/textbook",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link id="theme-style" rel="stylesheet" href="/textbook/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/textbook/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/textbook/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/textbook';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/textbook/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <!-- Turbolinks were causing problems with equations in details tags, I have
+	  removed them for now as I didn't notice a siginificant difference in
+	  loading time, but maybe someone more knowledgeable than me can sort
+	  the problem properly and re-enable -Frank
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+  -->
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn">
+    <button>try</button>
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script>
+    /**
+     * Thebelab loads "reset CSS" after the theme styles load and so,
+     * it invalidates part of the theme rules. To make the theme CSS to take
+     * the correct precedence, we listen for Thebelab to finish loading, then
+     * relocate the theme CSS and start Thebelab.
+     */
+    const thebeLabScript = document.createElement('script');
+    thebeLabScript.src = "/textbook/assets/vendor/thebelab/index.js"
+    thebeLabScript.async = true
+    thebeLabScript.onload = () => {
+        setTimeout(() => {
+            document.head.append(
+                ...document.querySelectorAll('#theme-style, #custom-style'))
+        })
+        initFunction(initThebelab)
+    }
+    document.head.append(thebeLabScript);
+
+    /**
+     * Add attributes to Thebelab blocks
+     */
+    function initThebelab() {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all non-hardware, code cells, replace with Thebelab interactive code cells
+            const hardwareTag = 'uses-hardware'
+            const hardwareQuery = `.jb_cell.tag_${hardwareTag}`
+            const noHardwareQuery = `.jb_cell:not(.tag_${hardwareTag})`
+            const codeCells = document.querySelectorAll(`${noHardwareQuery} pre[id^="codecell"]`)
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+
+                // Clean up the language to make it work w/ CodeMirror and add it to the cell
+                dataLanguage = ""
+                dataLanguage = detectLanguage(dataLanguage);
+                codeCell.setAttribute('data-language', dataLanguage)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Create link to IQX and hardware notice template
+            const currentPath = window.location.pathname
+            const contentPath = currentPath.slice('/textbook'.length)
+            const notebookPath = contentPath.replace(/\.html$/, '.ipynb')
+            const iqxUrl = `https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/content${notebookPath}`
+
+            const usesHardwareNotice = document.createElement('template')
+            usesHardwareNotice.innerHTML = `
+            <div class="uses-hardware-notice">
+                This cell uses quantum hardware. To run it in your browser, please 
+                <a href="${iqxUrl}" target="_blank">click here to go to the IBM Quantum Experience.</a>
+            </div>
+            `
+
+            // Add warning and link to IQX on uses-hardware cells
+            const hardwareCells = document.querySelectorAll(hardwareQuery)
+            hardwareCells.forEach((cell) => {
+                cell.prepend(usesHardwareNotice.content.cloneNode(true))
+                cell.querySelector('a').addEventListener('click', (evt) => {
+                    try {
+                        window.trackCta(`Hardware Cell ${getInputCell(evt.target)}`)
+                    } catch {}
+                    return true;
+                })
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll(`${noHardwareQuery} .copybtn, .thebebtn`)
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale (ignore outputs with removed inputs)
+            const outputs = document.querySelectorAll(':not(.tag_remove_input) > .output_wrapper')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
+
+            // Add analytics per cell
+            const thebelabRunButtons = document.querySelectorAll('.thebelab-run-button');
+            thebelabRunButtons.forEach((runButton) => {
+                runButton.addEventListener('click', (evt) => {
+                    window.trackCta(`Run ${getInputCell(evt.target)}`)
+                })
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+            // Add segment analytics
+            thebelabButton.addEventListener('click', () => {
+                window.trackCta('Make Interactive');
+            });
+        });
+
+        function getInputCell(button) {
+            const parent = button.parentElement;
+            if (parent === null) {
+                return 'unknown';
+            }
+            if (parent.id.startsWith('inputcell')) {
+                return parent.id;
+            }
+            return getInputCell(parent);
+        }
+    }
+
+// Helper function to munge the language name
+var detectLanguage = (language) => {
+    if (language.indexOf('python') > -1) {
+        language = "python";
+    }
+    return language;
+}
+</script>
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/textbook/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+
+
+  <!-- Segment analytics -->
+  <script>
+(function () {
+  'use strict'
+  window._analytics = {
+    segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
+    coremetrics: false,
+    optimizely: false,
+    googleAddServices: false,
+    fullStory: false,
+    autoPageEventSpa: false,
+    autoFormEvents: false,
+    autoPageView: false
+  }
+
+  window.digitalData = {
+    page: {
+      pageInfo: {
+        productTitle: 'IBM Q Experience',
+        analytics: {
+          category: 'Qiskit.org'
+        }
+      }
+    }
+  }
+
+  loadAsyncScript('https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js')
+  .then(() => {
+    if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+    const category = window.digitalData.page.pageInfo.analytics.category
+    const productTitle = window.digitalData.page.pageInfo.productTitle
+    const routeName = 'qiskit-textbook'
+
+    window.bluemixAnalytics.pageEvent(category, routeName, {
+      navigationType: 'pushState',
+      productTitle: productTitle,
+      title: document.title
+    })
+  })
+  .catch((err) => {
+    console.warn('Error loading Bluemix Analytics script:', err)
+  })
+
+  window.trackCta = (action) => {
+    if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+    const category = window.digitalData.page.pageInfo.analytics.category
+    const productTitle = window.digitalData.page.pageInfo.productTitle
+
+    window.bluemixAnalytics.trackEvent('CTA Clicked', {
+      productTitle,
+      category,
+      CTA: action
+    })
+  }
+
+}());
+</script>
+
+  <!-- Hotjar -->
+  <script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:1586421,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/textbook/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/textbook/assets/custom/custom.js" async></script>
+  <link id="custom-style" rel="stylesheet" href="/textbook/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://libket.ewi.tudelft.nl") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+// Fills in the search input with the query in the url
+var prepopulateSearchInput = function () {
+  var searchInput = document.getElementById('lunr_search');
+  if (!searchInput) { return }
+
+  var params = new URLSearchParams(window.location.search)
+  var searchValue = params.get('search')
+  if (!searchValue) { return }
+  searchInput.value = searchValue.trim()
+}
+
+// Simulate a 'keyup' event to trigger a search
+var triggerSearch = function () {
+  var searchInput = document.getElementById('lunr_search');
+  if (!searchInput || !searchInput.value.trim()) { return }
+
+  searchInput.focus();
+  var enterEvent = document.createEvent('Event');
+  enterEvent.initEvent('keyup');
+  searchInput.dispatchEvent(enterEvent);
+}
+
+initFunction(prepopulateSearchInput)
+
+loadAsyncScript('https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js')
+.then(() => {
+  initFunction(initQuery)
+  initFunction(triggerSearch)
+})
+.catch((err) => console.error('Cannot load lunr search engine:', err))
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/textbook/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/textbook/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "mmoelle1/LibKet",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: "content/ch-quantum-hardware"
+    }
+}
+</script>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+    <div id="qiskit-navbar" class="qiskit__navbar">
+    
+
+
+<ul class="qiskit-navbar">
+    <li class="left navbar__logo">
+	    <a href="https://libket.ewi.tudelft.nl/">
+	    <img src="/textbook/assets/images/logo_libket.png">
+	    </a>
+    </li>
+    <li class="qiskit-navbar__icons"><a href="/textbook/search.html"><img src="/textbook/assets/images/search-solid-purple.svg"></a></li>
+    <li class="entry__active"><a href="https://libket.readthedocs.io/">Documentation</a></li>
+ </ul>
+
+
+    </div>
+
+      
+
+
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="/textbook/preface.html"><h2 class="c-sidebar__title">Learn Quantum-Accelerated Scientific Computation using LibKet</h2></a>
+  <ul class="c-sidebar__chapters">
+    
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/preface">
+        <a class="c-sidebar__entry"
+          href="/textbook/preface.html"
+        >
+          
+          Learn Quantum Computation using Qiskit
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/what-is-quantum">
+        <a class="c-sidebar__entry"
+          href="/textbook/what-is-quantum.html"
+        >
+          
+          What is Quantum?
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-prerequisites/setting-the-environment.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-prerequisites/setting-the-environment.html"
+        >
+          
+            0.
+          
+          Prerequisites
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-prerequisites/setting-the-environment">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-prerequisites/setting-the-environment.html"
+              >
+                
+                  0.1
+                
+                Setting Up Your Environment
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-prerequisites/python-and-jupyter-notebooks">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-prerequisites/python-and-jupyter-notebooks.html"
+              >
+                
+                  0.2
+                
+                Python and Jupyter Notebooks
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-cse21/cse21_tutorial01.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-cse21/cse21_tutorial01.html"
+        >
+          
+            1.
+          
+          SIAM CSE1 Tutorial
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial01">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial01.html"
+              >
+                
+                  1.1
+                
+                Part 1
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial02">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial02.html"
+              >
+                
+                  1.2
+                
+                Part 2
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-cse21/cse21_tutorial03">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-cse21/cse21_tutorial03.html"
+              >
+                
+                  1.3
+                
+                Part 3
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-states/introduction.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-states/introduction.html"
+        >
+          
+            2.
+          
+          Quantum States and Qubits
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/introduction">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/introduction.html"
+              >
+                
+                  2.1
+                
+                Introduction
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/atoms-computation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/atoms-computation.html"
+              >
+                
+                  2.2
+                
+                The Atoms of Computation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/representing-qubit-states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/representing-qubit-states.html"
+              >
+                
+                  2.3
+                
+                Representing Qubit States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/single-qubit-gates">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/single-qubit-gates.html"
+              >
+                
+                  2.4
+                
+                Single Qubit Gates
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-states/case-for-quantum">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-states/case-for-quantum.html"
+              >
+                
+                  2.5
+                
+                The Case for Quantum
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-gates/introduction.html">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-gates/introduction.html"
+        >
+          
+            3.
+          
+          Multiple Qubits and Entanglement
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/introduction">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/introduction.html"
+              >
+                
+                  3.1
+                
+                Introduction
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/multiple-qubits-entangled-states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/multiple-qubits-entangled-states.html"
+              >
+                
+                  3.2
+                
+                Multiple Qubits and Entangled States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/phase-kickback">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/phase-kickback.html"
+              >
+                
+                  3.3
+                
+                Phase Kickback
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/more-circuit-identities">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/more-circuit-identities.html"
+              >
+                
+                  3.4
+                
+                More Circuit Identities
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/proving-universality">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/proving-universality.html"
+              >
+                
+                  3.5
+                
+                Proving Universality
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-gates/oracles">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-gates/oracles.html"
+              >
+                
+                  3.6
+                
+                Classical Computation on a Quantum Computer
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-algorithms/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-algorithms/index.html"
+        >
+          
+            4.
+          
+          Quantum Protocols and Quantum Algorithms
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/defining-quantum-circuits">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/defining-quantum-circuits.html"
+              >
+                
+                  4.1
+                
+                Defining Quantum Circuits
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/deutsch-jozsa">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/deutsch-jozsa.html"
+              >
+                
+                  4.2
+                
+                Deutsch-Jozsa Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/bernstein-vazirani">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/bernstein-vazirani.html"
+              >
+                
+                  4.3
+                
+                Bernstein-Vazirani Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/simon">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/simon.html"
+              >
+                
+                  4.4
+                
+                Simon's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-fourier-transform">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-fourier-transform.html"
+              >
+                
+                  4.5
+                
+                Quantum Fourier Transform
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-phase-estimation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-phase-estimation.html"
+              >
+                
+                  4.6
+                
+                Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/shor">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/shor.html"
+              >
+                
+                  4.7
+                
+                Shor's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/grover">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/grover.html"
+              >
+                
+                  4.8
+                
+                Grover's Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-counting">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-counting.html"
+              >
+                
+                  4.9
+                
+                Quantum Counting
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/teleportation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/teleportation.html"
+              >
+                
+                  4.10
+                
+                Quantum Teleportation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/superdense-coding">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/superdense-coding.html"
+              >
+                
+                  4.11
+                
+                Superdense Coding
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-algorithms/quantum-key-distribution">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-algorithms/quantum-key-distribution.html"
+              >
+                
+                  4.12
+                
+                Quantum Key Distribution
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-applications/algs_for_apps_index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-applications/algs_for_apps_index.html"
+        >
+          
+            5.
+          
+          Quantum Algorithms for Applications
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-applications/apps_index">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-applications/apps_index.html"
+              >
+                
+                  5.1
+                
+                Applied Quantum Algorithms
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/hhl_tutorial">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/hhl_tutorial.html"
+                  >
+                    
+                      5.1.1
+                      
+                    
+                    Solving Linear Systems of Equations using HHL
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/vqe-molecules">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/vqe-molecules.html"
+                  >
+                    
+                      5.1.2
+                      
+                    
+                    Simulating Molecules using VQE
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/qaoa">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/qaoa.html"
+                  >
+                    
+                      5.1.3
+                      
+                    
+                    Solving combinatorial optimization problems using QAOA
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/satisfiability-grover">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/satisfiability-grover.html"
+                  >
+                    
+                      5.1.4
+                      
+                    
+                    Solving Satisfiability Problems using Grover's Algorithm
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-machine-learning/machine-learning-qiskit-pytorch">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html"
+                  >
+                    
+                      5.1.5
+                      
+                    
+                    Hybrid quantum-classical Neural Networks with PyTorch and Qiskit
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-applications/imp_index">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-applications/imp_index.html"
+              >
+                
+                  5.2
+                
+                Implementations of Recent Quantum Algorithms
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-paper-implementations/vqls">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-paper-implementations/vqls.html"
+                  >
+                    
+                      5.2.1
+                      
+                    
+                    Variational Quantum Linear Solver
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/ch-applications/image-processing-frqi-neqr">
+                  <a class="c-sidebar__entry"
+                    href="/textbook/ch-applications/image-processing-frqi-neqr.html"
+                  >
+                    
+                      5.2.2
+                      
+                    
+                    Quantum Image Processing - FRQI and NEQR Image Representations
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-quantum-hardware/index-circuits">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-quantum-hardware/index-circuits.html"
+        >
+          
+            6.
+          
+          Investigating Quantum Hardware Using Quantum Circuits
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/error-correction-repetition-code">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/error-correction-repetition-code.html"
+              >
+                
+                  6.1
+                
+                Introduction to Quantum Error Correction using Repetition Codes
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/measurement-error-mitigation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/measurement-error-mitigation.html"
+              >
+                
+                  6.2
+                
+                Measurement Error Mitigation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/randomized-benchmarking">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/randomized-benchmarking.html"
+              >
+                
+                  6.3
+                
+                Randomized Benchmarking
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/measuring-quantum-volume">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/measuring-quantum-volume.html"
+              >
+                
+                  6.4
+                
+                Measuring Quantum Volume
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-quantum-hardware/index-pulses">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-quantum-hardware/index-pulses.html"
+        >
+          
+            7.
+          
+          Investigating Quantum Hardware Using Microwave Pulses
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/calibrating-qubits-pulse">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/calibrating-qubits-pulse.html"
+              >
+                
+                  7.1
+                
+                Calibrating Qubits with Qiskit Pulse
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/accessing_higher_energy_states">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/accessing_higher_energy_states.html"
+              >
+                
+                  7.2
+                
+                Accessing Higher Energy States
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/transmon-physics">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/transmon-physics.html"
+              >
+                
+                  7.3
+                
+                Introduction to Transmon Physics
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/cQED-JC-SW">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/cQED-JC-SW.html"
+              >
+                
+                  7.4
+                
+                Circuit Quantum Electrodynamics
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/Jaynes-Cummings-model">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/Jaynes-Cummings-model.html"
+              >
+                
+                  7.5
+                
+                Exploring the Jaynes-Cummings Hamiltonian with Qiskit Pulse
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/ac-Stark-shift">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/ac-Stark-shift.html"
+              >
+                
+                  7.6
+                
+                Measuring the Qubit ac-Stark Shift
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-quantum-hardware/hamiltonian-tomography">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-quantum-hardware/hamiltonian-tomography.html"
+              >
+                
+                  7.7
+                
+                Hamiltonian Tomography
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-labs/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-labs/index.html"
+        >
+          
+            8.
+          
+          Quantum Computing Labs
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab01_QuantumCircuits">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab01_QuantumCircuits.html"
+              >
+                
+                Lab 1. Quantum Circuits
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab02_QuantumMeasurement">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab02_QuantumMeasurement.html"
+              >
+                
+                Lab 2. Quantum Measurement
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab03_AccuracyQPE">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab03_AccuracyQPE.html"
+              >
+                
+                Lab 3. Accuracy of Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab04_IterativePhaseEstimation">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab04_IterativePhaseEstimation.html"
+              >
+                
+                Lab 4. Iterative Quantum Phase Estimation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab05_Scalable_Shor_Algorithm">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab05_Scalable_Shor_Algorithm.html"
+              >
+                
+                Lab 5. Scalable Shor’s Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab06_Grover_search_with_an_unknown_number_of_solutions.html"
+              >
+                
+                Lab 6. Grover's search with an unknown number of solutions
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-labs/Lab07_QuantumSimulationSearchAlgorithm">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-labs/Lab07_QuantumSimulationSearchAlgorithm.html"
+              >
+                
+                Lab 7. Quantum Simulation as a Search Algorithm
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-appendix/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-appendix/index.html"
+        >
+          
+            9.
+          
+          Appendix
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-appendix/linear_algebra">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-appendix/linear_algebra.html"
+              >
+                
+                  9.1
+                
+                Linear Algebra
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-appendix/qiskit">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-appendix/qiskit.html"
+              >
+                
+                  9.2
+                
+                Qiskit
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/ch-demos/index">
+        <a class="c-sidebar__entry"
+          href="/textbook/ch-demos/index.html"
+        >
+          
+            10.
+          
+          Games & Demos
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-ex/hello-qiskit">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-ex/hello-qiskit.html"
+              >
+                
+                Hello Qiskit Game
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-demos/piday-code">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-demos/piday-code.html"
+              >
+                
+                Estimating Pi Using Quantum Phase Estimation Algorithm
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/ch-demos/chsh">
+              <a class="c-sidebar__entry"
+                href="/textbook/ch-demos/chsh.html"
+              >
+                
+                Local Reality and the CHSH Inequality
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/widgets-index">
+              <a class="c-sidebar__entry"
+                href="/textbook/widgets-index.html"
+              >
+                
+                Interactivity Index
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+  </ul>
+  <div class="sidebar_footer">
+    <!-- Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> -->
+    
+    <div class="language_switcher">
+      <select name="preferred_language" onchange="changeLocale('', this.value)">
+        <option value="en" >English</option>
+      </select>
+    </div>
+
+  </div>
+</nav>
+
+      
+      
+
+<div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="hamburger__left">
+    <span id="js-sidebar-toggle" class="hamburger is-active">
+	    <img class="sidebar_closed_img" src="/textbook/assets/images/rightarrow_purple.svg" title="Show Contents">
+	    <img class="sidebar_open_img" src="/textbook/assets/images/leftarrow_purple.svg" title="Hide Contents">
+    </span>
+  </aside>
+  
+  <aside class="sidebar__right">
+  
+    <!-- Search form -->
+    <header>
+      <form action="/textbook/search.html" method="GET">
+        <button type="submit" id="submit">
+          <img src="/textbook/assets/images/search-solid.svg" alt="Search">
+        </button>
+        <input type="text" id="siderbar-search-input" name="search">
+      </form>
+    </header>
+
+    
+    <div class="onthispage__title">On This Page</div>
+    <nav class="onthispage">
+    </nav>
+    <!-- Chapter formats -->
+    <div>
+      
+      <a
+        href="https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/content/ch-quantum-hardware/cQED-JC-SW.ipynb"
+        target="_blank"
+        rel="noopener"
+	onclick="window.trackCta('Open in IBM Quantum Experience')"
+      >
+      <button class="interact-button">Open in IBM Quantum Lab</button>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/textbook/content/ch-quantum-hardware/cQED-JC-SW.ipynb"
+        rel="noopener"
+        class="download__link"
+      >
+        Download as Jupyter Notebook
+        <img src="/textbook/assets/images/download-solid.svg" class="download-button">
+      </a>
+    </div>
+   <div>
+      <a
+	href="https://github.com/Qiskit/qiskit-textbook/tree/master/content/ch-quantum-hardware/cQED-JC-SW.ipynb"
+	class="download__link"
+      >
+      Contribute on Github
+      <img src="/textbook/assets/images/launch.svg" class="download-button">
+      </a>
+    </div>
+     <div>
+      <a
+	href="https://www.surveygizmo.com/s3/6242342/1b1fc576f66d"
+	class="download__link"
+      >
+      Sign Up for Beta Testing
+      <img src="/textbook/assets/images/launch.svg" class="download-button">
+      </a>
+    </div>
+    
+  
+  </aside>
+  <!--
+  <a href="/textbook/search.html" class="topbar-right-button" id="search-button">
+    <img src="/textbook/assets/images/search-solid.svg" alt="Search" />
+  </a>
+  -->
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+<div id="page-info"><div id="page-title">Circuit Quantum Electrodynamics</div>
+</div>
+<div class="jb_cell tag_contents">
+<div class="cell border-box-sizing text_cell rendered tag_contents"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Contents">Contents<a class="anchor-link" href="#Contents"> </a></h2><ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#tswt">The Schrieffer-Wolff Transformation</a></li>
+<li><a href="#bdotjch">Block-diagonalization of the Jaynes-Cummings Hamiltonian</a></li>
+<li><a href="#full-transmon">Full Transmon</a></li>
+<li><a href="#qdwcqed">Qubit Drive with cQED</a></li>
+<li><a href="#tcreg">The Cross Resonance Entangling Gate</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Introduction-">1. Introduction <a id="intro"></a><a class="anchor-link" href="#1.-Introduction-"> </a></h2><p>By analogy with Cavity Quantum Electrodynamics (CQED), circuit QED (cQED) exploits the fact that a simple model can be used to both describe the interaction of an atom with an optical cavity and a qubit with a microwave resonator. This model includes the number of photons in the cavity/resonator, the state of the atom/qubit, and the electric dipole interaction between the atom/qubit and cavity/resonator. As we saw in the last section, transmons are actually multi-level systems, but restricting ourselves to the ground $|0\rangle = |g\rangle$ and first excited $|1\rangle = |e\rangle$ states is possible because of the anharmonicity of the transmon. Therefore we can describe the transmon as a qubit described by the Pauli spin matrices
+$$
+\sigma^x = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} \qquad
+\sigma^y = \begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix} \qquad
+\sigma^z = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \qquad
+$$
+that generate rotations the respective axes around the Bloch sphere. In that case, the simplest model to describe this interaction is the Jaynes-Cummings Hamiltonian in the rotating wave approximation,
+$$
+H_{\rm JC}^{\rm (RWA)}/\hbar = \omega_r a^\dagger a + \frac{1}{2} \omega_q \sigma_z + g(a^\dagger \sigma^- + a \sigma^+).
+$$
+where $\omega_r$ and $\omega_q$ are the frequencies of the resonator and "qubit", respectively, $a$ ($a^\dagger$) is the resonator photon annihilation (creation) operator, and $g$ is the electric dipole coupling (half the vacuum Rabi splitting). Note that we are now omitting the hats from the operators. Here, the first term corresponds to the number of photons in the resonator, the second term corresponds to the state of the qubit, and the third is the electric dipole interaction, where $\sigma^\pm = (1/2)(\sigma^x \mp i\sigma^y)$ is the qubit raising/lowering operator. (Note that the signs are inverted from those of <em>spin</em> raising/lowering operators, as discussed in the previous chapter).</p>
+<p>This Hamiltonian can be solved exactly, and the solutions are hybrid qubit/resonator states where an excitation (either a photon in the resonator or excited state of the qubit) swaps between the two at a rate $g$ when they are on-resonance ($\omega_r = \omega_q$). For example, the $a^\dagger \sigma^-$ in the third term creates a photon in the resonator and lowers the qubit from $|1\rangle$ to $|0\rangle$, while the $a\sigma^+$ term destroys a photon in the resonators and excites the qubit from $|0\rangle$ to $|1\rangle$. While interesting, for our quantum computer we want to deal with qubits, and not these hybrid states. This means we want to move to a regimes where the resonator acts as a perturbation to the qubit (and vice-versa), so that their properties merely become "dressed" by the presence of the other. Using a type of perturbation theory, called the Schrieffer-Wolff (S-W) transformation, we can calculate the properties of the qubit and resonator in the regime we wish to operate. Here it should be noted that treating the transmon as a qubit is illustrative for pedagogical reasons, but the same techniques apply when you consider all the levels of the transmon. The higher levels of the transmon have profound effects and must be considered when designing and simulating them.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-The-Schrieffer-Wolff-Transformation-">2. The Schrieffer-Wolff Transformation <a id="tswt"></a><a class="anchor-link" href="#2.-The-Schrieffer-Wolff-Transformation-"> </a></h2><details>
+<summary>Schrödinger's Equation (Click here to expand)</summary>
+Problems in quantum mechanics are often that of diagonalizing a Hamiltonian eigenvalue equation
+$$
+H\psi_m = E_m \psi_m \qquad {\rm for} \quad 1 \le m \le n
+$$
+where the $\psi_m$ are the eigenstates with eigenvalue $E_m$. This consists of finding a unitary matrix $U$, such that $H' = U H U^\dagger$ is diagonal. Then the eigenvalue equation
+$$
+\hat{H} \psi_m = E_m \psi_m \Longrightarrow U H U^\dagger U \psi_m = E_m U \psi_m \Longrightarrow H' \psi_m' = E_m \psi_m'
+$$
+where $\psi_m' = U\psi_m$ are the transformed eigenstates and
+$$
+H' = \begin{pmatrix}
+E_1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; E_2 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; 0 \\
+0 &amp; 0 &amp; \cdots &amp; E_n \end{pmatrix}
+$$
+is the diagonalized Hamiltonian.
+</details><p>With the S-W transformation, instead of diagonalizing the Hamiltonian, we seek to <em>block-diagonalize</em> it. Suppose we have a Hamiltonian that can be broken up into a diagonal part and perturbation
+$$
+H \quad = \quad \underbrace{\begin{pmatrix}
+\Box &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  \\
+ &amp; \Box &amp;  &amp;  &amp;  &amp;  &amp;  \\
+ &amp;  &amp; \Box &amp;  &amp;  &amp;  &amp;  \\
+ &amp;  &amp;  &amp; \Box &amp;  &amp;  &amp;  \\
+ &amp;  &amp;  &amp;  &amp; \Box &amp;  &amp;  \\
+ &amp;  &amp;  &amp;  &amp;  &amp; \Box &amp;  \\
+ &amp;  &amp;  &amp;  &amp;  &amp;  &amp; \Box \end{pmatrix}}_\text{diagonal} \quad + \quad 
+\underbrace{\begin{pmatrix}
+\times &amp; \times &amp; \times &amp; \times &amp; \cdot &amp; \cdot &amp; \cdot \\
+\times &amp; \times &amp; \times &amp; \times &amp; \cdot &amp; \cdot &amp; \cdot \\
+\times &amp; \times &amp; \times &amp; \times &amp; \cdot &amp; \cdot &amp; \cdot \\
+\times &amp; \times &amp; \times &amp; \times &amp; \cdot &amp; \cdot &amp; \cdot \\
+\cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp; \times &amp; \times &amp; \times \\
+\cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp; \times &amp; \times &amp; \times \\
+\cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp; \times &amp; \times &amp; \times \end{pmatrix}}_\text{perturbation}
+$$
+and then write the perturbation as $H_1 + H_2$ so that $H = H_0 + H_1 + H_2$, with $H_0$ diagonal, $H_1$ block-diagonal, and $H_2$ non-block diagonal, and we have
+$$
+H \quad = \quad \underbrace{\begin{pmatrix}
+\Box &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  \\
+ &amp; \Box &amp;  &amp;  &amp;  &amp;  &amp;  \\
+ &amp;  &amp; \Box &amp;  &amp;  &amp;  &amp;  \\
+ &amp;  &amp;  &amp; \Box &amp;  &amp;  &amp;  \\
+ &amp;  &amp;  &amp;  &amp; \Box &amp;  &amp;  \\
+ &amp;  &amp;  &amp;  &amp;  &amp; \Box &amp;  \\
+ &amp;  &amp;  &amp;  &amp;  &amp;  &amp; \Box \end{pmatrix}}_\text{diagonal}
+\quad + \quad
+\underbrace{\begin{pmatrix}
+\times &amp; \times &amp; \times &amp; \times &amp;  &amp;  &amp;  \\
+\times &amp; \times &amp; \times &amp; \times &amp;  &amp;  &amp;  \\
+\times &amp; \times &amp; \times &amp; \times &amp;  &amp;  &amp;  \\
+\times &amp; \times &amp; \times &amp; \times &amp;  &amp;  &amp;  \\
+ &amp;  &amp;  &amp;  &amp; \times &amp; \times &amp; \times \\
+ &amp;  &amp;  &amp;  &amp; \times &amp; \times &amp; \times \\
+ &amp;  &amp;  &amp;  &amp; \times &amp; \times &amp; \times \end{pmatrix}}_\text{block diagonal} 
+\quad + \quad
+\underbrace{\begin{pmatrix}
+ &amp;  &amp;  &amp;  &amp; \cdot &amp; \cdot &amp; \cdot \\
+ &amp;  &amp;  &amp;  &amp; \cdot &amp; \cdot &amp; \cdot \\
+ &amp;  &amp;  &amp;  &amp; \cdot &amp; \cdot &amp; \cdot \\
+ &amp;  &amp;  &amp;  &amp; \cdot &amp; \cdot &amp; \cdot \\
+\cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp;  &amp;  &amp;  \\
+\cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp;  &amp;  &amp;  \\
+\cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp;  &amp;  &amp;  \end{pmatrix}}_\text{block off-diagonal}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Block-diagonalizing $H$ consists of finding an operator $S$ such that</p>
+$$
+H_{\rm eff} = e^{iS} H e^{-iS} = \sum_{m=0}^\infty \frac{1}{m!} [H, S]^{(m)} = \sum_{m=0}^\infty \lambda^m H^{(m)},
+$$<p>where $H^{(m)}$ are successive approximations to $H$ (with $H^{(0)} = H_0$) and the generalized commutator is defined recursively as</p>
+$$
+[H,S]^{(m)} = [[H,S]^{(m-1)},S] \qquad {\rm with} \qquad [H,S]^{(0)} = H. 
+$$<p>Here we treat $S$ as a Taylor series with</p>
+$$ S = \sum_{m=1}^\infty \lambda^m S^{(m)} $$<p>to keep track of the order $\lambda$. Then expanding the effective Hamiltonian as a perturbation of $H_1+H_2$ to second order in $\lambda$,</p>
+$$
+H_{\rm eff} = H_0 + \lambda (H_1+H_2) + \left[H_0 + \lambda(H_1+H_2), \lambda S^{(1)}\right] 
+  + \frac{1}{2} \left[ \left[ H_0 + \lambda(H_1+H_2), \lambda S^{(1)}\right], \lambda S^{(1)}\right]
+  + \left[H_0 + \lambda(H_1+H_2), \lambda^2 S^{(2)}\right] + \ldots \\
+  \approx H_0 + \lambda \left( H_1 + H_2 + \left[H_0, S^{(1)}\right] \right) 
+  + \lambda^2 \left( \left[H_1+H_2, S^{(1)}\right] + \frac{1}{2} \left[ \left[H_0, S^{(1)}\right], S^{(1)}\right] + \left[H_0, S^{(2)}\right]\right)
+$$<p>Now we know $S$ must be block off-diagonal and anti-hermitian to force the block off-diagonal elements of $H_{\rm eff}$ to vanish, we must have that</p>
+$$
+H_{\rm eff}^{\rm off-diag} = \sum_{m=0}^\infty \frac{1}{(2m+1)!} [\underbrace{H_0 + H_1}_\text{block diag}, S]^{(2m+1)} + \sum_{m=0}^\infty \frac{1}{(2m)!} [\underbrace{H_2}_\text{block off-diag}, S]^{(2m)} \equiv 0,
+$$<p>noting that all the terms in the first series are block off-diagonal and all of those in the second series are block diagonal. This is because the commutator of a block diagonal and block off-diagonal matrix is block off-diagonal and the commutator of two block off-diagonal matrices is block diagonal. Expanding this to the generalized commutator, we can see that $[H^0 + H^1, S]^{(n)}$ with odd $n$ must always be block off-diagonal as well as $[H^2, S]^{(n)}$ with even $n$. Now expanding the off-diagonal part of the Hamiltonian to second order yields</p>
+$$
+H_{\rm eff}^{\rm off-diag} = \left[ H_0 + \lambda H_1, \lambda S^{(1)} \right]+\lambda H_2 + \left[H_0 + \lambda H_1, \lambda^2 S^{(2)}\right]
+  + \frac{1}{3!} \left[ H_0+\lambda H_1, \lambda S^{(1)}\right]^{(3)} + \frac{1}{2!} \left[ \lambda H_2, \lambda S^{(1)}\right]^{(2)} \\
+  = \lambda \left( \left[ H_0, S^{(1)} \right] + H_2 \right) + \lambda^2 \left( \left[H_1, S^{(1)} \right] + \left[H_0, S^{(2)}\right]\right) + \ldots.
+$$<p>Since each order of $\lambda$ must be identically zero, the following equations determine $S^{(m)}$,
+$$
+[H_0, S^{(1)}] = -H_2 \qquad
+[H_0, S^{(2)}] = -[H_1, S^{(1)}] \qquad
+[H_0, S^{(3)}] = -[H_1, S^{(2)}] - \frac{1}{3} [[H_2, S^{(1)}], S^{(1)}],
+$$
+where our ansatz that satisfied these equations is guaranteed unique by Winkler's work. Then our effective Hamiltonian becomes</p>
+$$
+H_{\rm eff} = H_0+H_1+[H_2,S^{(1)}] + \frac{1}{2} [[H_0, S^{(1)}], S^{(1)}] + \ldots = H_0+H_1+\frac{1}{2}[H_2,S^{(1)}] + \ldots
+$$<p>where the effective Hamiltonian is calculated here to second order and we have taken $\lambda \to 1$.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-Block-diagonalization-of-the-Jaynes-Cummings-Hamiltonian-">3. Block-diagonalization of the Jaynes-Cummings Hamiltonian <a id="bdotjch"></a><a class="anchor-link" href="#3.-Block-diagonalization-of-the-Jaynes-Cummings-Hamiltonian-"> </a></h2><p>Using the S-W transformation consists of two problems: 1) finding the correct ansatz, and 2) performing the calculations. In most examples, an ansatz of similar form (i.e. anti-hermitian) to the off-diagonal parts is made and confirmed <em>a postori</em>. Recently, the manuscript <a href="http://www.arxiv.org/abs/2004.06534">A Systematic Method for Schrieffer-Wolff Transformation and Its Generalizations</a> has appeared on the arXiv attesting to systematically providing the ansatz and applying it to numerous systems (including the Jaynes-Cumming Hamiltonian below).</p>
+<p>As such, the <em>generator</em> $\eta$ is calculated as $\eta = [H_0, H_2]$. In keeping the scalar coefficients of $\eta$ undetermined, then $S^{(1)}$ can be calculated as the specific $\eta$ that satisfies $[H_0, \eta]=H_2$. Note the hermiticity of $H_0$ and $H_2$ guarantee the anti-hermiticity of $\eta$ and thus $S^{(1)}$.</p>
+<p>For ease of tedious calculations, we will use the Python package <a href="http://www.sympy.org"><code>sympy</code></a> for symbolic mathematics.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># import SymPy and define symbols</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'\omega_r'</span><span class="p">)</span> <span class="c1"># resonator frequency</span>
+<span class="n">wq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'\omega_q'</span><span class="p">)</span> <span class="c1"># qubit frequency</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'g'</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># vacuum Rabi coupling</span>
+<span class="n">Delta</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'Delta'</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># wr - wq; defined later</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># import operator relations and define them</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.quantum.boson</span> <span class="kn">import</span> <span class="n">BosonOp</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">BosonOp</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span> <span class="c1"># resonator photon annihilation operator</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.quantum</span> <span class="kn">import</span> <span class="n">pauli</span><span class="p">,</span> <span class="n">Dagger</span><span class="p">,</span> <span class="n">Commutator</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.quantum.operatorordering</span> <span class="kn">import</span> <span class="n">normal_ordered_form</span>
+
+<span class="c1"># Pauli matrices</span>
+<span class="n">sx</span> <span class="o">=</span> <span class="n">pauli</span><span class="o">.</span><span class="n">SigmaX</span><span class="p">()</span>
+<span class="n">sy</span> <span class="o">=</span> <span class="n">pauli</span><span class="o">.</span><span class="n">SigmaY</span><span class="p">()</span>
+<span class="n">sz</span> <span class="o">=</span> <span class="n">pauli</span><span class="o">.</span><span class="n">SigmaZ</span><span class="p">()</span>
+
+<span class="c1"># qubit raising and lowering operators, notice the spin and qubit ladder operators are inversed</span>
+<span class="n">splus</span> <span class="o">=</span> <span class="n">pauli</span><span class="o">.</span><span class="n">SigmaMinus</span><span class="p">()</span>
+<span class="n">sminus</span> <span class="o">=</span> <span class="n">pauli</span><span class="o">.</span><span class="n">SigmaPlus</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># define J-C Hamiltonian in terms of diagonal and non-block diagonal terms</span>
+<span class="n">H0</span> <span class="o">=</span> <span class="n">wr</span><span class="o">*</span><span class="n">Dagger</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">wq</span><span class="o">*</span><span class="n">sz</span><span class="p">;</span> 
+<span class="n">H2</span> <span class="o">=</span> <span class="n">g</span><span class="o">*</span><span class="p">(</span><span class="n">Dagger</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">sminus</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">splus</span><span class="p">);</span> 
+<span class="n">HJC</span> <span class="o">=</span> <span class="n">H0</span> <span class="o">+</span> <span class="n">H2</span><span class="p">;</span> <span class="n">HJC</span> <span class="c1"># print</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle - 0.5 \omega_q {\sigma_z} + \omega_r { {a}^\dagger} {a} + g \left({ {a}^\dagger} {\sigma_+} + {a} {\sigma_-}\right)$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># using the above method for finding the ansatz</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">Commutator</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">H2</span><span class="p">);</span> <span class="n">eta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle - g \left[{ {a}^\dagger} {\sigma_+} + {a} {\sigma_-},- 0.5 \omega_q {\sigma_z} + \omega_r { {a}^\dagger} {a}\right]$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a note about <code>sympy</code>, we will need to used the methods <code>doit()</code>, <code>expand</code>, <code>normal_ordered_form</code>, and <code>qsimplify_pauli</code> to proceed with actually taking the commutator, expanding it into terms, normal ordering the bosonic modes (creation before annihilation), and simplify the Pauli algebra. Trying this with $\eta$ yields</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pauli</span><span class="o">.</span><span class="n">qsimplify_pauli</span><span class="p">(</span><span class="n">normal_ordered_form</span><span class="p">(</span><span class="n">eta</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span><span class="o">.</span><span class="n">expand</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle - 1.0 \omega_q g { {a}^\dagger} {\sigma_+} + 1.0 \omega_q g {a} {\sigma_-} + \omega_r g { {a}^\dagger} {\sigma_+} - \omega_r g {a} {\sigma_-}$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now take $A$ and $B$ as the coefficients of $a^\dagger \sigma_-$ and $a\sigma_+$, respectively. Then the commutator</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'B'</span><span class="p">)</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">Dagger</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">sminus</span> <span class="o">-</span> <span class="n">B</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">splus</span><span class="p">;</span>
+<span class="n">pauli</span><span class="o">.</span><span class="n">qsimplify_pauli</span><span class="p">(</span><span class="n">normal_ordered_form</span><span class="p">(</span><span class="n">Commutator</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span><span class="o">.</span><span class="n">expand</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle - 1.0 A \omega_q { {a}^\dagger} {\sigma_+} + A \omega_r { {a}^\dagger} {\sigma_+} - 1.0 B \omega_q {a} {\sigma_-} + B \omega_r {a} {\sigma_-}$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This expression should be equal to $H_2$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">H2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle g \left({ {a}^\dagger} {\sigma_+} + {a} {\sigma_-}\right)$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>which implies $A = B = g/\Delta$ where $\Delta = \omega_r - \omega_q$ is the frequency detuning between the resonator and qubit. Therefore our $S^{(1)}$ is determined to be</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">S1</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">g</span><span class="o">/</span><span class="n">Delta</span><span class="p">)</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="n">S1</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">g</span><span class="o">/</span><span class="n">Delta</span><span class="p">);</span> <span class="n">S1</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{g \left({ {a}^\dagger} {\sigma_+} - {a} {\sigma_-}\right)}{\Delta}$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then we can calculate the effective second order correction to $H_0$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Heff</span> <span class="o">=</span> <span class="n">H0</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">pauli</span><span class="o">.</span><span class="n">qsimplify_pauli</span><span class="p">(</span><span class="n">normal_ordered_form</span><span class="p">(</span><span class="n">Commutator</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="n">S1</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span><span class="o">.</span><span class="n">expand</span><span class="p">()))</span><span class="o">.</span><span class="n">simplify</span><span class="p">();</span> <span class="n">Heff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle - 0.5 \omega_q {\sigma_z} + \omega_r { {a}^\dagger} {a} + \frac{0.5 g^{2} \left(1 - 2 { {a}^\dagger} {a} {\sigma_z} - {\sigma_z}\right)}{\Delta}$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is typically written as
+$$
+H_{\rm eff} = \frac{g^2}{2\Delta} \left(\omega_r + \frac{g^2}{\Delta}\sigma_z\right)a^\dagger a  - \frac{1}{2}\left(\omega_q -\frac{g^2}{\Delta}\right) \sigma_z
+$$
+which shows a state-dependent shift by $\chi \equiv g^2/\Delta$ of the resonator frequency called the <em>ac Stark shift</em> and a shift in qubit frequency due to quantum vacuum fluctuations called the <em>Lamb shift</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.--Full-Transmon-">4.  Full Transmon <a id="full-transmon"></a><a class="anchor-link" href="#4.--Full-Transmon-"> </a></h2><p>Because we are using <em>transmons</em> instead of <em>qubits</em>, we need to be careful to take the higher-order energy terms into effect when designing and simulating devices. The full transmon Hamiltonian coupled to the readout resonators is</p>
+$$
+H^{\rm tr} = \omega_r a^\dagger a + \sum_j \omega_j |j\rangle\langle j| + g\left(a^\dagger c + ac^\dagger \right),
+$$<p>where now $c = \sum_j \sqrt{j+1}|j\rangle\langle j+1|$ is the transmon lowering operator. Similarly, taking the weakly interacting subsets $A$ as the even-numbered transmon modes and $B$ as the odd-numbered transmon modes. Using the ansatz</p>
+$$
+S^{(1)} = \sum_j \alpha_j a^\dagger \sqrt{j+1}|j\rangle\langle j+1| - \alpha_j^* a \sqrt{j+1}|j+1\rangle\langle j|,
+$$<p>one may proceed along a messier version of the Jaynes-Cummings Hamiltonian. With some effort one can show the second order effective Hamiltonian is</p>
+$$
+H^{\rm tr}_{\rm eff} = \left( \omega_r + \sum_j \frac{g^2(\omega_r-\omega+\delta)}{(\omega_r-\omega-\delta j)(\omega_r - \omega - \delta(j-1))} |j\rangle\langle j| \right) a^\dagger a + \sum_j 
+\left[
+j\omega + \frac{\delta}{2} (j-1)j + \frac{jg^2}{\omega-\omega_r+(j-1)\delta} \right]|j\rangle\langle j|.
+$$
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="5.-Qubit-Drive-with-cQED-">5. Qubit Drive with cQED <a id="qdwcqed"></a><a class="anchor-link" href="#5.-Qubit-Drive-with-cQED-"> </a></h2><p>Following that of <a href="https://arxiv.org/abs/cond-mat/0402216">Blais <em>et al</em> (2004)</a>, we model the drive Hamiltonian as
+$$
+H^d(t) = \xi(t)\left( a^\dagger e^{-i\omega_d t} + ae^{i\omega_d t}\right).
+$$
+Following the treatment in the <a href="https://arxiv.org/abs/1007.3520">Ph.D. dissertation of Lev Bishop</a>, the drive acts on the qubit via the Glauber operator
+$$
+D(\alpha) = e^{\alpha(t) a^\dagger - \alpha^*(t) a}.
+$$
+Moving to the Jaynes-Cumming Hamiltonian rotating at the drive frequency,
+$$
+H = \Delta_r a^\dagger a - \frac{1}{2} \Delta_q \sigma^z + g(a^\dagger \sigma^- + a\sigma^+) + \xi(t)(a^\dagger + a)
+$$
+with $\Delta_r = \omega_r - \omega_d$ and $\Delta_q = \omega_q - \omega_d$. Applying Hadamard's Lemma to nested commutators,
+$$
+e^{A}BA^{-A} = B + [A,B] + \frac{1}{2!} [A,[A,B]] + \frac{1}{3!}[A,[A,[A,B]]] + \ldots
+$$
+we see that
+$$
+D^\dagger a^{(\dagger)} D = \exp\{-\alpha(t) a^\dagger + \alpha^*(t) a\} a^{(\dagger)}\exp\{\alpha(t) a^\dagger - \alpha^*(t) a\} 
+= a^{(\dagger)} + \left[-\alpha(t) a^\dagger + \alpha^*(t) a, a^{(\dagger)}\right] + \frac{1}{2!}\left[-\alpha(t) a^\dagger + \alpha^*(t) a, \left[-\alpha(t) a^\dagger + \alpha^*(t) a, a^{(\dagger)}\right]\right] + \ldots
+ = a^{(\dagger)} + \alpha^{(*)}
+$$
+and</p>
+$$
+D^\dagger a^\dagger a D = a^\dagger a + \left[-\alpha(t) a^\dagger + \alpha^*(t) a, a^\dagger a\right] + \frac{1}{2!}\left[-\alpha(t) a^\dagger + \alpha^*(t) a, \left[-\alpha(t) a^\dagger + \alpha^*(t) a, a^\dagger a\right]\right] + \ldots
+= a^\dagger a + \alpha(t)a^\dagger + \alpha^*(t)a + |\alpha(t)|^2
+$$<p>So that we can transform the Hamiltonian</p>
+$$
+\tilde{H} = D^\dagger H D - iD^\dagger \dot{D} = \Delta_r\left(a^\dagger a + \alpha(t)a^\dagger + \alpha^*(t)a + |\alpha(t)|^2\right) - \frac{1}{2} \Delta_q \sigma^z \\ + g\left((a^\dagger + \alpha^*(t))\sigma^- + (a+\alpha(t))\sigma^+\right) + \xi(t)\left(a^\dagger + \alpha^*(t) + a + \alpha(t) \right) - i\left(\dot{\alpha}(t) a^\dagger - \dot{\alpha}^*(t) a\right) \\
+= \Delta_r a^\dagger a - \frac{1}{2}\Delta_q \sigma^z + g\left((a^\dagger + \alpha^*(t))\sigma^- + (a+\alpha(t))\sigma^+\right) \\
++\xi(t)\left(a^\dagger  + a \right) + \Delta_r\left(\alpha(t)a^\dagger + \alpha^*(t)a\right)- i\left(\dot{\alpha}(t) a^\dagger - \dot{\alpha}^*(t) a\right)
+$$<p>where the non-operator terms have been dropped. The last line can be set to zero if we choose</p>
+$$
+-i\dot{\alpha}(t) + \Delta_r \alpha(t) + \xi(t) = 0,
+$$<p>and finally introducing the Rabi frequency $\Omega(t) = 2g\alpha(t)$, we arrive at</p>
+$$
+\tilde{H} = \Delta_r a^\dagger a - \frac{1}{2}\Delta_q \sigma^z + g\left(a^\dagger\sigma^- + a\sigma^+\right)
++\frac{1}{2} \left( \Omega^*(t)\sigma^- + \Omega(t) \sigma^+\right).
+$$<p>Since the drive part of the Hamiltonian is block off-diagonal, we can perform a Schrieffer-Wolff transformation on it (for a real drive $\Omega^*(t) = \Omega(t)$) and add it to the effective Hamiltonian,</p>
+$$
+[\tilde{H}^d, S^{(1)}] = -\frac{\Omega(t)}{2} \left[ (\sigma^- + \sigma^+),\frac{g}{\Delta}\left( a^\dagger \sigma^- - a\sigma^+\right)\right] = \frac{g\Omega(t)}{2\Delta}(a + a^\dagger)\sigma^z
+$$<p>so the effective Hamiltonian becomes</p>
+$$
+\tilde{H}_{\rm eff} = \left( \Delta_r + \frac{g^2}{\Delta}\sigma^z\right) a^\dagger a - \frac{1}{2}\left(\Delta_q - \frac{g^2}{\Delta}\right) \sigma^z + \frac{\Omega(t)}{2}\sigma^x
++ \frac{g\Omega(t)}{4\Delta}(a + a^\dagger)\sigma^z.
+$$<p>Note here that to eliminate the $z$ rotations, one should drive at the Lamb-shifted qubit frequency. The additional $\sigma^z$ term is small because $\Delta \gg g$ in the dispersive regime.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jb_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="6.-The-Cross-Resonance-Entangling-Gate-">6. The Cross Resonance Entangling Gate <a id="tcreg"></a><a class="anchor-link" href="#6.-The-Cross-Resonance-Entangling-Gate-"> </a></h2><p>Driving qubit one at the frequency of qubit two can be written as</p>
+$$
+H^d(t) = \frac{\Omega(t)}{2} \left( \sigma_1^+ e^{-i\tilde{\omega}_2 t} + \sigma_1^- e^{i\tilde{\omega}_2 t}\right).
+$$<p>Now, we need to apply Schrieffer-Wolff to the drive term to get the effective Hamiltonian, and then do the RWA at frequency $\tilde{\omega}_2$.</p>
+$$
+[\tilde{H}^d, S^{(1)}] = -\frac{J\Omega(t)}{2\Delta_{12}} \left[ \sigma_1^+ e^{-i\tilde{\omega}_2 t} + \sigma_1^- e^{i\tilde{\omega}_2 t}, \sigma_1^+ \sigma_2^- - \sigma_2^+ \sigma_1^-\right] 
+=-\frac{J\Omega(t)}{2\Delta_{12}} \left(\sigma_1^z \sigma_2^+ e^{-i\tilde{\omega}_2 t}
++\sigma_1^z \sigma_2^- e^{i\tilde{\omega}_2 t} \right)
+$$<p>Transforming back the rotating frame at $\omega_2$, we get the effective qubit cross resonance Hamiltonian</p>
+$$
+\tilde{H}_{\rm eff}^{\rm CR} = - \frac{\tilde{\omega}_1-\tilde{\omega}_2}{2}\sigma_1^z 
++ \frac{\Omega(t)}{2} \left(\sigma_2^x - \frac{J}{2\Delta_{12}} \sigma_1^z \sigma_2^x \right).
+$$<p>The first two terms involve the $ZI$ interaction due to a Stark shift on qubit 1 and an unconditional $IX$ rotation on qubit 2, but the final term represents the $ZX$-interaction that produces entanglement. By putting qubit 1 into an equal superposition of $|0\rangle$ and $|1\rangle$ and applying the cross resonance gate for a duration corresponding to a $\pi/2$ rotation around the $x$-axis, a maximally entangled state is produced. Using Qiskit to characterize the two-qubit cross resonance Hamiltonian for transmons can be done with <a href="https://github.com/Qiskit/qiskit-tutorials/blob/9405254b38312771f8d5c2dd6f451cec35307995/tutorials/noise/1_hamiltonian_and_gate_characterization.ipynb">this tutorial</a>. Further reading on the cross resonance gate is found <a href="https://arxiv.org/abs/1106.0553">here</a> and <a href="https://arxiv.org/abs/1603.04821">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+    
+    
+
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/ch-quantum-hardware/transmon-physics.html">
+      〈 <span class="u-margin-right-tiny"></span> Introduction to Transmon Physics
+    </a>
+  
+
+  
+    
+
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/ch-quantum-hardware/Jaynes-Cummings-model.html">
+      Exploring the Jaynes-Cummings Hami... <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
