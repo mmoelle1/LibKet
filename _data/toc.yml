@@ -25,7 +25,7 @@
 # generate a demo book by running `jupyter-book create mybook --demo`
 # ==============================
 
-- title: Learn Quantum Computation using Qiskit
+- title: Learn Quantum Computation using LibKet
   not_numbered: true
   url: /preface
 
