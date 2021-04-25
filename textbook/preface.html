@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Learn Quantum Computation using LibKet</title>
+  <title>LibKet Learn</title>
   <meta name="description" content="A cross-platform programming framework for quantum-accelerated scientific computing">
 
   <link rel="canonical" href="https://libket.ewi.tudelft.nl/textbook/preface.html">
@@ -22,7 +22,7 @@
 
   <meta property="og:url"         content="https://libket.ewi.tudelft.nl/textbook/preface.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Learn Quantum Computation using LibKet" />
+<meta property="og:title"       content="LibKet Learn" />
 <meta property="og:description" content="A cross-platform programming framework for quantum-accelerated scientific computing" />
 <meta property="og:image"       content="https://libket.ewi.tudelft.nl/textbook/images/preface_illustration.svg" />
 
@@ -34,10 +34,10 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/preface.html",
-  "headline": "Learn Quantum Computation using LibKet",
-  "datePublished": "2021-04-24T15:23:52+00:00",
-  "dateModified": "2021-04-24T15:23:52+00:00",
-  "description": "        Learn Quantum Computation using LibKet    Learn Quantum-Accelerated Scientific Computation using LibKet                   Greetings from the Qiskit C...",
+  "headline": "LibKet Learn",
+  "datePublished": "2021-04-25T07:56:29+00:00",
+  "dateModified": "2021-04-25T07:56:29+00:00",
+  "description": "        LibKet Learn    Learn Quantum-Accelerated Scientific Computation using LibKet             Welcome to LibKet, the Quantum Expression Template Library....",
   "author": {
     "@type": "Person",
     "name": "The LibKet Team"
@@ -718,27 +718,27 @@ initFunction(initPrint)
     },
     codeMirrorConfig: {
     theme: "abcdef",
-    mode: "python"
+    mode: ""
     },
     kernelOptions: {
-    kernelName: "python3",
+    kernelName: "xcpp14",
     path: "content"
     }
 }
 </script>
     <!-- .js-show-sidebar shows sidebar by default -->
     <div id="js-textbook" class="c-textbook js-show-sidebar">
-    <div id="qiskit-navbar" class="qiskit__navbar">
+    <div id="libket-navbar" class="libket__navbar">
     
 
 
-<ul class="qiskit-navbar">
+<ul class="libket-navbar">
     <li class="left navbar__logo">
 	    <a href="https://libket.ewi.tudelft.nl/">
 	    <img src="/textbook/assets/images/logo_libket_white.png">
 	    </a>
     </li>
-    <li class="qiskit-navbar__icons"><a href="/textbook/search.html"><img src="/textbook/assets/images/search-solid-purple.svg"></a></li>
+    <li class="libket-navbar__icons"><a href="/textbook/search.html"><img src="/textbook/assets/images/search-solid-purple.svg"></a></li>
     <li class="entry__active"><a href="https://libket.readthedocs.io/">Documentation</a></li>
  </ul>
 
@@ -753,7 +753,7 @@ initFunction(initPrint)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="/textbook/preface.html"><h2 class="c-sidebar__title">Learn Quantum Computation using LibKet</h2></a>
+  <a href="/textbook/preface.html"><h2 class="c-sidebar__title">LibKet Learn</h2></a>
   <ul class="c-sidebar__chapters">
     
     
@@ -772,7 +772,7 @@ initFunction(initPrint)
           href="/textbook/preface.html"
         >
           
-          Learn Quantum Computation using LibKet
+          LibKet Learn
         </a>
       </li>
 
@@ -2554,7 +2554,7 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
                   <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Learn Quantum Computation using LibKet</div>
+    <div id="page-info"><div id="page-title">LibKet Learn</div>
 </div>
     <div class="jb_cell tag_preface-cell tag_preface-title">
 
@@ -2562,16 +2562,14 @@ initFunction(initPrint)
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><title>Learn Quantum-Accelerated Scientific Computation using LibKet</title></p>
 <div class="preface-top">
-    <div class="preface-checker-pattern"></div>
 <div class="preface-summary">
-  <aside class="preface-summary-image"><img src="images/preface_illustration_2.svg"></aside>
   <div class="preface-summary-text">
      <p>
-      Greetings from the Qiskit Community team! This textbook is a university quantum algorithms/computation course supplement based on Qiskit to help learn:</p>
+      Welcome to LibKet, the Quantum Expression Template Library. LibKet is a lightweight C++14 expression template library that allows you to develop quantum algorithms as hardware-agnostic expressions and execute them on different quantum simulators and quantum computers in the cloud without changing your code. In this textbook you will learn:</p>
       <ol>
-          <li>The mathematics behind quantum algorithms</li>
-          <li>Details about today's non-fault-tolerant quantum devices</li>
-          <li>Writing code in Qiskit to implement quantum algorithms on IBM's cloud quantum systems</li>
+          <li>The mathematics behind gate-based quantum computing</li>
+          <li>The concepts of LibKet to implement hardware-agnostic quantum algorithms</li>
+          <li>The potential of quantum computing for solving engineering problems</li>
       </ol>
 </div>
     <a href="https://libket.ewi.tudelft.nl/textbook/ch-states/introduction.html"><button class="preface-button read-textbook">Read the textbook <span class="rangle"><img src="/textbook/assets/images/rightarrow.svg"></span></button></a>
@@ -2585,7 +2583,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered tag_preface-cell"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="About-the-Textbook">About the Textbook<a class="anchor-link" href="#About-the-Textbook"> </a></h1><p>This is a free digital textbook that will teach you the concepts of quantum computing while you learn to use the Qiskit SDK.</p><h2 id="Run-the-Code-Inline">Run the Code Inline<a class="anchor-link" href="#Run-the-Code-Inline"> </a></h2><p>This textbook is built on a jupyter notebook framework that allows for easy reading, but it also allows readers to edit and run the code right in the textbook. The chapters can also be opened as Jupyter notebooks in the <a href="https://quantum-computing.ibm.com/jupyter">IBM Quantum Experience</a>, no installs required!</p>
+<h1 id="About-the-Tutorial">About the Tutorial<a class="anchor-link" href="#About-the-Tutorial"> </a></h1><p>This tutorial is derived from the famous <a href="https://qiskit.org/textbook/preface.html">Qiskit textbook</a> which is an excellent source for learning the concepts of quantum computing. We want to thank the Qiskit community for their great effort and for making their work freely available under the Apache License 2.0. LibKet Learn is reusing many of the great examples from the Qiskit textbook with the necessary modifications to the text and/or the source code to make the implementation of quantum algorithms hardware agnostic.</p><h2 id="Run-the-Code-Inline">Run the Code Inline<a class="anchor-link" href="#Run-the-Code-Inline"> </a></h2><p>This textbook is built on a jupyter notebook framework that allows for easy reading, but it also allows readers to edit and run the code right in the textbook. As LibKet is a C++14 library, we use the <a href="https://github.com/jupyter-xeus/xeus-cling">xeus cling</a> jupiter kernel to interpret C++ code. This might lead to longer startup times when running a notebook for the first time.</p>
 </div>
 </div>
 </div>
@@ -2598,15 +2596,15 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Click &#39;try&#39;, then &#39;run&#39; to see the output,</span>
-<span class="c1"># you can change the code and run it again.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This code works!&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
-<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Create circuit with 2 qubits</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># Do H-gate on q0</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Do CNOT on q1 controlled by q0</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="c1">// Click &#39;try&#39;, then &#39;run&#39; to see the output,</span>
+<span class="c1">// you can change the code and run it again.</span>
+<span class="cp">#include</span> <span class="cpf">&quot;LibKet.hpp</span>
+<span class="cpf">&quot;</span><span class="c1">using namespace LibKet;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">LibKet</span><span class="o">::</span><span class="n">circuits</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">LibKet</span><span class="o">::</span><span class="n">filters</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">LibKet</span><span class="o">::</span><span class="n">gates</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">());</span>
+<span class="n">show</span><span class="o">&lt;</span><span class="mi">99</span><span class="o">&gt;</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -2620,20 +2618,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered tag_preface-cell"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://libket.ewi.tudelft.nl/textbook/widgets-index.html"><button class="preface-button">Interactivity Tour<span class="rangle"><img src="/textbook/assets/images/rightarrow.svg"></span></button></a></p>
-<h2 id="Learn-with-Real-Quantum-Systems">Learn with Real Quantum Systems<a class="anchor-link" href="#Learn-with-Real-Quantum-Systems"> </a></h2><p>The best way to learn is by doing. Qiskit allows users to run experiments on state-of-the-art quantum devices from the comfort of their homes. The textbook teaches not only theoretical quantum computing but the experimental quantum physics that realises it.</p><p><img src="images/preface-hw-example.png" class="preface-image"></p>
-<p><a href="https://libket.ewi.tudelft.nl/textbook/ch-quantum-hardware/accessing_higher_energy_states.html"><button class="preface-button">See Example: Accessing Higher Level States<span class="rangle"><img src="/textbook/assets/images/rightarrow.svg"></span></button></a></p>
-<h1 id="Using-the-Textbook">Using the Textbook<a class="anchor-link" href="#Using-the-Textbook"> </a></h1><p>If you're reading the textbook independently, you don't have to read it all in order, but we recommend you read chapters 1-3 first.</p><h2 id="Curriculum-Integration">Curriculum Integration<a class="anchor-link" href="#Curriculum-Integration"> </a></h2><p>The textbook can be followed as an independent course, however, it has been designed to accompany a traditional university course. The textbook shows students how to use Qiskit to experiment with quantum algorithms and hardware, and uses this to reinforce their understanding.
-</p><p><img src="images/curriculum.svg" class="preface-image"></p>
-<h2 id="Use-the-Textbook-in-Your-Course">Use the Textbook in Your Course<a class="anchor-link" href="#Use-the-Textbook-in-Your-Course"> </a></h2><p>If you are using the Qiskit Textbook in your course, you can join the IBM Quantum Educators Program. The Program provides:</p>
-<ul class="preface-list">
-<li> The ability to reserve time for priority access to our open systems for in-class demonstrations </li>
-<li> Access to additional premium systems beyond our open systems</li>
-<li> Access to a 5-qubit system with full microwave control using Qiskit Pulse</li>
-</ul><p><a href="https://quantum-computing.ibm.com/programs/educators"><button class="preface-button">Sign Up for the IBM Quantum Educators Program<span class="rangle"><img src="/textbook/assets/images/rightarrow.svg"></span></button></a></p>
-<h1 id="Contact">Contact<a class="anchor-link" href="#Contact"> </a></h1><p> If you have any questions or suggestions about the textbook or would like to incorporate it into your curriculum, please contact Frank Harkins <a href="mailto:Francis.Harkins@ibm.com">(Francis.Harkins@ibm.com)</a>. In the true spirit of open-source, any chapter contributions are welcome in this GitHub repository.</p><h1 id="Contributors">Contributors<a class="anchor-link" href="#Contributors"> </a></h1><p> Learn Quantum Computation using Qiskit is the work of several individuals. If you use it in your work, cite it using <a href="https://github.com/qiskit-community/qiskit-textbook/blob/master/content/qiskit-textbook.bib">this bib file</a> or directly as:</p>
-<p><i>
-Abraham Asfaw, Luciano Bello, Yael Ben-Haim, Mehdi Bozzo-Rey, Sergey Bravyi, Nicholas Bronn, Lauren Capelluto, Almudena Carrera Vazquez, Jack Ceroni, Richard Chen, Albert Frisch, Jay Gambetta, Shelly Garion, Leron Gil, Salvador De La Puente Gonzalez, Francis Harkins, Takashi Imamichi, Hwajung Kang, Amir h. Karamlou, Robert Loredo, David McKay, Antonio Mezzacapo, Zlatko Minev, Ramis Movassagh, Giacomo Nannicni, Paul Nation, Anna Phan, Marco Pistoia, Arthur Rattew, Joachim Schaefer, Javad Shabani, John Smolin, John Stenger, Kristan Temme, Madeleine Tod, Stephen Wood, James Wootton.</i></p>
+<h1 id="Contact">Contact<a class="anchor-link" href="#Contact"> </a></h1><p> If you have any questions or suggestions about the tutorial, please contact ... <a href="mailto:...">(...)</a>.</p>
 </div>
 </div>
 </div>
