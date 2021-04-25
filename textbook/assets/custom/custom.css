@@ -1,7 +1,7 @@
 /* This is mostly patching up things I couldn't track down in _sass  */
 
 .interact-button {
-	font-family: "Roboto Slab", Roboto !important;
+	font-family: Arial, sans-serif !important;
 }
 
 .thebelab-button {
@@ -239,6 +239,7 @@ div.tag_preface-code-cell {
 }
 
 button.preface-button {
+	font-family: "Roboto Slab", Roboto;
 	background-color: #00A6D6;
 	padding: 19px;
 	color: white;
