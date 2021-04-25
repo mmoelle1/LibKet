@@ -41,8 +41,9 @@ div.jb_cell {
 
 
 #page-title {
-  font-size: 3.3em;
-  font-weight: lighter;
+  font-family: "Roboto Slab", Roboto;
+  font-size: 2.5em;
+  font-weight: normal;
   line-height: 1em;
 }
 
@@ -171,6 +172,7 @@ pre.highlight code {
 
 h1, h2, h3, h4, h5, h6 {
   code {
+    font-family: "Roboto Slab", Roboto;
     font-size: inherit;
   }
 }
