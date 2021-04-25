@@ -26,6 +26,10 @@ div.jb_cell {
     width: $textbook-page-with-sidebar-width;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab", Roboto;
+  }
+  
   // Add some empty space before headers for anchor links
   h1, h2, h3, h4, h5 {
     &:before {
@@ -172,7 +176,6 @@ pre.highlight code {
 
 h1, h2, h3, h4, h5, h6 {
   code {
-    font-family: "Roboto Slab", Roboto;
     font-size: inherit;
   }
 }
