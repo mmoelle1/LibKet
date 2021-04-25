@@ -1,7 +1,7 @@
 /* This is mostly patching up things I couldn't track down in _sass  */
 
 .interact-button {
-	font-family: Arial,sans-serif !important;
+	font-family: "Roboto Slab", Roboto !important;
 }
 
 .thebelab-button {
