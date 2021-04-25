@@ -34,18 +34,6 @@
     </nav>
     <!-- Chapter formats -->
     {% unless page.title == "What is Quantum?" %}
-    <!--
-    <div>      
-      <a
-        href="https://quantum-computing.ibm.com/jupyter/user/qiskit-textbook/{{ page.interact_link }}"
-        target="_blank"
-        rel="noopener"
-	onclick="window.trackCta('Open in IBM Quantum Experience')"
-      >
-      <button class="interact-button">{{ messages.open_quantum }}</button>
-      </a>
-    </div>
-    -->
     <div>
       <a
         href="{{ '/' | append: page.interact_link | relative_url }}"
@@ -65,17 +53,6 @@
       <img src="{{ site.images_url | relative_url }}/launch.svg" class="download-button">
       </a>
     </div>
-    <!--
-    <div>
-      <a
-	href="https://www.surveygizmo.com/s3/6242342/1b1fc576f66d"
-	class="download__link"
-      >
-      {{ messages.beta_testing }}
-      <img src="{{ site.images_url | relative_url }}/launch.svg" class="download-button">
-      </a>
-    </div>
-    -->
     {% endunless %}
   {% endunless %}
   </aside>

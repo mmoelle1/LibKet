@@ -37,7 +37,7 @@ $topbar-height: 60px;
   top: 0;
 }
 
-div.qiskit__navbar {
+div.libket__navbar {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -48,7 +48,7 @@ div.qiskit__navbar {
 .c-topbar {
   background-color: transparent;
   position: fixed;
-  top: $qiskit-navbar-height;
+  top: $libket-navbar-height;
   height: 0;
   width: 100%;
   left: 0;
@@ -70,13 +70,13 @@ div.qiskit__navbar {
   height: 100vh;
   overflow: auto;
   position: fixed;
-  top: $qiskit-navbar-height;
+  top: $libket-navbar-height;
   background-color: $book-background-color; /* [3] */
 }
 
 .c-textbook__sidebar {
   width: $left-sidebar-width;
-  top: $qiskit-navbar-height;
+  top: $libket-navbar-height;
   left: 0;
   background-color: $color-dark-gray;
   direction: rtl;
@@ -153,7 +153,7 @@ div.qiskit__navbar {
 }
 
 .c-textbook__footer {
-	padding-bottom: $qiskit-navbar-height;
+	padding-bottom: $libket-navbar-height;
 }
 
 .c-page__nav {
