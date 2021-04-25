@@ -34,12 +34,12 @@ jobs:
         with:
           ruby-version: 2.7.x
 
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install scipy
-          pip install -r requirements.txt
-          pip install -r requirements-dev.txt
+      # - name: Install Python dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install scipy
+      #     pip install -r requirements.txt
+      #     pip install -r requirements-dev.txt
 
       - name: Install Ruby dependencies
         run: |
@@ -49,13 +49,6 @@ jobs:
       - run: make install
       - run: make book
       - run: make site
-      #- run: tar cvjf site.tar.bz2 _site
-      
-      #- name: Deploy
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #    name: site-archive
-      #    path: site.tar.bz2
       
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
