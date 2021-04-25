@@ -1,5 +1,0 @@
-qiskit
-ipython
-ipywidgets
-numpy
-matplotlib

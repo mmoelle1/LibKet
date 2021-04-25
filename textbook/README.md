@@ -29,4 +29,4 @@ simulators and hardware plaforms.
 
 ## Tutorials
 
-* [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)](tutorials/CSE21/README.md)
+* [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)](content/ch-cse21/index.md)
