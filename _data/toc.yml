@@ -48,11 +48,11 @@
   expand_sections: true
   sections:
     - title: Part 1
-      url: /ch-cse21/cse21_tutorial01
+      url: /ch-cse21/cse21-tutorial01
     - title: Part 2
-      url: /ch-cse21/cse21_tutorial02
+      url: /ch-cse21/cse21-tutorial02
     - title: Part 3
-      url: /ch-cse21/cse21_tutorial03
+      url: /ch-cse21/cse21-tutorial03
 
 - title: Quantum States and Qubits
   url: /ch-states/introduction.html
