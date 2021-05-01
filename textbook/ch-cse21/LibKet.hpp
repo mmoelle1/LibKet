@@ -42,7 +42,7 @@
 #pragma cling add_include_path("/home/jovyan/content/std")
 
 // Include main header file for C++ API
-#include "/home/jovyan/LibKet/libket/LibKet.h"
+#include "/home/jovyan/LibKet/libket/LibKet.hpp"
 
 // Custom mime type image::png
 #include <string>
