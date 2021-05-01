@@ -40,6 +40,3 @@ cat >/srv/conda/envs/notebook/etc/xeus-cling/tags.d/libket.json <<EOL
     "tagfile": "libket-doxygen-web.tag"
 }
 EOL
-
-# Rename main header file
-mv $HOME/LibKet/libket/LibKet.hpp $HOME/LibKet/libket/LibKet.h
