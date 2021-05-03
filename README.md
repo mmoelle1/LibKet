@@ -1,4 +1,4 @@
-![Image](notebooks/images/LibKet.png?raw=true)
+![Image](content/ch-cse21/images/LibKet.png?raw=true)
 
 # LibKet - The Quantum Expression Template Library
 
