@@ -35,8 +35,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/ch-cse21/cse21-tutorial01.html",
   "headline": "Part 1",
-  "datePublished": "2021-07-15T14:01:17+00:00",
-  "dateModified": "2021-07-15T14:01:17+00:00",
+  "datePublished": "2021-08-17T15:46:00+00:00",
+  "dateModified": "2021-08-17T15:46:00+00:00",
   "description": "        Part 1    LibKet - The Quantum Expression Template Library.Repository:    https://gitlab.com/mmoelle1/LibKet/Documentation: https://libket.readthedoc...",
   "author": {
     "@type": "Person",
@@ -1025,7 +1025,7 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;LibKet.hpp&quot;</span><span class="cp"></span>
+<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;LibKet.hpp&quot;</span><span class="cp"></span>
 </pre></div>
 
     </div>
@@ -1054,10 +1054,10 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">using</span> <span class="k">namespace</span> <span class="nn">LibKet</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">LibKet</span><span class="o">::</span><span class="nn">circuits</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">LibKet</span><span class="o">::</span><span class="nn">filters</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">LibKet</span><span class="o">::</span><span class="nn">gates</span><span class="p">;</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">LibKet</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">LibKet</span><span class="o">::</span><span class="nn">circuits</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">LibKet</span><span class="o">::</span><span class="nn">filters</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">LibKet</span><span class="o">::</span><span class="nn">gates</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1086,7 +1086,7 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="o">?</span><span class="n">LibKet</span><span class="o">::</span><span class="n">filters</span><span class="o">::</span><span class="n">QFilter</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="o">?</span><span class="n">LibKet</span><span class="o">::</span><span class="n">filters</span><span class="o">::</span><span class="n">QFilter</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1129,7 +1129,7 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">init</span><span class="p">());</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">init</span><span class="p">());</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1158,7 +1158,7 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">show</span><span class="o">&lt;</span><span class="mi">99</span><span class="o">&gt;</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="n">show</span><span class="o">&lt;</span><span class="mi">99</span><span class="o">&gt;</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1204,9 +1204,9 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">device</span><span class="p">;</span>
-<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">).</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="p">.</span><span class="n">reg</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span><span class="w"></span>
+<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">).</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">reg</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1247,10 +1247,10 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">());</span>
-<span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">device</span><span class="p">;</span>
-<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">).</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="p">.</span><span class="n">reg</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">());</span><span class="w"></span>
+<span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span><span class="w"></span>
+<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">).</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">reg</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1279,10 +1279,10 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">());</span>
-<span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">device</span><span class="p">;</span>
-<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">).</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="p">.</span><span class="n">probabilities</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">());</span><span class="w"></span>
+<span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span><span class="w"></span>
+<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">).</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">probabilities</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1321,13 +1321,13 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">measure</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span>
-<span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">device</span><span class="p">;</span>
-<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span>
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">device</span><span class="p">.</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">device</span><span class="p">.</span><span class="n">creg</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measure</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span><span class="w"></span>
+<span class="n">QDevice</span><span class="o">&lt;</span><span class="n">QDeviceType</span><span class="o">::</span><span class="n">quest</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span><span class="w"></span>
+<span class="n">device</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">device</span><span class="p">.</span><span class="n">eval</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">creg</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1393,7 +1393,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1443,7 +1443,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">expr</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1484,7 +1484,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">cnot</span><span class="p">(</span> <span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">sel</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">init</span><span class="p">()</span> <span class="p">)</span> <span class="p">);</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cnot</span><span class="p">(</span><span class="w"> </span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">init</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1512,7 +1512,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">cnot</span><span class="p">(</span> <span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">sel</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">)</span> <span class="p">(</span> <span class="n">init</span><span class="p">()</span> <span class="p">);</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cnot</span><span class="p">(</span><span class="w"> </span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">init</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
     </div>
@@ -1552,7 +1552,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">cnot</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">()),</span> <span class="n">sel</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cnot</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">()),</span><span class="w"> </span><span class="n">sel</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span><span class="w"></span>
 </pre></div>
 
     </div>
