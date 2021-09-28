@@ -6,3 +6,4 @@ git
 python3-dev
 swig
 wget
+libc6
