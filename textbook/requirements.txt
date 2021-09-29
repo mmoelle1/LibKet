@@ -2,8 +2,6 @@ qiskit
 matplotlib
 cython
 qutip
-torch
-torchvision
 tabulate
 sympy
 numexpr
