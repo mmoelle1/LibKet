@@ -4,11 +4,11 @@ channels:
 dependencies:
   - xeus-cling==0.13.0
   - xeus-python
+  - matplotlib-base
   - notebook
   - pip
   - pip:
     - cirq
-    - matplotlib-base
     - pyquil
     - qiskit
     - quantuminspire
