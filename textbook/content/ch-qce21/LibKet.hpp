@@ -2,24 +2,15 @@
 
 // Set include paths for external subprojects
 #pragma cling add_include_path("/home/jovyan/LibKet/external")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/CLI11/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/CLI11/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/eigen")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/eigen")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/eigen/unsupported")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/deps/libqasm/src/library")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/OpenQL/src")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/QuEST/QuEST/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/armadillo/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/optim/header_only_version")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/pegtl/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/qx-simulator/src")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/qx-simulator/src/xpu-0.1.5")
-#pragma cling add_include_path("/home/jovyan/LibKet/external/universal/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/quest-src/QuEST/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/armadillo-src/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/optim-src/header_only_version")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/pegtl-src/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/universal-src/include")
 
 // Set library paths for external subprojects
-#pragma cling add_library_path("/home/jovyan/LibKet/build/external/armadillo")
-#pragma cling add_library_path("/home/jovyan/LibKet/build/external/QuEST/QuEST")
+#pragma cling add_library_path("/home/jovyan/LibKet/build/build/_deps/armadillo-src")
+#pragma cling add_library_path("/home/jovyan/LibKet/build/_deps/quest-build/QuEST")
 
 // Load external libraries
 #pragma cling load("libarmadillo.so")
