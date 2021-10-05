@@ -4,14 +4,15 @@
 curl -s https://gitlab.com/mmoelle1/LibKet/-/archive/matthias_branch/LibKet-matthias_branch.tar.bz2 | tar -xjf - -C $HOME/
 mv $HOME/LibKet-matthias_branch $HOME/LibKet
 
+# the above can also be achived by
+# $> git https://gitlab.com/mmoelle1/LibKet $home/LibKet
+# but this stores the entire git history
+
 # Clear specializations
 echo "" > $HOME/LibKet/libket/specializations/static_for.hpp
 
-# Update submodules
-cd $HOME/LibKet
-git submodule update --init --recursive
-
 # Build LibKet external libraries
+cd $HOME/LibKet
 mkdir build
 cd build
 cmake -DLIBKET_BUILD_C_API=OFF \
