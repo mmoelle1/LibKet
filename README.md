@@ -30,5 +30,5 @@ simulators and hardware plaforms.
 ## Tutorials
 
 * [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)](content/ch-cse21/index.md)
-* [Tutorial at IEEE SIAM International Conference Quantum Computing and Engineering (QCE21)](content/ch-qce21/index.md)
+* [Tutorial at IEEE International Conference Quantum Computing and Engineering (QCE21)](content/ch-qce21/index.md)
 
