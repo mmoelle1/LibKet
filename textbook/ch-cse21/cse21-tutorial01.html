@@ -35,8 +35,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/ch-cse21/cse21-tutorial01.html",
   "headline": "Part 1",
-  "datePublished": "2021-10-18T06:44:57+00:00",
-  "dateModified": "2021-10-18T06:44:57+00:00",
+  "datePublished": "2021-10-18T08:51:46+00:00",
+  "dateModified": "2021-10-18T08:51:46+00:00",
   "description": "        Part 1    LibKet - The Quantum Expression Template Library.Repository:    https://gitlab.com/mmoelle1/LibKet/Documentation: https://libket.readthedoc...",
   "author": {
     "@type": "Person",
@@ -1103,7 +1103,7 @@ initFunction(initPrint)
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Single-qubit-quantum-gates">Single-qubit quantum gates<a class="anchor-link" href="#Single-qubit-quantum-gates"> </a></h2><p>Let us start with a single qubit and apply the Hadamard gate to it. In <strong>LibKet</strong> this consists of two steps:</p>
 <ol>
-<li>Creation of a generic hadrware-agnostic <strong>quantum expression</strong></li>
+<li>Creation of a generic hardware-agnostic <strong>quantum expression</strong></li>
 <li>Evaluation of the expression on a concrete <strong>quantum backend</strong></li>
 </ol>
 
@@ -1144,8 +1144,36 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In contrast to other quantum programming languages <strong>LibKet</strong>'s quantum expressions have to be read from inside to outside. Note that the above expression does not perform any operations yet but only holds an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree</a> (AST).</p>
+<p>In contrast to other quantum programming languages <strong>LibKet</strong>'s quantum expressions have to be read from inside to outside. Note that the above expression does not perform any operations yet but only creates a so-called <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree</a> (AST).</p>
 <p>You can print it with the help of the <code>show(...)</code> function.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By default, only the top-most level of the AST is printed. This can be changed by passing the number of the deepest level that should be printed as template argument, e.g., <code>99</code>.</p>
 
 </div>
 </div>
@@ -1173,19 +1201,8 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Only one level of the AST is printed by default. That's why we set the print level to <code>99</code>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Quantum-backend">Quantum backend<a class="anchor-link" href="#Quantum-backend"> </a></h3><p>Let's evaluate our first quantum expression on a quantum simulator.</p>
-<p><strong>LibKet</strong> supports a couple of them but the easiest one is probably the open-source <a href="https://quest.qtechtheory.org">QuEST</a> <em>Quantum Exact Simulation Toolkit</em> .</p>
+<p><strong>LibKet</strong> supports a couple of them but the easiest one is probably the open-source <a href="https://quest.qtechtheory.org">QuEST</a> <em>Quantum Exact Simulation Toolkit.</em></p>
 <p>The following code snippet shows how to</p>
 <ol>
 <li>Create a quantum device for a a single qubit</li>
@@ -1234,7 +1251,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Hadamard-gate">Hadamard gate<a class="anchor-link" href="#Hadamard-gate"> </a></h3><p>Let us create another quantum expression for $ H\lvert0\rangle $, the <strong>Hadamard</strong> gate.</p>
+<h3 id="Hadamard-gate">Hadamard gate<a class="anchor-link" href="#Hadamard-gate"> </a></h3><p>Let us now create the quantum expression for $ H\lvert0\rangle $, the <strong>Hadamard</strong> gate.</p>
 
 </div>
 </div>
@@ -1265,7 +1282,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this case the state vector is 'halfway between' $ \lvert0\rangle $ and $ \lvert1\rangle $ since $ \alpha = \sqrt{2}+i0 $ and $ \beta = \sqrt{2}+i0 $. This phenomenon is termed <strong>superposition</strong> of the two pure states. It should be noted that this look behind the curtain is only possible with a quantum simulator.</p>
+<p>In this case the state vector is 'halfway between' $ \lvert0\rangle $ and $ \lvert1\rangle $ since $ \alpha = \sqrt{2}+i0 $ and $ \beta = \sqrt{2}+i0 $. This phenomenon is termed <strong>superposition</strong> of the two pure states. It should be noted that this look behind the curtain is only possible with a quantum simulator but not with a real hardware device.</p>
 <p>The coefficients $ \alpha $ and $ \beta$ are termed the <strong>probability amplitudes</strong> and $ \lvert\alpha\lvert^2 $ and $ \lvert\beta\lvert^2 $ are the <strong>probabilities</strong>. The QuEST simulator allows you to calculate them directly by calling <code>device.probabilities()</code>.</p>
 
 </div>
@@ -1458,8 +1475,51 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You might have noticed the small difference with the expression you typed above? <code>sel&lt;0&gt;(...)</code> versus <code>sel_&lt;0&gt;(...)</code>.</p>
+<p>You might have noticed some small differences between above printout and the expression you typed originally.</p>
 <p>Filters with a trailing <code>_</code> such as <code>sel_&lt;0&gt;(...)</code> are a shorthand notation for <code>sel&lt;0&gt;(all(...))</code>, that is, application of the filter <em>after</em> resetting any previous selections. We will use this feature in the exercises below.</p>
+<p>Let's spend a few more words on <strong>LibKet</strong>'s filter concept which is not found in other quantum programming SDKs. In our understanding, quantum computing has some similarities with <a href="https://en.wikipedia.org/wiki/Dataflow_programming">data-flow computing</a> in which data is flowing between operations along the edges of a directed graph. In quantum computing, the state vector is first initialized at the start of the circuit execution and subsequently manipulated by flowing through a sequence of quantum gates. The main different between quantum and data-flow computing is that all operations in quantum computing need to be reversible which reduces the directed flow graph to a linear sequence of operations. In this analogy, the filters serve as masks to select a subsets of qubits to which the next following operations are applied in a <a href="https://en.wikipedia.org/wiki/SIMD">SIMD</a>-like fashion.</p>
+<p>The second difference between the serialized version of <code>expr</code> and your implementation is the innermost <code>filter()</code>. It is a no-operation that is created by the <code>operator&lt;&lt;(...)</code> for technical reasons but can be left out when typing quantum expressions by hand.</p>
+<p>Finally, <code>operator&lt;&lt;(...)</code> expands quantum gates to their full name, e.g., <code>h(...)</code> becomes <code>hadamard(...)</code>. <strong>LibKet</strong> implements aliases for all gates that follow a simple pattern. <strong>Hadamard</strong> gate, for instance, can be implemented using <code>h(...)</code>, <code>H(...)</code>, <code>hadamard(...)</code>, and <code>HADAMARD(...)</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Optimization-of-gate-groups">Optimization of gate groups<a class="anchor-link" href="#Optimization-of-gate-groups"> </a></h2><p><strong>LibKet</strong> can be configured (in is so in all these notebooks) to optimize gate groups based on a few simple optimization rules. The application of a gate and its adjoint reduces to the identity operator, e.g., $ H\circ H^\dagger = I $. Thus, if you create the expression <code>h(hdag(init()))</code>, <strong>LibKet</strong>'s optimization engine will return <code>init()</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">hdag</span><span class="p">(</span><span class="n">init</span><span class="p">()));</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the course of this tutorial we will see some more optimization rules such as the fusion of rotation gates with different angles into a single rotation, e.g., $ R_x(\theta_1)\circ R_x(\theta_2) = R_x(\theta_1+\theta_2) $, or the cancellation of certain gate groups, e.g., $ R_x(\theta)\circ R_x(-\theta) = R_x(\theta)\circ R_x^\dagger(\theta) = I $. If you want to disable this feature you must configure <strong>LibKet</strong> with <code>LIBKET_OPTIMIZE_GATES=OFF</code> (not possible in this cloud-based environment).</p>
 
 </div>
 </div>
