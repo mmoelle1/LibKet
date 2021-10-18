@@ -35,8 +35,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://libket.ewi.tudelft.nl/textbook/ch-cse21/cse21-tutorial01.html",
   "headline": "Part 1",
-  "datePublished": "2021-10-18T12:56:14+00:00",
-  "dateModified": "2021-10-18T12:56:14+00:00",
+  "datePublished": "2021-10-18T14:43:40+00:00",
+  "dateModified": "2021-10-18T14:43:40+00:00",
   "description": "        Part 1    LibKet - The Quantum Expression Template Library.Repository:    https://gitlab.com/mmoelle1/LibKet/Documentation: https://libket.readthedoc...",
   "author": {
     "@type": "Person",
@@ -1479,7 +1479,7 @@ $$ (0+i0)\lvert 0 \rangle + (1+i0)\lvert 1 \rangle = \lvert 1 \rangle $$<p>Try y
 <p>Filters with a trailing <code>_</code> such as <code>sel_&lt;0&gt;(...)</code> are a shorthand notation for <code>sel&lt;0&gt;(all(...))</code>, that is, application of the filter <em>after</em> resetting any previous selections. We will use this feature in the exercises below.</p>
 <p>Let's spend a few more words on <strong>LibKet</strong>'s filter concept which is not found in other quantum programming SDKs. In our understanding, quantum computing has some similarities with <a href="https://en.wikipedia.org/wiki/Dataflow_programming">data-flow computing</a> in which data is flowing between operations along the edges of a directed graph. In quantum computing, the state vector is first initialized at the start of the circuit execution and subsequently manipulated by flowing through a sequence of quantum gates. The main different between quantum and data-flow computing is that all operations in quantum computing need to be reversible which reduces the directed flow graph to a linear sequence of operations. In this analogy, the filters serve as masks to select a subsets of qubits to which the next following operations are applied in a <a href="https://en.wikipedia.org/wiki/SIMD">SIMD</a>-like fashion.</p>
 <p>The second difference between the serialized version of <code>expr</code> and your implementation is the innermost <code>filter()</code>. It is a no-operation that is created by the <code>operator&lt;&lt;(...)</code> for technical reasons but can be left out when typing quantum expressions by hand.</p>
-<p>Finally, <code>operator&lt;&lt;(...)</code> expands quantum gates to their full name, e.g., <code>h(...)</code> becomes <code>hadamard(...)</code>. <strong>LibKet</strong> implements aliases for all gates that follow a simple pattern. <strong>Hadamard</strong> gate, for instance, can be implemented using <code>h(...)</code>, <code>H(...)</code>, <code>hadamard(...)</code>, and <code>HADAMARD(...)</code>.</p>
+<p>Finally, <code>operator&lt;&lt;(...)</code> expands quantum gates to their full name, e.g., <code>h(...)</code> becomes <code>hadamard(...)</code>. <strong>LibKet</strong> implements aliases for all gates that follow a simple pattern. The <strong>Hadamard</strong> gate, for instance, can be implemented using <code>h(...)</code>, <code>H(...)</code>, <code>hadamard(...)</code>, and <code>HADAMARD(...)</code>.</p>
 
 </div>
 </div>
