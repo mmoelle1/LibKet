@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Get LibKet repository
-curl -s https://gitlab.com/mmoelle1/LibKet/-/archive/matthias_branch/LibKet-matthias_branch.tar.bz2 | tar -xjf - -C $HOME/
-mv $HOME/LibKet-matthias_branch $HOME/LibKet
+curl -s https://gitlab.com/libket/LibKet/-/archive/master/LibKet-master.tar.bz2 | tar -xjf - -C $HOME/
+mv $HOME/LibKet-master $HOME/LibKet
 
 # Clear specializations
 echo "" > $HOME/LibKet/libket/specializations/static_for.hpp
@@ -32,12 +32,12 @@ cmake -DLIBKET_BUILD_C_API=OFF \
 make
 
 # Retrieve doxygen tag file
-curl https://mmoelle1.gitlab.io/LibKet/libket-doxygen.tag.xml --output /srv/conda/envs/notebook/share/xeus-cling/tagfiles/libket-doxygen-web.tag
+curl https://libket.gitlab.io/LibKet/libket-doxygen.tag.xml --output /srv/conda/envs/notebook/share/xeus-cling/tagfiles/libket-doxygen-web.tag
 
 # Generate JSON configuration file
 cat >/srv/conda/envs/notebook/etc/xeus-cling/tags.d/libket.json <<EOL
 {
-    "url": "https://mmoelle1.gitlab.io/LibKet/",
+    "url": "https://libket.gitlab.io/LibKet/",
     "tagfile": "libket-doxygen-web.tag"
 }
 EOL
