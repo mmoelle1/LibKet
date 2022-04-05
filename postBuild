@@ -4,9 +4,6 @@
 curl -s https://gitlab.com/libket/LibKet/-/archive/master/LibKet-master.tar.bz2 | tar -xjf - -C $HOME/
 mv $HOME/LibKet-master $HOME/LibKet
 
-# Clear specializations
-echo "" > $HOME/LibKet/libket/specializations/static_for.hpp
-
 # Build LibKet external libraries
 cd $HOME/LibKet
 mkdir build
