@@ -1,6 +1,6 @@
 [![VKI 2022](images/VKI22.jpg)](https://www.vki.ac.be/index.php/events-ls/events/eventdetail/526/-/online-on-site-introduction-to-quantum-computing-in-fluid-dynamics)
 
-# Von Karman Lecture Series: Introduction to Quantum Computing in Fluid Dynamics - STO-AVT-377
+# von Karman Lecture Series: Introduction to Quantum Computing in Fluid Dynamics - STO-AVT-377
 
 **Concepts, programming tools, algorithms and applications**
 
