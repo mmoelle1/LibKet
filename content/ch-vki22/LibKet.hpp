@@ -2,18 +2,17 @@
 
 // Set include paths for external subprojects
 #pragma cling add_include_path("/home/jovyan/LibKet/external")
-#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/quest-src/QuEST/include")
 #pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/armadillo-src/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/optim-src/header_only_version")
-#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/pegtl-src/include")
-#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/universal-src/include")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/quest-src/QuEST/include")
 
 // Set library paths for external subprojects
 #pragma cling add_library_path("/home/jovyan/LibKet/build/_deps/armadillo-build")
+#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/nlopt-build")
 #pragma cling add_library_path("/home/jovyan/LibKet/build/_deps/quest-build/QuEST")
 
 // Load external libraries
 #pragma cling load("libarmadillo.so")
+#pragma cling load("libnlopt.so")
 #pragma cling load("libQuEST.so")
   
 // Set include path for Python embedded interpreter
