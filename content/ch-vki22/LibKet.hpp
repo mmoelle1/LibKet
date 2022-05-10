@@ -7,7 +7,7 @@
 
 // Set library paths for external subprojects
 #pragma cling add_library_path("/home/jovyan/LibKet/build/_deps/armadillo-build")
-#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/nlopt-build")
+//#pragma cling add_include_path("/home/jovyan/LibKet/build/_deps/nlopt-build")
 #pragma cling add_library_path("/home/jovyan/LibKet/build/_deps/quest-build/QuEST")
 
 // Load external libraries
