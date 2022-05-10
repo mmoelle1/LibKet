@@ -1,4 +1,5 @@
 cmake
 g++
 git
+libnlopt-dev
 python3-dev
