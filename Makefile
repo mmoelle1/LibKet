@@ -32,7 +32,7 @@ runall:
 	jupyter-book run ./content
 
 clean:
-	python3 scripts/clean.py
+	python scripts/clean.py
 
 serve:
 	bundle exec guard
