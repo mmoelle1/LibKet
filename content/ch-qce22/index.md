@@ -13,7 +13,7 @@
 | Time        | Content                                                | Lecturer        | Slides | Binder |
 | ----------: | :----------------------------------------------------- | :-------------- | :----: | :----: |
 | 10:00-12:00 | Hands-on introduction to quantum computing             | Carmen          | [slides](extras/IEEE_QCE21_Session1_Part1.pdf) | [![Tutorial01][badge01]][tutorial01] |
-| 10:55-12:15 | LibKet basics                                          | Matthias        | [slides](extras/IEEE_QCE21_Session1_Part2.pdf) | [![Tutorial02][badge01]][tutorial02] |
+| 10:55-12:15 | LibKet basics                                          | Matthias        | [slides](extras/IEEE_QCE21_Session1_Part2.pdf) | [![Tutorial02][badge02]][tutorial02] |
 
 ## Session 2: Sunday, September 18, 12:00 AM – 1:30 PM MDT (UTC-6) 
 
