@@ -30,7 +30,6 @@ simulators and hardware plaforms.
 ## Tutorials
 
 * [Tutorial at IEEE International Conference Quantum Computing and Engineering (QCE22)](content/ch-qce22/index.md)
+* [von Karman Lecture Series: Introduction to Quantum Computing in Fluid Dynamics 2022](content/ch-vki22/index.md)
 * [Mini-tutorial at SIAM Conference on Computational Science and Engineering (CSE21)](content/ch-cse21/index.md)
 * [Tutorial at IEEE International Conference Quantum Computing and Engineering (QCE21)](content/ch-qce21/index.md)
-* [von Karman Lecture Series: Introduction to Quantum Computing in Fluid Dynamics](content/ch-vki22/index.md)
-
