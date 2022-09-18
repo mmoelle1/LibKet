@@ -6,15 +6,14 @@
 
 *Organizers: Carmen G. Almudever, Matthias Möller*
 
-Introduction [slides](extras/IEEE_QCE22_Introduction.pdf)
-
 ---
 
 ## Session 1: Sunday, September 18, 10:00 AM – 11:30 AM MDT (UTC-6)
 
 | Time           | Content                                                | Lecturer        | Slides | Binder |
 | -------------: | :----------------------------------------------------- | :-------------- | :----: | :----: |
-| 10:00-11:00 am | Hands-on Introduction to Quantum Computing             | Carmen          | [slides](extras/IEEE_QCE22_Session1_Part1.pdf) | [![Tutorial01][badge01]][tutorial01] |
+| 10:00-10:05 am | Introduction                                           | Carmen/Matthias | [slides](extras/IEEE_QCE22_Introduction.pdf)   |                                      |
+| 10:05-11:00 am | Hands-on Introduction to Quantum Computing             | Carmen          | [slides](extras/IEEE_QCE22_Session1_Part1.pdf) | [![Tutorial01][badge01]][tutorial01] |
 | 11:00-11:30 am | Libket - The Basics                                    | Matthias        | [slides](extras/IEEE_QCE22_Session1_Part2.pdf) | [![Tutorial02][badge02]][tutorial02] |
 
 ## Session 2: Sunday, September 18, 12:00 AM – 1:30 PM MDT (UTC-6) 
