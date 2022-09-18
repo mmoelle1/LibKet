@@ -1,6 +1,6 @@
 [![IEEE QCE21](images/IEEE_QCE22.jpg)](https://qce.quantum.ieee.org)
 
-# Tutorial at IEEE QCE22, September 18-23, 2023
+# Tutorial at IEEE QCE22, September 18-23, 2022
 
 **LibKet: A Cross-Platform Library for Running Quantum Algorithms on NISQ Processors**
 
