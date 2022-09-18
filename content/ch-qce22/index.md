@@ -6,6 +6,8 @@
 
 *Organizers: Carmen G. Almudever, Matthias Möller*
 
+Introduction [slides](extras/IEEE_QCE22_Introduction.pdf)
+
 ---
 
 ## Session 1: Sunday, September 18, 10:00 AM – 11:30 AM MDT (UTC-6)
